@@ -1,0 +1,43 @@
+<div class="sidebar-nav main-page-container">
+	<div class="navbar navbar-inverse" role="navigation">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<span class="visible-xs navbar-brand">Sidebar menu</span>
+		</div>
+		<div class="navbar-collapse collapse sidebar-navbar-collapse">
+			<div class="userInfo">
+				<div class="userInfoContent">
+					<div class="userImg">
+						<img ng-src="http://dummyimage.com/80x80&text=G">
+					</div>
+					<span>Logged in as {{username}}!</span>
+				</div>
+			</div>
+			<ul class="nav navbar-nav">
+				<li ui-sref-active="active">
+					<a ui-sref="dashboard"><i class="fa fa-th" aria-hidden="true"></i>Dashboard</a>
+				</li>
+				<li ui-sref-active="active">
+					<a ui-sref="showBlocks"><i class="fa fa-cube" aria-hidden="true"></i>Show Blocks</a>
+				</li>
+				<li ui-sref-active="active">
+					<a ui-sref="addContract"><i class="fa fa-address-card" aria-hidden="true"></i>Add Contract</a>
+				</li>
+				<li ui-sref-active="active">
+					<a ui-sref="query"><i class="fa fa-file-text-o" aria-hidden="true"></i>Query</a>
+				</li>
+			</ul>
+			<div class="logoutInfo">
+				<hr>
+				<div class="logoutInfoContent">
+					<i class="fa fa-sign-out" aria-hidden="true"></i>Logout
+				</div>
+			</div>
+		</div><!--/.nav-collapse -->
+	</div>
+</div>
