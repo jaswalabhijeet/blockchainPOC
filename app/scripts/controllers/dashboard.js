@@ -6,5 +6,5 @@
  * # DashboardCtrl
  */
 app.controller('dashboardCtrl', function () {
-	console.log("dashboard");
+    console.log("dashboard");
 });

@@ -7,4 +7,4 @@
  */
 app.controller('queryCtrl', function () {
     console.log("queryCtrl");
-  });
+});

@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-	<base href="/">
-	<title>Blockchain App</title>
+
+<head>
+    <base href="/">
+    <title>Blockchain App</title>
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/components-font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <link rel="stylesheet" href="styles/main.css">
-  </head>
-  <body ng-app="blockChainApp" data-ng-controller="MainCtrl">
+</head>
+
+<body ng-app="blockChainApp" data-ng-controller="MainCtrl">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-	<div ui-view></div>
+    <div ui-view></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    <script>
+        ! function(A, n, g, u, l, a, r) {
+            A.GoogleAnalyticsObject = l, A[l] = A[l] || function() {
+                    (A[l].q = A[l].q || []).push(arguments)
+                }, A[l].l = +new Date, a = n.createElement(g),
+                r = n.getElementsByTagName(g)[0], a.src = u, r.parentNode.insertBefore(a, r)
+        }(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
+        ga('create', 'UA-XXXXX-X');
+        ga('send', 'pageview');
     </script>
 
     <!-- bower:js -->
@@ -43,17 +47,18 @@
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <!-- endbower -->
-	
-	<script src="scripts/app.js"></script>
-	<script src="scripts/routes.js"></script>
-	
-	<script src="scripts/controllers/loginCtrl.js"></script>
-	<script src="scripts/controllers/dashboard.js"></script>
-	<script src="scripts/controllers/showBlocks.js"></script>
-	<script src="scripts/controllers/addContract.js"></script>
-	<script src="scripts/controllers/query.js"></script>
-	
-	<script src="scripts/services/userLoginService.js"></script>
-		
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/routes.js"></script>
+
+    <script src="scripts/controllers/loginCtrl.js"></script>
+    <script src="scripts/controllers/dashboard.js"></script>
+    <script src="scripts/controllers/showBlocks.js"></script>
+    <script src="scripts/controllers/addContract.js"></script>
+    <script src="scripts/controllers/query.js"></script>
+
+    <script src="scripts/services/userLoginService.js"></script>
+
 </body>
+
 </html>

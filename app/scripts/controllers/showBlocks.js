@@ -9,4 +9,4 @@
  */
 app.controller('showBlocksCtrl', function () {
     console.log("showBlocksCtrl");
-  });
+});

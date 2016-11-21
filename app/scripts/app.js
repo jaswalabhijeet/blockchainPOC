@@ -18,11 +18,11 @@ var app = angular.module('blockChainApp', [
 'app.routes'
 ]);
 
-app.controller('MainCtrl',['$scope','$rootScope','$state', function ($scope, $rootScope, $state) {
-	$rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
-		if (error === "UNAUTHORIZED") {
-			console.log('UNAUTHORIZED')
-			$state.go("login");
-		}
-	});
+app.controller('MainCtrl', ['$scope', '$rootScope', '$state', function ($scope, $rootScope, $state) {
+    $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
+        if (error === "UNAUTHORIZED") {
+            console.log('UNAUTHORIZED')
+            $state.go("login");
+        }
+    });
 }]);
