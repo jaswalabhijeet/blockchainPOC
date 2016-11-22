@@ -14,4 +14,3 @@ app.controller('showBlocksCtrl', function () {
 		$('.col-md-9').css('min-height', divHeight+'px');
 	});
   });
-});

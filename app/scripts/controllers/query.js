@@ -11,11 +11,17 @@ app.controller('queryCtrl', function () {
 		var divHeight = $('.col-md-3').height();
 		$('.col-md-9').css('min-height', divHeight+'px');
 	});
-	$('.query_tbl').DataTable( {
+	setTimeout(function(){
+		$('.query_tbl').DataTable( {
 		paging: true,
 		ordering: true,
 		searching: false,
-		info: true
+		info: true,
+		"columnDefs": [
+				{ "orderable": false, "targets": 1 }
+		  ],
+		
 	} );
-  });
+	}, 0);
+	
 });

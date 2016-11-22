@@ -7,12 +7,7 @@
  * Add Contract Controller of the blockChainApp
  */
 angular.module('blockChainApp').controller('addContractCtrl', ['$scope', 'AddContractService', function ($scope, AddContractService) {
-	$(document).ready(function() 
-	{
-		var divHeight = $('.col-md-3').height();
-		$('.col-md-9').css('min-height', divHeight+'px');
-	});
-	
+
     $scope.prevBlockHeight = "";
     $scope.newBlockHeight = "";
     
