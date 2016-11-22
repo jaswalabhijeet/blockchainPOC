@@ -1,10 +1,67 @@
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-3">
+	<div class="test" style="margin-left:1%;">	
+		<div class="col-md-3" style="padding-right:0%;padding-left:0%;height:100%;">
 			<div ng-include="'views/sideNav.html'"></div>
 		</div>
-		<div class="col-md-9">
-			<p>This is the show blocks view.</p>
+		<div class="col-md-9" style="background-color:#e0e2e5; padding:0px;">
+			<div class="form-panel">
+				<div class="form-panel-border-sam">
+					<div style="font-weight:bold; margin-left:2%; font-size:20px; padding:1% 0% 0% 0%">Supply Chain Integrity</div>
+					<div style="margin-left:2%;">Browse,Edit & Monitor</div>
+				</div>
+				<div style="font-weight:bold; margin-left:2%; font-size:18px; padding:1% 0%">Show Blocks</div>
+			</div>
+			<div style="margin:2%;background-color:#ffffff; padding:0%;">
+				<ul class="nav nav-tabs" style="border-bottom:0px;">
+					<li class="active"><a data-toggle="tab" href="#home">All Blocks</a></li>
+					<li><a data-toggle="tab" href="">Data Blocks</a></li>
+				</ul>
+				<div class="tab-content">
+					<div id="home" class="tab-pane fade in active">
+						<div class="table-responsive" width="50%" style="padding:1%">
+							<table style="font-size:12px;" class="display table table-striped table-bordered table-hover dataTable no-footer" cellspacing="0" >
+								<thead>
+									<tr>
+										<th class="text-center">Chain ID</th>
+										<th>Height</th>
+										<th>Time</th>
+										<th>Fees</th>
+										<th>Num.Txs</th>
+										<th>Last Block Hash</th>
+										<th>Last Block Parts Total</th>
+										<th>Last Block Parts Hash</th>
+										<th>Last Validation Hash</th>
+										<th>Data Hash</th>
+										<th>State Hash</th>
+									</tr>
+								</thead>
+								<tbody>
+								<tr>
+									<td>123</td>
+									<td>13568</td>
+									<td>Foo</td>
+									<td>Foo</td>
+									<td>Foo</td>
+									<td>Foo</td>
+									<td>Foo</td>
+									<td>Foo</td>
+									<td>Foo</td>
+									<td>Foo</td>
+									<td>Foo</td>
+								</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div id="menu1" class="tab-pane fade">
+					  <h3>Menu 1</h3>
+					  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					</div>
+				</div>
+			</div>
 		</div>
+		<div class="clearfix"></div>
+	</div>
 	</div>
 </div>

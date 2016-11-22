@@ -1,15 +1,104 @@
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-3" style="padding-right:0px;">
+	<div class="test" style="margin-left:1%;">	
+		<div class="col-md-3" style="padding-right:0%;padding-left:0%;height:100%;">
 			<div ng-include="'views/sideNav.html'"></div>
 		</div>
-		<div class="col-lg-9" style="background-color:#e0e2e5; padding:0px;">
+		<div class="col-md-9" style="background-color:#e0e2e5; padding:0px;">
 			<div class="form-panel">
-				<div >
-					<div style="font-weight:bold; margin-left:15px; font-size:20px;">Supply Chain Integrity</div>
-					<div style="font-weight:bold; margin-left:15px; ">Browse,Edit & Monitor</div>
+				<div class="form-panel-border-sam">
+					<div style="font-weight:bold; margin-left:2%; font-size:20px; padding:1% 0% 0% 0%">Supply Chain Integrity</div>
+					<div style="margin-left:2%;">Browse,Edit & Monitor</div>
+				</div>
+				<div style="font-weight:bold; margin-left:2%; font-size:18px; padding:1% 0%">My Dashboard</div>
+			</div>
+			<div style="margin:2%;background-color:#ffffff; padding:1%">
+				<span style="font-weight:bold; font-size:15px; padding:1% 0%">My Bank Account</span>
+				<div class="table-responsive form-panel-border" width="50%">
+					<table class="table data_tbl table-striped table-bordered" cellspacing="0" style="font-size:12px;">
+						<thead>
+							<tr>
+								<th>Bank Name</th>
+								<th>Account Balance</th>
+							</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>1</td>
+							<td>Foo</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>dff</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+				<span style="font-weight:bold; font-size:15px; padding:1% 0%">Contracts Deployed By Me</span>
+				<div class="table-responsive form-panel-border" width="50%">
+					<table class="table data_tbl table-striped table-bordered" cellspacing="0" style="font-size:12px;">
+						<thead>
+							<tr>
+								<th>Contract ID</th>
+								<th>Contract Name</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>1</td>
+							<td>Foo</td>
+							<td><i class="fa fa-window-close text-danger"></i>&nbsp;<i class="fa  fa fa-check-square  text-success"></i></td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
+				<span style="font-weight:bold; font-size:15px; padding:1% 0%">Contracts Pending For Me</span>
+				<div class="table-responsive" width="50%" style="padding:1% 0%">
+					<table style="font-size:12px;" class="data_tbl display table table-striped table-bordered table-hover dataTable no-footer" cellspacing="0" >
+						<thead>
+							<tr>
+								<th>Contract ID</th>
+								<th>Contract Name</th>
+								<th>Supplier ID</th>
+								<th>Supplier Name</th>
+								<th>Carrier</th>
+								<th>Product</th>
+								<th>Status</th>
+								<th>Signed By</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>1</td>
+							<td>Foo</td>
+							<td>Foo</td>
+							<td>Foo</td>
+							<td>Foo</td>
+							<td>Foo</td>
+							<td>Foo</td>
+							<td>Foo</td>
+							<td><i class="fa fa-window-close text-danger"></i>&nbsp;<i class="fa  fa fa-check-square  text-success"></i></td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>sdf</td>
+							<td>hgh</td>
+							<td>Foo</td>
+							<td>Foo</td>
+							<td>Foo</td>
+							<td>Foo</td>
+							<td>Foo</td>
+							<td><i class="fa fa-window-close text-danger"></i>&nbsp;<i class="fa  fa fa-check-square  text-success"></i></td>
+						</tr>
+						</tbody>
+					</table>
+					
 				</div>
 			</div>
 		</div>
+		<div class="clearfix"></div>
+	</div>
 	</div>
 </div>

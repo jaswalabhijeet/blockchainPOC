@@ -8,5 +8,9 @@
  * Controller of the blockChainApp
  */
 app.controller('showBlocksCtrl', function () {
-    console.log("showBlocksCtrl");
+    $(document).ready(function() 
+	{
+		var divHeight = $('.col-md-3').height();
+		$('.col-md-9').css('min-height', divHeight+'px');
+	});
   });
