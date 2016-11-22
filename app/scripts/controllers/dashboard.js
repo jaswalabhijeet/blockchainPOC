@@ -19,3 +19,4 @@ app.controller('dashboardCtrl', function ()
 		info: false
 	} );
 });
+

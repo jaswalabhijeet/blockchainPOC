@@ -18,3 +18,4 @@ app.controller('queryCtrl', function () {
 		info: true
 	} );
   });
+});
