@@ -1,21 +1,21 @@
 <div class="container-fluid">
 	<div class="row">
-	<div class="test" style="margin-left:1%;">	
-		<div class="col-md-3" style="padding-right:0%;padding-left:0%;height:100%;">
+	<div class="test margin_left">	
+		<div class="col-md-3 padding_height">
 			<div ng-include="'views/sideNav.html'"></div>
 		</div>
-		<div class="col-md-9" style="background-color:#e0e2e5; padding:0px;">
+		<div class="col-md-9 padding_bg">
 			<div class="form-panel">
 				<div class="form-panel-border-sam">
-					<div style="font-weight:bold; margin-left:2%; font-size:20px; padding:1% 0% 0% 0%">Supply Chain Integrity</div>
-					<div style="margin-left:2%;">Browse,Edit & Monitor</div>
+					<div class="form-panel-font">Supply Chain Integrity</div>
+					<div class="form-panel-margin">Browse,Edit & Monitor</div>
 				</div>
-				<div style="font-weight:bold; margin-left:2%; font-size:18px; padding:1% 0%">Query</div>
+				<div class="form-panel-head">Query</div>
 			</div>
-			<div style="margin:2%;background-color:#ffffff; padding:0%;">
-				<div class="form-panel-border">
+			<div class="form-panel-sub-head">
+				<div>
 					<div class="col-md-12">
-						<div class="col-md-8" style="padding:1%; ">
+						<div class="col-md-8 padding-1">
 							<div class="form-group">
                               <div class="col-sm-4">
 									<select class="form-control">
@@ -31,17 +31,17 @@
                               </div>
 							</div>
 						</div>
-						<div class="col-md-4" style="padding:1%; text-align:right;">
+						<div class="col-md-4 padding-1-right">
 							<button type="submit" class="btn btn-warning">Query</button>
 						</div>
 					</div>
 				</div>
-				<hr style="border-top: 2px solid #e0e1e2;">
-				<div class="table-responsive" width="50%" style="padding:1%">
-					<table style="font-size:12px;" class="query_tbl display table table-striped table-bordered table-hover dataTable no-footer" cellspacing="0" >
+				<hr class="hr">
+				<div class="table-responsive padding-1">
+					<table class="table-font query_tbl display table table-striped table-bordered table-hover dataTable no-footer" cellspacing="0" >
 						<thead>
 							<tr>
-								<th style="display:none;"></th>
+								<th class="th-none"></th>
 								<th class="text-left">
 									<input name="select_all" value="1" type="checkbox">
 								</th>
@@ -55,7 +55,7 @@
 						</thead>
 						<tbody>
 						<tr>
-							<th style="display:none;"></th>
+							<th class="th-none"></th>
 							<td class="text-left"><input name="select_all" value="1" type="checkbox"></td>
 							<td>1</td>
 							<td>Foo</td>
@@ -65,7 +65,7 @@
 							<td>Foo</td>
 						</tr>
 						<tr>
-							<th style="display:none;"></th>
+							<th class="th-none"></th>
 							<td class="text-left"><input name="select_all" value="1" type="checkbox"></td>
 							<td>sdf</td>
 							<td>sdf</td>
