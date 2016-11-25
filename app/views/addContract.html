@@ -1,10 +1,10 @@
 <div class="container-fluid">
 	<div class="row">
 	<div class="test margin_left">	
-		<div class="col-md-3 padding_height">
+		<div class="col-md-2 padding_height">
 			<div ng-include="'views/sideNav.html'"></div>
 		</div>
-		<div class="col-md-9 padding_bg">
+		<div class="col-md-10 padding_bg">
 			<div class="form-panel">
 				<div class="form-panel-border-sam">
 					<div class="form-panel-font">Supply Chain Integrity</div>
@@ -21,7 +21,7 @@
 									Contract Name
 								</label>
 								<div class="input-group">
-									<input class="form-control input-mask-date" type="text" id="form-field-mask-1">
+									<input ng-model="contractName" class="form-control input-mask-date" type="text" id="form-field-mask-1">
 								</div>
 							</div>
 						</div>
@@ -31,7 +31,7 @@
 									Supply By Date
 								</label>
 								<div class="input-group">
-									<input class="form-control input-mask-date" type="text" id="form-field-mask-1">
+									<input class="form-control input-mask-date" type="date" id="form-field-mask-1">
 								</div>
 							</div>
 						</div>
@@ -41,7 +41,7 @@
 									Product ID
 								</label>
 								<div class="input-group">
-									<input class="form-control input-mask-date" type="text" id="form-field-mask-1">
+									<input ng-model="productID" class="form-control input-mask-date" type="text" id="form-field-mask-1">
 								</div>
 							</div>
 							<div class="col-md-6">
@@ -49,7 +49,7 @@
 									Product Name
 								</label>
 								<div class="input-group">
-									<input class="form-control input-mask-date" type="text" id="form-field-mask-1">
+									<input ng-model="productName" class="form-control input-mask-date" type="text" id="form-field-mask-1">
 								</div>
 							</div>
 						</div>
@@ -60,15 +60,19 @@
 									Currency
 								</label>
 								<div class="input-group">
-									<input class="form-control input-mask-date" type="text" id="form-field-mask-1">
+									<select class="form-control" ng-model="currency">
+										<option value=" ">-Select-</option>
+										<option value="inr">INR</option>
+										<option value="dollar">D0llar</option>
+									</select>
 								</div>
 							</div>
 							<div class="col-md-6">
 								<label for="form-field-mask-1">
-									VOM
+									UOM
 								</label>
 								<div class="input-group">
-									<input class="form-control input-mask-date" type="text" id="form-field-mask-1">
+									<input ng-model="uom" class="form-control input-mask-date" type="text" id="form-field-mask-1">
 								</div>
 							</div>
 						</div>
@@ -78,15 +82,15 @@
 									Quantity
 								</label>
 								<div class="input-group">
-									<input class="form-control input-mask-date" type="text" id="form-field-mask-1">
+									<input ng-model="quantity" ng-change="findTotal()" class="form-control input-mask-date" type="text" id="form-field-mask-1">
 								</div>
 							</div>
 							<div class="col-md-6">
 								<label for="form-field-mask-1">
-									Price Per VOM
+									Price Per UOM
 								</label>
 								<div class="input-group">
-									<input class="form-control input-mask-date" type="text" id="form-field-mask-1">
+									<input ng-model="pricePerUOM" ng-change="findTotal()" class="form-control input-mask-date" type="text" id="form-field-mask-1">
 								</div>
 							</div>
 						</div>
@@ -96,28 +100,38 @@
 									Total Price
 								</label>
 								<div class="input-group">
-									<input class="form-control input-mask-date" type="text" id="form-field-mask-1">
+									<input ng-model="totalPrice"  class="form-control input-mask-date" type="text" id="form-field-mask-1">
+								</div>
+							</div>
+						</div>
+						<hr class="hr">
+						<div class="col-md-12  padding-1">
+							<div class="col-md-6">
+								<label for="form-field-mask-1">
+									Supplier Name
+								</label>
+								<div class="input-group">
+									<input ng-model="supplierName" class="form-control input-mask-date" type="text" id="form-field-mask-1">
+								</div>
+							</div>	
+							<div class="col-md-6">
+								<label for="form-field-mask-1">
+									Supplier ID
+								</label>
+								<div class="input-group">
+									<input ng-model="supplierID" class="form-control input-mask-date" type="text" id="form-field-mask-1">
 								</div>
 							</div>
 						</div>
 						<div class="col-md-12  padding-1">
 							<div class="col-md-12">
-								<label for="form-field-mask-1">
-									Supplier
-								</label>
 								<div class="input-group">
-									<input class="form-control input-mask-date" type="text" id="form-field-mask-1">
+									<button type="submit" ng-click="createContractBtnClick()" class="btn btn-warning">Create Contract</button>
 								</div>
 							</div>
 						</div>
-						<div class="col-md-12  padding-1">
-					<div class="col-md-12">
-						<div class="input-group">
-							<button type="submit" class="btn btn-warning">Create Contract</button>
-						</div>
 					</div>
-				</div>
-					</div>
+					
 				</div>
 				<hr class="hr">
 			</div>

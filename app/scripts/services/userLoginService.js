@@ -27,7 +27,9 @@ app.factory('UserLoginService', ['$q', '$http', '$cookies', function ($q, $http,
             data: {
                 username: userName,
                 password: passWord
-            }
+            },
+			json:true,//send the desired json data in the post....
+			headers: {'Content-Type':'application/json'} 
         }).then(function (userInfo) {
             userDetails.userData = userInfo;
             deferred.resolve(userInfo);

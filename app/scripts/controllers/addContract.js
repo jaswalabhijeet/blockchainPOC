@@ -6,8 +6,18 @@
  * # addContractCtrl
  * Add Contract Controller of the blockChainApp
  */
-angular.module('blockChainApp').controller('addContractCtrl', ['$scope', 'AddContractService', function ($scope, AddContractService) {
-
+angular.module('blockChainApp').controller('addContractCtrl', ['$scope', 'AddContractService', function ($scope, AddContractService) 
+{
+	$(document).ready(function() {
+		var divHeight = $('.col-md-2').height();
+		$('.col-md-10').css('min-height', divHeight+'px');
+	});
+	
+	$scope.findTotal = function () {
+		$scope.totalPrice=$scope.quantity*$scope.pricePerUOM;
+		
+	}
+	
     $scope.prevBlockHeight = "";
     $scope.newBlockHeight = "";
     
@@ -18,9 +28,9 @@ angular.module('blockChainApp').controller('addContractCtrl', ['$scope', 'AddCon
             $scope.prevBlockHeight = response["latest_block_height"];
             var createContractData = {};
             createContractData["contractName"] = $scope.contractName;
-            createContractData["contractID"] = $scope.contractID;
-            createContractData["supplier"] = $scope.supplier;
-            createContractData["supplierID"] = $scope.supplierID;
+            createContractData["contractID"] = new Date();
+            createContractData["supplier"] = $scope.supplierName;
+			createContractData["supplierID"] = $scope.supplierID;
             createContractData["productName"] = $scope.productName;
             createContractData["productID"] = $scope.productID;
             createContractData["uom"] = $scope.uom;

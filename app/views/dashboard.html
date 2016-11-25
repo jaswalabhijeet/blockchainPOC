@@ -1,10 +1,10 @@
 <div class="container-fluid">
 	<div class="row">
 	<div class="test margin_left">	
-		<div class="col-md-3 padding_height">
+		<div class="col-md-2 padding_height">
 			<div ng-include="'views/sideNav.html'"></div>
 		</div>
-		<div class="col-md-9 padding_bg">
+		<div class="col-md-10 padding_bg">
 			<div class="form-panel">
 				<div class="form-panel-border-sam">
 					<div class="form-panel-font">Supply Chain Integrity</div>
@@ -41,14 +41,12 @@
 							<tr>
 								<th>Contract ID</th>
 								<th>Contract Name</th>
-								<th>Action</th>
 							</tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>1</td>
-							<td>Foo</td>
-							<td><i class="fa fa-window-close text-danger"></i>&nbsp;<i class="fa  fa fa-check-square  text-success"></i></td>
+						<tr ng-repeat="contract in contractsDeply">
+							<td>{{ contract.contractID }}</td>
+							<td>{{ contract.contractName }}</td>
 						</tr>
 						</tbody>
 					</table>
@@ -70,26 +68,15 @@
 							</tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>1</td>
-							<td>Foo</td>
-							<td>Foo</td>
-							<td>Foo</td>
-							<td>Foo</td>
-							<td>Foo</td>
-							<td>Foo</td>
-							<td>Foo</td>
-							<td><i class="fa fa-window-close text-danger"></i>&nbsp;<i class="fa  fa fa-check-square  text-success"></i></td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td>sdf</td>
-							<td>hgh</td>
-							<td>Foo</td>
-							<td>Foo</td>
-							<td>Foo</td>
-							<td>Foo</td>
-							<td>Foo</td>
+						<tr ng-repeat="pend in contractsPending">
+							<td>{{ pend.contractID }}</td>
+							<td>{{ pend.contractName}}</td>
+							<td>{{ pend.supplierID}}</td>
+							<td>{{ pend.supplierName}}</td>
+							<td>{{ pend.productName}}</td>
+							<td>{{ pend.carrier}}</td>
+							<td>{{ pend.signedBy}}</td>
+							<td>{{ pend.pendingWith }}</td>
 							<td><i class="fa fa-window-close text-danger"></i>&nbsp;<i class="fa  fa fa-check-square  text-success"></i></td>
 						</tr>
 						</tbody>

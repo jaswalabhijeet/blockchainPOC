@@ -51,6 +51,6 @@ angular.module('app.routes', ['ui.router']).config(['$stateProvider', '$location
             });
         $urlRouterProvider.otherwise(function ($injector) {
             var $state = $injector.get('$state');
-            $state.go('dashboard');
+            $state.go('login');
         });
 }]);
