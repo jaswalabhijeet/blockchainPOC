@@ -31,7 +31,7 @@
 									Supply By Date
 								</label>
 								<div class="input-group">
-									<input class="form-control input-mask-date" type="date" id="form-field-mask-1">
+									<input class="form-control input-mask-date" ng-model="supDate" type="date" id="form-field-mask-1">
 								</div>
 							</div>
 						</div>
@@ -53,8 +53,9 @@
 								</div>
 							</div>
 						</div>
-						<hr class="hr">
+						
 						<div class="col-md-12  padding-1">
+							<hr class="hr">
 							<div class="col-md-6">
 								<label for="form-field-mask-1">
 									Currency
@@ -100,12 +101,13 @@
 									Total Price
 								</label>
 								<div class="input-group">
-									<input ng-model="totalPrice"  class="form-control input-mask-date" type="text" id="form-field-mask-1">
+									<input ng-model="totalPrice" readonly class="form-control input-mask-date" type="text" id="form-field-mask-1">
 								</div>
 							</div>
 						</div>
-						<hr class="hr">
+						
 						<div class="col-md-12  padding-1">
+							<hr class="hr">
 							<div class="col-md-6">
 								<label for="form-field-mask-1">
 									Supplier Name
@@ -131,9 +133,9 @@
 							</div>
 						</div>
 					</div>
-					
+					&nbsp;
 				</div>
-				<hr class="hr">
+				
 			</div>
 		</div>
 		<div class="clearfix"></div>

@@ -33,7 +33,10 @@ app.factory('AddContractService', ['$q', '$http', function ($q, $http) {
 			json:true,//send the desired json data in the post....
 			headers: {'Content-Type':'application/json'} 
         }).then(function (success) {
-            deferred.resolve(success);
+            setTimeout(function(){
+                deferred.resolve(success);
+            }, 2000);
+            
         }, function (error) {
             deferred.reject(error);
         });
@@ -67,6 +70,7 @@ app.factory('AddContractService', ['$q', '$http', function ($q, $http) {
     }
 
     addContractService.insertBlockData = function (insertData) {
+        
         var deferred = $q.defer();
         $http({
             method: 'POST',
@@ -75,7 +79,10 @@ app.factory('AddContractService', ['$q', '$http', function ($q, $http) {
 			json:true,//send the desired json data in the post....
 			headers: {'Content-Type':'application/json'} 
         }).then(function (success) {
-            deferred.resolve(success);
+            setTimeout(function(){
+                deferred.resolve(success);
+            }, 2000);
+            
         }, function (error) {
             deferred.reject(error);
         });

@@ -2,38 +2,39 @@
 	<div class="row" >
 		<div class="test" >
 			<div class="col-md-12 login-container"  style="min-height:600px;">
-				<div class="col-md-7" style="color:white; padding:5%;">
-					<div class="form-panel-font">Supply Chain Integrity: Browse, Edit & Monitor</div>
+				<div class="col-md-7" style="color:white; padding:2% 5%;border-right:1px solid grey;">
+					<div class="form-panel-font" style="margin-bottom:5%;">Supply Chain Integrity: Browse, Edit & Monitor</div>
 					<div class="well row pt-2x pb-3x bk-light">
-						<div class="col-md-8 col-md-offset-2">
-							<form name="login" novalidate="" ng-submit="" class="mt ng-pristine ng-invalid ng-invalid-required">
-								<label class="text-uppercase text-sm" style="color:black;">Username</label>
-								<input type="text" placeholder="Please enter your Username" class="form-control mb ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="uname" ng-model="uname" required="">
+						<div class="col-md-8 col-md-offset-2" >
+							<form name="login" novalidate="" ng-submit="loginButtonClick();" class="mt ng-pristine ng-invalid ng-invalid-required">
+								<label class="text-uppercase text-sm" style="color:black; font-size:10px;">Username</label>
+								<input type="text" placeholder="Please enter your Username" class="form-control mb ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="uname" ng-model="username" required="">
 								
-								<label class="text-uppercase text-sm"  style="color:black;">Password</label>
-								<input type="password" placeholder="Please enter your Password" class="form-control mb ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="pwd" ng-model="pwd" required="">
+								<label class="text-uppercase text-sm"  style="color:black; font-size:10px;">Password</label>
+								<input type="password" placeholder="Please enter your Password" class="form-control mb ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="pwd" ng-model="password" required="">
 
 								<div>
 									<label for="checkbox7" class="text-danger text-center ng-binding">
-										<input name="select_all" value="1" type="checkbox"> Remember Me
+										<input name="select_all" value="1" type="checkbox" ng-model="remeberMe"> Remember Me
 									</label>
 								</div>
-								<button class="col-md-4 btn btn-warning" type="submit" ng-disabled="login.$invalid" disabled="disabled">SIGN IN</button>
+								<div  class="text-danger padding-1">{{displayError}}</div>
+								<button class="col-md-4 btn btn-warning" type="submit">SIGN IN</button>
 								<span style="color:black; margin:5%;">Forgot password?<span>
 							</form>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-5"  style="color:white; padding:5%;">
-					<div class="form-panel-font">&nbsp;</div>
+				<div class="col-md-5"  style="color:white; padding:2% 5%;">
+					<div class="form-panel-font" style="margin-bottom:8%;">&nbsp;</div>
 					<div class="well row pt-2x pb-3x bk-light">
 						<div class="col-md-8 col-md-offset-2">
 							<form name="login" novalidate="" ng-submit="" class="mt ng-pristine ng-invalid ng-invalid-required">
-								<label class="text-uppercase text-sm" style="color:black;">Name</label>
-								<input type="text" placeholder=" " class="form-control mb ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="uname" ng-model="uname" required="">
+								<label class="text-uppercase text-sm" style="color:black; font-size:10px;">Name</label>
+								<input type="text" placeholder="Please Enter Your Name" class="form-control mb ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="uname" ng-model="uname" required="">
 								
-								<label class="text-uppercase text-sm"  style="color:black;">Email</label>
-								<input type="password" placeholder=" " class="form-control mb ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="pwd" ng-model="pwd" required="">
+								<label class="text-uppercase text-sm"  style="color:black; font-size:10px;">Email</label>
+								<input type="password" placeholder="Please Enter Your Email" class="form-control mb ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="pwd" ng-model="pwd" required="">
 
 								<div>
 									<label for="checkbox7" class="text-danger text-center ng-binding"></label>

@@ -7,7 +7,7 @@
  * # UserLoginService
  * User Service for user authentication
  */
-app.factory('DashboardService', ['$q', '$http', function ($q, $http) {
+app.factory('DashboardService', ['$q', '$http','$rootScope', function ($q, $http, $rootScope) {
     var dashboardService = {};
 
     dashboardService.getContractsDeployedByMe = function () 
@@ -15,7 +15,7 @@ app.factory('DashboardService', ['$q', '$http', function ($q, $http) {
         var deferred = $q.defer();
         $http({
             method: 'GET',
-            url: 'http://52.73.17.136:3000/contractDetails?username=usr'
+            url: 'http://52.73.17.136:3000/contractDetails?username='+$rootScope.logUser
         }).then(function (blockStatus) {
             deferred.resolve(blockStatus);
         }, function (error) {

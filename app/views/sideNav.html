@@ -15,7 +15,8 @@
 					<div class="userImg">
 						<img ng-src="http://dummyimage.com/80x80&text=G">
 					</div>
-					<span>Logged in as {{username}}!</span>
+					<span ng-if="loggedUser">Logged in as {{loggedUser.userName}}!</span>
+					<span ng-if="!loggedUser">Logged in as {{logUser}}!</span>
 				</div>
 			</div>
 			<ul class="nav navbar-nav">
@@ -34,7 +35,7 @@
 			</ul>
 			<div class="logoutInfo">
 				<hr>
-				<div class="logoutInfoContent">
+				<div class="logoutInfoContent" ng-click="logout();">
 					<i class="fa fa-sign-out" aria-hidden="true"></i>Logout
 				</div>
 			</div>

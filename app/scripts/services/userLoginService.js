@@ -7,12 +7,12 @@
  * # UserLoginService
  * User Service for user authentication
  */
-app.factory('UserLoginService', ['$q', '$http', '$cookies', function ($q, $http, $cookies) {
+app.factory('UserLoginService', ['$q', '$http', '$cookies','$cookieStore', function ($q, $http, $cookies,$cookieStore) {
     var userDetails = {};
 
     userDetails.isAuthenticated = function () {
-        if ($cookies.get('loginData') != null) {
-            return $cookies.get('loginData');
+        if ($cookieStore.get('loginData') != null) {
+            return $cookieStore.get('loginData');
         } else if (userDetails.userData != null) {
             return userDetails.userData;
         } else {
@@ -20,6 +20,7 @@ app.factory('UserLoginService', ['$q', '$http', '$cookies', function ($q, $http,
         }
     }
     userDetails.authenticateUser = function (userName, passWord) {
+        
         var deferred = $q.defer();
         $http({
             method: 'POST',
@@ -31,6 +32,7 @@ app.factory('UserLoginService', ['$q', '$http', '$cookies', function ($q, $http,
 			json:true,//send the desired json data in the post....
 			headers: {'Content-Type':'application/json'} 
         }).then(function (userInfo) {
+
             userDetails.userData = userInfo;
             deferred.resolve(userInfo);
         }, function (error) {
