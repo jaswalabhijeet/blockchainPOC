@@ -9,7 +9,6 @@
  */
 app.factory('AddContractService', ['$q', '$http', function ($q, $http) {
     var addContractService = {};
-
     addContractService.getBlockStatus = function () 
 	{
         var deferred = $q.defer();
@@ -70,7 +69,7 @@ app.factory('AddContractService', ['$q', '$http', function ($q, $http) {
     }
 
     addContractService.insertBlockData = function (insertData) {
-        
+        console.log(insertData);
         var deferred = $q.defer();
         $http({
             method: 'POST',

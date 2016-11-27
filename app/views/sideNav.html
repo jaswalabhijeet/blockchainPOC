@@ -26,7 +26,7 @@
 				<li ui-sref-active="active">
 					<a ui-sref="showBlocks"><i class="fa fa-cube" aria-hidden="true"></i>Show Blocks</a>
 				</li>
-				<li ui-sref-active="active">
+				<li ui-sref-active="active" ng-if="logUser == 'buyer'">
 					<a ui-sref="addContract"><i class="fa fa-address-card" aria-hidden="true"></i>Add Contract</a>
 				</li>
 				<li ui-sref-active="active">

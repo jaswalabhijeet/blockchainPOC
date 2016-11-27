@@ -5,7 +5,10 @@
  * @description
  * # queryCtrl
  */
-app.controller('queryCtrl', function () {
+app.controller('queryCtrl',['$scope','$rootScope','$cookieStore', function ($scope,$rootScope,$cookieStore) {
+
+    $scope.loggedUser = $cookieStore.get('loginData');
+    $rootScope.logUser = $cookieStore.get('loginTempData').userName;
     $(document).ready(function() 
 	{
 		var divHeight = $('.col-md-2').height();
@@ -24,4 +27,4 @@ app.controller('queryCtrl', function () {
 	} );
 	}, 0);
 	
-});
+}]);

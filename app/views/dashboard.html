@@ -13,6 +13,7 @@
 				<div class="form-panel-head">My Dashboard</div>
 			</div>
 			<div class="form-panel-sub-head">
+				<div  class="text-danger padding-1">{{displayError}}</div>
 				<span class="form-panel-sub-head-span">My Bank Account</span>
 				<div class="table-responsive form-panel-border">
 					<table class="table data_tbl table-striped table-bordered table-font">
@@ -53,6 +54,11 @@
 							<td>{{ contract.pendingWith }}</td>
 							<td>{{ contract.status }}</td>
 						</tr>
+						<tr ng-show="contractsDeply.length==0">
+					        <td colspan="4" class="text-ceneter text-danger">
+					            No Data Available!
+					        </td>
+					    </tr>
 						</tbody>
 					</table>
 				</div>
@@ -84,8 +90,16 @@
 							<td>{{ pend.status}}</td>
 							<td>{{ pend.signedBy}}</td>
 							<td>{{ pend.pendingWith }}</td>
-							<td><i class="fa fa-window-close text-danger"></i>&nbsp;<i class="fa  fa fa-check-square  text-success"></i></td>
+							<td>
+								<i class="fa fa-window-close text-danger icon-event" title="Cancel" ng-click="cancelBtnClick(pend);"></i>&nbsp;
+								<i class="fa  fa fa-check-square  text-success icon-event icon-event" title="Approve" ng-click="approveBtnClick(pend);"></i>
+							</td>
 						</tr>
+						<tr ng-show="contractsPending.length==0">
+					        <td colspan="10" class="text-ceneter text-danger">
+					            No data available!                
+					        </td>
+					    </tr>
 						</tbody>
 					</table>
 					
