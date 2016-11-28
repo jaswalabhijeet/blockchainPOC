@@ -71,8 +71,8 @@ $scope.approveBtnClick = function (contractDetails)
 		AddContractService.getBlockStatus().then(function (response) 
 	    {
 	    	$scope.prevBlockHeight = response.data.result[1].latest_block_height;
-	 		// 	console.log($scope.prevBlockHeight);
-	    	DashboardService.approveContract($scope.approvalData).then(function (approvalResponse) 
+	 		 	
+	    	DashboardService.approveContract(JSON.stringify($scope.approvalData)).then(function (approvalResponse) 
 	    	{
 	    		var insertDet={};
 	    		AddContractService.getBlockStatus().then(function (newBlockChainStatus) 
@@ -98,13 +98,16 @@ $scope.approveBtnClick = function (contractDetails)
 	                                insertDet["carrier"]=approvalResponse.data[5];
 	                                insertDet["shipto"]=approvalResponse.data[8];
 	                                insertDet["pickto"]=approvalResponse.data[7];
-	                                insertDet["createdDate"]=$filter('date')(new Date(), "ddMMyyyy");
+	                                insertDet["createdDate"]=$filter('date')(new Date(), "ddMMyyyyHHmmss");
+	                                insertDet["pendingWith"]=contractDetails.pendingWith;
+	                                insertDet["loginuser"]=$rootScope.logUser;
 	                                insertDet["chain_id"]=blockData.data.result[1].block.header.chain_id;
 	                                insertDet["height"]=parseInt(blockData.data.result[1].block.header.height);
 	                                insertDet["num_txs"]=parseInt(blockData.data.result[1].block.header.num_txs);
 	                                insertDet["block_hash"]=blockData.data.result[1].block.last_validation.precommits[0].block_hash;
 	                                insertDet["block_data"]=blockData.data.result[1].block.data.txs[0][1].data;
 	                                insertDet["data_hash"]=blockData.data.result[1].block.header.data_hash;
+	                                insertDet["block_time"]=blockData.data.result[1].block.header.time;
 	                                var temp=[];
 	                                temp.push(insertDet);
 	                                var jsonObj={};
@@ -113,6 +116,7 @@ $scope.approveBtnClick = function (contractDetails)
 	                                {
 	                                    $scope.displayLoading = false;
 	                                    $scope.displayError = "Approved Successfully!";
+	                                    location.reload(); 
 	                                    $state.go('dashboard');
 	                                }, function (error) {
 	                                    console.log("Error while inserting block data: " + error);
@@ -143,6 +147,7 @@ $scope.approveBtnClick = function (contractDetails)
 	}
 	else if($rootScope.logUser=='carrier')
 	{
+
 		$scope.approvalData={
 	  			"shipmentstatus":"true",
 	  			"ContractID":contractDetails.contractID,
@@ -151,33 +156,36 @@ $scope.approveBtnClick = function (contractDetails)
 		AddContractService.getBlockStatus().then(function (response) 
 	    {
 	    	$scope.prevBlockHeight = response.data.result[1].latest_block_height;
-	 		// 	console.log($scope.prevBlockHeight);
-	    	DashboardService.shipmentNotify($scope.approvalData).then(function (approvalResponse) 
+	    	console.log($scope.prevBlockHeight);
+
+	    	DashboardService.shipmentNotify(JSON.stringify($scope.approvalData)).then(function (approvalResponse) 
 	    	{
+	    		
 	    		var insertDet={};
 	    		AddContractService.getBlockStatus().then(function (newBlockChainStatus) 
 	    		{
 	    			$scope.newBlockHeight = newBlockChainStatus.data.result[1].latest_block_height;
-	    			
+	    			//console.log($scope.newBlockHeight);exit;
 	    			AddContractService.fetchBlocks($scope.prevBlockHeight, $scope.newBlockHeight).then(function (blocksData) 
 	                {
-	                	
+	 					console.log(blocksData);exit;	
 	                	angular.forEach(blocksData.data.result[1].block_metas, function (value, key) 
 	                    {
 	                    	if (value.header.num_txs >=1) 
 	                        {
 	                        	AddContractService.fetchBlockData(value.header.height).then(function (blockData) 
 	                            {
-	                     		
 	                            	insertDet["contractID"]=parseInt(approvalResponse.data[2]);
-	                            	insertDet["contractName"]=approvalResponse.data[1];
+	                            	insertDet["contractName"]=approvalResponse.data[2];
 	                                insertDet["supplierID"]=parseInt(approvalResponse.data[4]);
 	                                insertDet["supplierName"]=approvalResponse.data[3];
 	                                insertDet["productID"]=contractDetails.productID;
 	                                insertDet["productName"]=approvalResponse.data[6];
-	                                insertDet["trackingNumber"]=approvalResponse.data[6];
-	                                insertDet["shipmentstatus"]=approvalResponse.data[6];
-	                                insertDet["createdDate"]=$filter('date')(new Date(), "ddMMyyyy");
+	                                insertDet["trackingNumber"]=approvalResponse.data[0];
+	                                insertDet["shipmentstatus"]=approvalResponse.data[1];
+	                                insertDet["createdDate"]=$filter('date')(new Date(), "ddMMyyyyHHmmss");
+	                                insertDet["pendingWith"]=contractDetails.pendingWith;
+	                                insertDet["loginuser"]=$rootScope.logUser;
 	                                insertDet["chain_id"]=blockData.data.result[1].block.header.chain_id;
 	                                insertDet["height"]=parseInt(blockData.data.result[1].block.header.height);
 	                                insertDet["num_txs"]=parseInt(blockData.data.result[1].block.header.num_txs);
@@ -188,6 +196,7 @@ $scope.approveBtnClick = function (contractDetails)
 	                                temp.push(insertDet);
 	                                var jsonObj={};
 	                                jsonObj["row"]=temp;
+	                                console.log(JSON.stringify(jsonObj));exit;
 	                                AddContractService.insertBlockData(JSON.stringify(jsonObj)).then(function (insertResponse) 
 	                                {
 	                                    $scope.displayLoading = false;
@@ -247,13 +256,15 @@ $scope.approveBtnClick = function (contractDetails)
 	                        	AddContractService.fetchBlockData(value.header.height).then(function (blockData) 
 	                            {
 	                     		
-	                            	insertDet["contractID"]=parseInt(approvalResponse.data[2]);
-	                            	insertDet["contractName"]=approvalResponse.data[1];
-	                                insertDet["supplierID"]=parseInt(approvalResponse.data[4]);
+	                            	insertDet["contractID"]=parseInt(contractDetails.contractID);
+	                            	insertDet["contractName"]=contractDetails.contractName;
+	                                insertDet["supplierID"]=parseInt(contractDetails.supplierID);
 	                                insertDet["productID"]=contractDetails.productID;
-	                                insertDet["productName"]=approvalResponse.data[6];
-	                                insertDet["totalamount"]=approvalResponse.data[6];
-	                                insertDet["createdDate"]=$filter('date')(new Date(), "ddMMyyyy");
+	                                insertDet["productName"]=contractDetails.productName;
+	                                insertDet["totalamount"]=approvalResponse.data[0];
+	                                insertDet["createdDate"]=$filter('date')(new Date(), "ddMMyyyyHHmmss");
+	                                insertDet["pendingWith"]=contractDetails.pendingWith;
+	                                insertDet["loginuser"]=$rootScope.logUser;
 	                                insertDet["chain_id"]=blockData.data.result[1].block.header.chain_id;
 	                                insertDet["height"]=parseInt(blockData.data.result[1].block.header.height);
 	                                insertDet["num_txs"]=parseInt(blockData.data.result[1].block.header.num_txs);
@@ -330,8 +341,7 @@ $scope.cancelBtnClick=function (contractDetails)
 	                        {
 	                        	AddContractService.fetchBlockData(value.header.height).then(function (blockData) 
 	                            {
-	                     		
-	                            	insertDet["contractID"]=parseInt(approvalResponse.data[2]);
+	                     			insertDet["contractID"]=parseInt(approvalResponse.data[2]);
 	                            	insertDet["contractName"]=approvalResponse.data[1];
 	                                insertDet["supplierID"]=parseInt(approvalResponse.data[4]);
 	                                insertDet["productID"]=contractDetails.productID;
@@ -340,13 +350,17 @@ $scope.cancelBtnClick=function (contractDetails)
 	                                insertDet["carrier"]=approvalResponse.data[5];
 	                                insertDet["shipto"]=approvalResponse.data[8];
 	                                insertDet["pickto"]=approvalResponse.data[7];
-	                                insertDet["createdDate"]=$filter('date')(new Date(), "ddMMyyyy");
+	                                insertDet["createdDate"]=$filter('date')(new Date(), "ddMMyyyyHHmmss");
+	                                insertDet["pendingWith"]=contractDetails.pendingWith;
+	                                insertDet["loginuser"]=$rootScope.logUser;
 	                                insertDet["chain_id"]=blockData.data.result[1].block.header.chain_id;
 	                                insertDet["height"]=parseInt(blockData.data.result[1].block.header.height);
 	                                insertDet["num_txs"]=parseInt(blockData.data.result[1].block.header.num_txs);
 	                                insertDet["block_hash"]=blockData.data.result[1].block.last_validation.precommits[0].block_hash;
 	                                insertDet["block_data"]=blockData.data.result[1].block.data.txs[0][1].data;
 	                                insertDet["data_hash"]=blockData.data.result[1].block.header.data_hash;
+	                                insertDet["block_time"]=blockData.data.result[1].block.header.time;
+	                                
 	                                var temp=[];
 	                                temp.push(insertDet);
 	                                var jsonObj={};
@@ -410,22 +424,24 @@ $scope.cancelBtnClick=function (contractDetails)
 	                        {
 	                        	AddContractService.fetchBlockData(value.header.height).then(function (blockData) 
 	                            {
-	                     		
-	                            	insertDet["contractID"]=parseInt(approvalResponse.data[2]);
-	                            	insertDet["contractName"]=approvalResponse.data[1];
+	                     			insertDet["contractID"]=parseInt(approvalResponse.data[2]);
+	                            	insertDet["contractName"]=approvalResponse.data[2];
 	                                insertDet["supplierID"]=parseInt(approvalResponse.data[4]);
 	                                insertDet["supplierName"]=approvalResponse.data[3];
 	                                insertDet["productID"]=contractDetails.productID;
 	                                insertDet["productName"]=approvalResponse.data[6];
-	                                insertDet["trackingNumber"]=approvalResponse.data[6];
-	                                insertDet["shipmentstatus"]=approvalResponse.data[6];
-	                                insertDet["createdDate"]=$filter('date')(new Date(), "ddMMyyyy");
+	                                insertDet["trackingNumber"]=approvalResponse.data[0];
+	                                insertDet["shipmentstatus"]=approvalResponse.data[1];
+	                                insertDet["createdDate"]=$filter('date')(new Date(), "ddMMyyyyHHmmss");
+	                                insertDet["pendingWith"]=contractDetails.pendingWith;
+	                                insertDet["loginuser"]=$rootScope.logUser;
 	                                insertDet["chain_id"]=blockData.data.result[1].block.header.chain_id;
 	                                insertDet["height"]=parseInt(blockData.data.result[1].block.header.height);
 	                                insertDet["num_txs"]=parseInt(blockData.data.result[1].block.header.num_txs);
 	                                insertDet["block_hash"]=blockData.data.result[1].block.last_validation.precommits[0].block_hash;
 	                                insertDet["block_data"]=blockData.data.result[1].block.data.txs[0][1].data;
 	                                insertDet["data_hash"]=blockData.data.result[1].block.header.data_hash;
+
 	                                var temp=[];
 	                                temp.push(insertDet);
 	                                var jsonObj={};
@@ -488,20 +504,22 @@ $scope.cancelBtnClick=function (contractDetails)
 	                        {
 	                        	AddContractService.fetchBlockData(value.header.height).then(function (blockData) 
 	                            {
-	                     		
-	                            	insertDet["contractID"]=parseInt(approvalResponse.data[2]);
-	                            	insertDet["contractName"]=approvalResponse.data[1];
-	                                insertDet["supplierID"]=parseInt(approvalResponse.data[4]);
+	                     			insertDet["contractID"]=parseInt(contractDetails.contractID);
+	                            	insertDet["contractName"]=contractDetails.contractName;
+	                                insertDet["supplierID"]=parseInt(contractDetails.supplierID);
 	                                insertDet["productID"]=contractDetails.productID;
-	                                insertDet["productName"]=approvalResponse.data[6];
-	                                insertDet["totalamount"]=approvalResponse.data[6];
-	                                insertDet["createdDate"]=$filter('date')(new Date(), "ddMMyyyy");
+	                                insertDet["productName"]=contractDetails.productName;
+	                                insertDet["totalamount"]=approvalResponse.data[0];
+	                                insertDet["createdDate"]=$filter('date')(new Date(), "ddMMyyyyHHmmss");
+	                                insertDet["pendingWith"]=contractDetails.pendingWith;
+	                                insertDet["loginuser"]=$rootScope.logUser;
 	                                insertDet["chain_id"]=blockData.data.result[1].block.header.chain_id;
 	                                insertDet["height"]=parseInt(blockData.data.result[1].block.header.height);
 	                                insertDet["num_txs"]=parseInt(blockData.data.result[1].block.header.num_txs);
 	                                insertDet["block_hash"]=blockData.data.result[1].block.last_validation.precommits[0].block_hash;
 	                                insertDet["block_data"]=blockData.data.result[1].block.data.txs[0][1].data;
 	                                insertDet["data_hash"]=blockData.data.result[1].block.header.data_hash;
+
 	                                var temp=[];
 	                                temp.push(insertDet);
 	                                var jsonObj={};

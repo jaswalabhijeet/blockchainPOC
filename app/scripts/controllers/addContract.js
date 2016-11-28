@@ -76,7 +76,7 @@ angular.module('blockChainApp').controller('addContractCtrl', ['$scope', 'AddCon
                                     insertDet["totalPrice"]=parseInt(createContractData["totalPrice"]);
                                     insertDet["currency"]=createContractData["currency"];
                                     insertDet["supplyByDate"]=createContractData["supplyByDate"];
-                                    insertDet["createdDate"]=$filter('date')(new Date(), "ddMMyyyy");
+                                    insertDet["createdDate"]=$filter('date')(new Date(), "ddMMyyyyHHmmss");
                                     insertDet["loginuser"]=$rootScope.logUser;
                                     insertDet["chain_id"]=blockData.data.result[1].block.header.chain_id;
                                     insertDet["height"]=parseInt(blockData.data.result[1].block.header.height);
@@ -96,6 +96,7 @@ angular.module('blockChainApp').controller('addContractCtrl', ['$scope', 'AddCon
                                     {
                                         $scope.displayLoading = false;
                                         $scope.displayError = "Contract added successfully!";
+                                        
                                         $state.go('dashboard');
                                     }, function (error) {
                                         console.log("Error while inserting block data: " + error);
