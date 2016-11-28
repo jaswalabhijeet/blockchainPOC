@@ -14,7 +14,7 @@ app.factory('AddContractService', ['$q', '$http', function ($q, $http) {
         var deferred = $q.defer();
         $http({
             method: 'GET',
-            url: 'http://52.73.17.136:32768/status'
+            url: 'http://52.73.17.136:32771/status'
         }).then(function (blockStatus) {
             deferred.resolve(blockStatus);
         }, function (error) {
@@ -46,7 +46,7 @@ app.factory('AddContractService', ['$q', '$http', function ($q, $http) {
         var deferred = $q.defer();
         $http({
             method: 'GET',
-            url: 'http://52.73.17.136:32768/blockchain?minHeight=' + minHeight + '&maxHeight=' + maxHeight
+            url: 'http://52.73.17.136:32771/blockchain?minHeight=' + minHeight + '&maxHeight=' + maxHeight
         }).then(function (success) {
             deferred.resolve(success);
         }, function (error) {
@@ -59,7 +59,7 @@ app.factory('AddContractService', ['$q', '$http', function ($q, $http) {
         var deferred = $q.defer();
         $http({
             method: 'GET',
-            url: 'http://52.73.17.136:32768/get_block?height=' + height
+            url: 'http://52.73.17.136:32771/get_block?height=' + height
         }).then(function (success) {
             deferred.resolve(success);
         }, function (error) {

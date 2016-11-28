@@ -102,3 +102,15 @@
 	cursor: pointer;
 	
 }
+.text-bold{
+	font-weight: bold;
+}
+.modal-body-min{
+	min-height: 300px;
+}
+.tbl-max{
+	max-height: 400px;
+}
+.tbl-max-dash{
+	max-height: 200px;
+}

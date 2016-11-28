@@ -9,9 +9,8 @@
 angular.module('blockChainApp').controller('addContractCtrl', ['$scope', 'AddContractService','$cookieStore','$state','$filter','$rootScope', function ($scope, AddContractService,$cookieStore,$state,$filter,$rootScope) 
 {
 	$(document).ready(function() {
-		var divHeight = $('.col-md-2').height();
-		$('.col-md-10').css('min-height', divHeight+'px');
-	});
+    $('.set-hgt').attr('style','min-height:652px');
+  });
 	
     $scope.loggedUser = $cookieStore.get('loginData');
     $rootScope.logUser = $cookieStore.get('loginTempData').userName;

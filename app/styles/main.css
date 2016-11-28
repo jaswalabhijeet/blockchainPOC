@@ -53,13 +53,15 @@ body > .container-fluid {
 	bottom:0px;
 	right:0px;
 	left:0px;
+	cursor: :pointer;
 }
 .logoutInfo hr {
 	color: #fff;
 	margin: 0;
 }
 .logoutInfoContent {
-	padding: 10px 10px 10px 15px
+	padding: 10px 10px 10px 15px;
+
 }
 .userInfo{
 	height: 150px;

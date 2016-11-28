@@ -4,7 +4,7 @@
 		<div class="col-md-2 padding_height">
 			<div ng-include="'views/sideNav.html'"></div>
 		</div>
-		<div class="col-md-10 padding_bg">
+		<div class="col-md-10 set-hgt padding_bg">
 			<div class="form-panel">
 				<div class="form-panel-border-sam">
 					<div class="form-panel-font">Supply Chain Integrity</div>
@@ -13,10 +13,9 @@
 				<div class="form-panel-head">My Dashboard</div>
 			</div>
 			<div class="form-panel-sub-head">
-				<div  class="text-danger padding-1">{{displayError}}</div>
 				<span class="form-panel-sub-head-span">My Bank Account</span>
-				<div class="table-responsive form-panel-border">
-					<table class="table data_tbl table-striped table-bordered table-font">
+				<div class="table-responsive form-panel-border tbl-max-dash">
+					<table class="table data_tbl table-striped table-bordered table-font ">
 						<thead>
 							<tr>
 								<th>Bank Name</th>
@@ -36,7 +35,7 @@
 					</table>
 				</div>
 				<span class="form-panel-sub-head-span2">Contracts Deployed By Me</span>
-				<div class="table-responsive form-panel-border">
+				<div class="table-responsive form-panel-border tbl-max-dash">
 					<table class="table table-striped table-bordered table-font">
 						<thead>
 							<tr>
@@ -63,7 +62,7 @@
 					</table>
 				</div>
 				<span class="form-panel-sub-head-span2">Contracts Pending For Me</span>
-				<div class="table-responsive padding-1-0">
+				<div class="table-responsive padding-1-0 tbl-max-dash">
 					<table class="table-font display table table-striped table-bordered table-hover dataTable no-footer" cellspacing="0" >
 						<thead>
 							<tr>

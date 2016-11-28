@@ -11,9 +11,8 @@
  	$scope.loggedUser = $cookieStore.get('loginData');
  	$rootScope.logUser = $cookieStore.get('loginTempData').userName;
 	$(document).ready(function() {
-		var divHeight = $('.col-md-2').height();
-		$('.col-md-10').css('min-height', divHeight+'px');
-	});
+    $('.set-hgt').attr('style','min-height:652px');
+  });
 	setTimeout(function(){
 		$('#depl_data_tbl').DataTable({
 			paging: false,

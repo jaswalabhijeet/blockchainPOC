@@ -4,7 +4,7 @@
 		<div class="col-md-2 padding_height">
 			<div ng-include="'views/sideNav.html'"></div>
 		</div>
-		<div class="col-md-10 padding_bg">
+		<div class="col-md-10 set-hgt padding_bg">
 			<div class="form-panel">
 				<div class="form-panel-border-sam">
 					<div class="form-panel-font">Supply Chain Integrity</div>
@@ -25,7 +25,7 @@
 									</select>
                               </div>
                               <div class="col-sm-4">
-                                  <input type="text" class="form-control" ng-model="search" id="tags" placeholder="Search...">
+                                  <input type="text" class="form-control" max-results="10" delay="300" min-length="2" allow-only-results="true" ng-model="search" ng-keyup="complete();" id="tags" placeholder="Search...">
                               </div>
 							  <button type="submit" class="btn btn-warning"  ng-disabled="!search" ng-click="queryBtnClick(queyOption,search);">Query</button>
 							</div>
@@ -43,6 +43,7 @@
 									<input name="select_all" value="1" type="checkbox">
 								</th>
 								<th>Contract ID</th>
+								<th>Height</th>
 								<th>Contract Name</th>
 								<th>Product ID</th>
 								<th>Product Name</th>
@@ -54,6 +55,7 @@
 							<td class="th-none"></td>
 							<td class="text-left"><input name="select_all" value="1" type="checkbox"></td>
 							<td>{{audit.contractID}}</td>
+							<td><span ng-click="toggleModal(audit.height)" style="cursor:pointer;color:#FF9821">{{audit.height}}</span></td>
 							<td>{{audit.contractName}}</td>
 							<td>{{audit.productID}}</td>
 							<td>{{audit.productName}}</td>
@@ -63,6 +65,7 @@
 					</table>
 				</div>
 			</div>
+			<modal visible="showModal" my-attribute="someObject"></modal>
 		</div>
 		<div class="clearfix"></div>
 	</div>

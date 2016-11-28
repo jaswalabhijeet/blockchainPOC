@@ -4,7 +4,7 @@
 		<div class="col-md-2 padding_height">
 			<div ng-include="'views/sideNav.html'"></div>
 		</div>
-		<div class="col-md-10 padding_bg">
+		<div class="col-md-10 set-hgt padding_bg">
 			<div class="form-panel">
 				<div class="form-panel-border-sam">
 					<div class="form-panel-font">Supply Chain Integrity</div>
@@ -13,42 +13,38 @@
 				<div class="form-panel-head">Show Blocks</div>
 			</div>
 			<div class="form-panel-sub-head">
-				<ul class="nav nav-tabs border-bottom-0">
-					<li class="active"><a data-toggle="tab" href="">All Blocks</a></li>
-					<li><a data-toggle="tab" href="">Data Blocks</a></li>
+				<ul class="nav nav-tabs border-bottom-0 tabs">
+					<li class="active"><a data-toggle="tab" ng-click="showBlockBtnClick(1);" href="">All Blocks</a></li>
+					<li><a data-toggle="tab" ng-click="showBlockBtnClick(2);" href="">Data Blocks</a></li>
 				</ul>
+				<hr class="hr">
 				<div class="tab-content">
 					<div id="home" class="tab-pane fade in active">
-						<div class="table-responsive padding-1">
+						<div class="table-responsive padding-1 tbl-max">
 							<table class="table-font display table table-striped table-bordered table-hover dataTable no-footer" cellspacing="0" >
 								<thead>
 									<tr>
-										<th class="text-center">Chain ID</th>
+										<th>Chain ID</th>
 										<th>Height</th>
 										<th>Time</th>
-										<th>Fees</th>
 										<th>Num.Txs</th>
-										<th>Last Block Hash</th>
-										<th>Last Block Parts Total</th>
-										<th>Last Block Parts Hash</th>
 										<th>Last Validation Hash</th>
 										<th>Data Hash</th>
 										<th>State Hash</th>
 									</tr>
 								</thead>
 								<tbody>
-								<tr>
-									<td>123</td>
-									<td>13568</td>
-									<td>Foo</td>
-									<td>Foo</td>
-									<td>Foo</td>
-									<td>Foo</td>
-									<td>Foo</td>
-									<td>Foo</td>
-									<td>Foo</td>
-									<td>Foo</td>
-									<td>Foo</td>
+								<tr ng-repeat="det in allBlocks">
+									<td>{{det.chain_id}}</td>
+									<td>{{det.height}}</td>
+									<td>{{det.time}}</td>
+									<td>{{det.num_txs}}</td>
+									<td>{{det.last_validation_hash}}</td>
+									<td>{{det.data_hash}}</td>
+									<td>{{det.state_hash}}</td>
+								</tr>
+								<tr ng-show="allBlocks.length==0">
+									<td colspan="7" class="text-danger">No data available!</td>
 								</tr>
 								</tbody>
 							</table>
