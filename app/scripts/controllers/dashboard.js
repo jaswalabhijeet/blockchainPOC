@@ -150,14 +150,13 @@ $scope.approveBtnClick = function (contractDetails)
 
 		$scope.approvalData={
 	  			"shipmentstatus":"true",
-	  			"ContractID":contractDetails.contractID,
+	  			"contractID":contractDetails.contractID,
 	  			"carriers":contractDetails.carrier,
 	  			"supplierID":contractDetails.supplierID};
 		AddContractService.getBlockStatus().then(function (response) 
 	    {
 	    	$scope.prevBlockHeight = response.data.result[1].latest_block_height;
-	    	console.log($scope.prevBlockHeight);
-
+	    	
 	    	DashboardService.shipmentNotify(JSON.stringify($scope.approvalData)).then(function (approvalResponse) 
 	    	{
 	    		
@@ -168,19 +167,19 @@ $scope.approveBtnClick = function (contractDetails)
 	    			//console.log($scope.newBlockHeight);exit;
 	    			AddContractService.fetchBlocks($scope.prevBlockHeight, $scope.newBlockHeight).then(function (blocksData) 
 	                {
-	 					console.log(blocksData);exit;	
+	 						
 	                	angular.forEach(blocksData.data.result[1].block_metas, function (value, key) 
 	                    {
 	                    	if (value.header.num_txs >=1) 
 	                        {
 	                        	AddContractService.fetchBlockData(value.header.height).then(function (blockData) 
 	                            {
-	                            	insertDet["contractID"]=parseInt(approvalResponse.data[2]);
+	                            	insertDet["contractID"]=parseInt(contractDetails.contractID);
 	                            	insertDet["contractName"]=approvalResponse.data[2];
-	                                insertDet["supplierID"]=parseInt(approvalResponse.data[4]);
-	                                insertDet["supplierName"]=approvalResponse.data[3];
+	                                insertDet["supplierID"]=parseInt(contractDetails.supplierID);
+	                                insertDet["supplierName"]=contractDetails.supplierName;
 	                                insertDet["productID"]=contractDetails.productID;
-	                                insertDet["productName"]=approvalResponse.data[6];
+	                                insertDet["productName"]=contractDetails.productName;
 	                                insertDet["trackingNumber"]=approvalResponse.data[0];
 	                                insertDet["shipmentstatus"]=approvalResponse.data[1];
 	                                insertDet["createdDate"]=$filter('date')(new Date(), "ddMMyyyyHHmmss");
@@ -196,11 +195,12 @@ $scope.approveBtnClick = function (contractDetails)
 	                                temp.push(insertDet);
 	                                var jsonObj={};
 	                                jsonObj["row"]=temp;
-	                                console.log(JSON.stringify(jsonObj));exit;
+	                                //console.log(JSON.stringify(jsonObj));exit;
 	                                AddContractService.insertBlockData(JSON.stringify(jsonObj)).then(function (insertResponse) 
 	                                {
 	                                    $scope.displayLoading = false;
 	                                    $scope.displayError = "Approved Successfully!";
+	                                    location.reload();
 	                                    $state.go('dashboard');
 	                                }, function (error) {
 	                                    console.log("Error while inserting block data: " + error);
@@ -238,7 +238,7 @@ $scope.approveBtnClick = function (contractDetails)
 		AddContractService.getBlockStatus().then(function (response) 
 	    {
 	    	$scope.prevBlockHeight = response.data.result[1].latest_block_height;
-	 		// 	console.log($scope.prevBlockHeight);
+	 		 	
 	    	DashboardService.signOffByContractOwner($scope.approvalData).then(function (approvalResponse) 
 	    	{
 	    		var insertDet={};
@@ -279,6 +279,7 @@ $scope.approveBtnClick = function (contractDetails)
 	                                {
 	                                    $scope.displayLoading = false;
 	                                    $scope.displayError = "Approved Successfully!";
+	                                    location.reload();
 	                                    $state.go('dashboard');
 	                                }, function (error) {
 	                                    console.log("Error while inserting block data: " + error);
@@ -360,7 +361,7 @@ $scope.cancelBtnClick=function (contractDetails)
 	                                insertDet["block_data"]=blockData.data.result[1].block.data.txs[0][1].data;
 	                                insertDet["data_hash"]=blockData.data.result[1].block.header.data_hash;
 	                                insertDet["block_time"]=blockData.data.result[1].block.header.time;
-	                                
+
 	                                var temp=[];
 	                                temp.push(insertDet);
 	                                var jsonObj={};

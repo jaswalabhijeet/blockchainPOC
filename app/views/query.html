@@ -18,18 +18,16 @@
 						<div class="col-md-12 padding-1">
 							<div class="form-group">
                               <div class="col-sm-4">
-									<select class="form-control">
-									  <option>Contract ID</option>
-									  <option>2</option>
-									  <option>3</option>
-									  <option>4</option>
-									  <option>5</option>
+									<select class="form-control" ng-model="queyOption" ng-change="queryFunction(queyOption);search=''">
+									  <option value="">-select-</option>
+									  <option value="contractID">Contract ID</option>
+									  <option value="productName">productName</option>
 									</select>
                               </div>
                               <div class="col-sm-4">
-                                  <input type="text" class="form-control" placeholder="Search...">
+                                  <input type="text" class="form-control" ng-model="search" id="tags" placeholder="Search...">
                               </div>
-							  <button type="submit" class="btn btn-warning">Query</button>
+							  <button type="submit" class="btn btn-warning"  ng-disabled="!search" ng-click="queryBtnClick(queyOption,search);">Query</button>
 							</div>
 						</div>
 						
@@ -48,30 +46,18 @@
 								<th>Contract Name</th>
 								<th>Product ID</th>
 								<th>Product Name</th>
-								<th>Status</th>
 								<th>Signed By</th>
 							</tr>
 						</thead>
 						<tbody>
-						<tr>
-							<th class="th-none"></th>
+						<tr ng-repeat="audit in auditResult">
+							<td class="th-none"></td>
 							<td class="text-left"><input name="select_all" value="1" type="checkbox"></td>
-							<td>1</td>
-							<td>Foo</td>
-							<td>Foo</td>
-							<td>Foo</td>
-							<td>Foo</td>
-							<td>Foo</td>
-						</tr>
-						<tr>
-							<th class="th-none"></th>
-							<td class="text-left"><input name="select_all" value="1" type="checkbox"></td>
-							<td>sdf</td>
-							<td>sdf</td>
-							<td>hgh</td>
-							<td>Foo</td>
-							<td>Foo</td>
-							<td>Foo</td>
+							<td>{{audit.contractID}}</td>
+							<td>{{audit.contractName}}</td>
+							<td>{{audit.productID}}</td>
+							<td>{{audit.productName}}</td>
+							<td>{{audit.signedBy}}</td>
 						</tr>
 						</tbody>
 					</table>
