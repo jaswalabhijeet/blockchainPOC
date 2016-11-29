@@ -35,6 +35,20 @@ app.factory('QueryService', ['$q', '$http','$rootScope', function ($q, $http, $r
             deferred.reject(error);
         });
         return deferred.promise;
-    }   
+    }
+    queryService.getDetailsBlockData = function (blkData) 
+    {
+        var deferred = $q.defer();
+        $http({
+            method: 'GET',
+            url: 'http://52.73.17.136:3000/productDetails?columnname='+blkData
+        }).then(function (dataStatus) {
+            deferred.resolve(dataStatus);
+        }, function (error) {
+            deferred.reject(error);
+        });
+        return deferred.promise;
+    }
+
     return queryService;
   }]);

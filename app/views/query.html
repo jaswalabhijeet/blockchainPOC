@@ -71,7 +71,7 @@
 							<td>{{audit.block_time}}</td>
 							<td>{{audit.num_txs}}</td>
 							<td><div class="tbl-wrap">{{audit.data_hash}}</div></td>
-							<td><div class="tbl-wrap">{{audit.block_data}}</div></td>
+							<td><div class="tbl-wrap"><span ng-mouseover="toggleModalBlock(audit.height)" class="height_class">{{audit.block_data}}</span></div></td>
 							<td><div class="tbl-wrap">{{audit.block_hash}}</div></td>
 							
 						</tr>
@@ -129,6 +129,24 @@
                           <div class="col-md-7">{{insertDet.state_hash}}</div>
                   </div>
 			</modal>
+			<modalBlock visibleBlk="showModalBlock">
+				<div class="col-md-12">
+                      <div class="col-md-5 text-bold">Height:</div>
+                          <div class="col-md-7">{{insertDet.height}}</div>
+              	</div>
+              	<div class="col-md-12">
+                      <div class="col-md-5 text-bold">Chain Id:</div>
+                        <div class="col-md-7">{{insertDet.chain_id}}</div>
+                  </div>
+                  <div class="col-md-12">
+                      <div class="col-md-5 text-bold">Block Hash:</div>
+                          <div class="col-md-7">{{insertDet.block_hash}}</div>
+                  </div>
+                  <div class="col-md-12">
+                      <div class="col-md-5 text-bold">Number of transactions:</div>
+                        <div class="col-md-7">{{insertDet.num_txs}}</div>
+                  </div>
+			</modalBlock>
 		</div>
 		<div class="clearfix"></div>
 	</div>
