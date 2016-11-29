@@ -130,6 +130,7 @@ angular.module('blockChainApp').controller('addContractCtrl', ['$scope', 'AddCon
     {
         $cookieStore.remove('loginData');
           $cookieStore.remove('loginTempData');
+          $cookieStore.remove('totAmnt');
         window.history.forward(-1);
             $state.go('login');
     }

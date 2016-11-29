@@ -10,6 +10,7 @@
  {
  	$scope.loggedUser = $cookieStore.get('loginData');
  	$rootScope.logUser = $cookieStore.get('loginTempData').userName;
+ 	$scope.totAmount=$cookieStore.get('totAmnt');
 	$(document).ready(function() {
     $('.set-hgt').attr('style','min-height:652px');
   });
@@ -37,7 +38,7 @@
 			$scope.contractsPending=[];
 			angular.forEach(response.data.row, function(value, key)
 			{
-				if(value.createdBy == 'buyer')
+				if(value.createdBy == $rootScope.logUser)
 				{
 					$scope.contractsDeply.push(value);
 				}
@@ -234,6 +235,7 @@ $scope.approveBtnClick = function (contractDetails)
 	  			"finalsignoff":"true",
 	  			"ContractID":contractDetails.contractID,
 	  			"ContractName":contractDetails.contractName};
+	  	$scope.totAmount="";
 		AddContractService.getBlockStatus().then(function (response) 
 	    {
 	    	$scope.prevBlockHeight = response.data.result[1].latest_block_height;
@@ -254,7 +256,8 @@ $scope.approveBtnClick = function (contractDetails)
 	                        {
 	                        	AddContractService.fetchBlockData(value.header.height).then(function (blockData) 
 	                            {
-	                     		
+	                     			$cookieStore.put('totAmnt',approvalResponse.data[0]);
+					                $scope.totAmount=$cookieStore.get('totAmnt');
 	                            	insertDet["contractID"]=parseInt(contractDetails.contractID);
 	                            	insertDet["contractName"]=contractDetails.contractName;
 	                                insertDet["supplierID"]=parseInt(contractDetails.supplierID);
@@ -564,6 +567,7 @@ $scope.getContract();
     {
         $cookieStore.remove('loginData');
           $cookieStore.remove('loginTempData');
+          $cookieStore.remove('totAmnt');
         window.history.forward(-1);
             $state.go('login');
     }

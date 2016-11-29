@@ -5,7 +5,7 @@
  * @description
  * # queryCtrl
  */
-app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService','$state','$timeout','AddContractService', function ($scope,$rootScope,$cookieStore,QueryService,$state,$timeout,AddContractService) {
+app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService','$state','$timeout','AddContractService','$filter', function ($scope,$rootScope,$cookieStore,QueryService,$state,$timeout,AddContractService,$filter) {
 
     $scope.loggedUser = $cookieStore.get('loginData');
  	$rootScope.logUser = $cookieStore.get('loginTempData').userName;
@@ -50,25 +50,26 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
         QueryService.getAuditDetails().then(function (response) 
         {
         	
-			angular.forEach(response.data.row, function(value, key)
-			{
-				
-				if(qryOption=='contractID')
-				{
-					if(value.contractID == parseInt(search))
-					{
-						$scope.auditResult.push(value);
-					}
-				}
-				else if(qryOption=='productName')
-				{
-					if(value.productName == search)
-					{
-						$scope.auditResult.push(value);
-					}
-				}
-			});
-
+    			angular.forEach(response.data.row, function(value, key)
+    			{
+    				
+    				if(qryOption=='contractID')
+    				{
+    					if(value.contractID == parseInt(search))
+    					{
+    						$scope.auditResult.push(value);
+    					}
+    				}
+    				else if(qryOption=='productName')
+    				{
+    					if(value.productName == search)
+    					{
+    						$scope.auditResult.push(value);
+    					}
+    				}
+			   });
+         $scope.auditResult = $filter('orderBy')($scope.auditResult, 'height', false);
+         console.log($scope.auditResult);
 			setTimeout(function()
 			{
 				$('.query_tbl').DataTable();
@@ -94,14 +95,25 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
   
   $scope.showModal = false;
   $scope.buttonClicked = "";
-  
+  $scope.insertDet={};
   $scope.toggleModal = function(height)
   {
     
     AddContractService.fetchBlockData(height).then(function (blockData) 
     {
-        $scope.wholeData=blockData;
-        console.log($scope.wholeData);
+        $scope.insertDet["chain_id"]=blockData.data.result[1].block.header.chain_id;
+        $scope.insertDet["height"]=parseInt(blockData.data.result[1].block.header.height);
+        $scope.insertDet["num_txs"]=parseInt(blockData.data.result[1].block.header.num_txs);
+        $scope.insertDet["block_hash"]=blockData.data.result[1].block.last_validation.precommits[0].block_hash;
+        $scope.insertDet["block_data"]=blockData.data.result[1].block.data.txs[0][1].data;
+        $scope.insertDet["data_hash"]=blockData.data.result[1].block.header.data_hash;
+        $scope.insertDet["block_time"]=blockData.data.result[1].block.header.time;
+        $scope.insertDet["fees"]=blockData.data.result[1].block.header.fees;
+        $scope.insertDet["last_block_hash"]=blockData.data.result[1].block.header.last_block_hash;
+        $scope.insertDet["last_block_parts"]=blockData.data.result[1].block.header.last_block_parts;
+        $scope.insertDet["last_validation_hash"]=blockData.data.result[1].block.header.last_validation_hash;
+        $scope.insertDet["state_hash"]=blockData.data.result[1].block.header.state_hash;
+        console.log($scope.insertDet);
         setTimeout(function(){
       $scope.showModal = !$scope.showModal;
       }, 200);
@@ -117,6 +129,7 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
     {
         $cookieStore.remove('loginData');
           $cookieStore.remove('loginTempData');
+          $cookieStore.remove('totAmnt');
         window.history.forward(-1);
             $state.go('login');
     }
@@ -124,79 +137,24 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
 
 app.directive('modal', function () {
     return {
-      
-      template: '<div class="modal fade">' +
+      transclude: true,
+      restrict: 'E',
+      template: '<div class="modal fade">' + 
           '<div class="modal-dialog">' + 
             '<div class="modal-content">' + 
               '<div class="modal-header">' + 
                 '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' + 
                 '<h4 class="modal-title">Height Results</h4>' + 
               '</div>' + 
-              '<div class="modal-body modal-body-min">'+
-                  '<div class="col-md-12">'+
-                      '<div class="col-md-5 text-bold">Height:</div>'+
-                          '<div class="col-md-7">123456</div>'+
-                  '</div>'+
-                  '<div class="col-md-12">'+
-                      '<div class="col-md-5 text-bold">Chain Id:</div>'+
-                        '<div class="col-md-7">123456</div>'+
-                  '</div>'+
-                  '<div class="col-md-12">'+
-                      '<div class="col-md-5 text-bold">Block Hash:</div>'+
-                          '<div class="col-md-7">123456</div>'+
-                  '</div>'+
-                  '<div class="col-md-12">'+
-                      '<div class="col-md-5 text-bold">Number of transactions:</div>'+
-                        '<div class="col-md-7">123456</div>'+
-                  '</div>'+
-                  '<div class="col-md-12">'+
-                      '<div class="col-md-5 text-bold">Hash:</div>'+
-                          '<div class="col-md-7">123456</div>'+
-                  '</div>'+
-                  '<div class="col-md-12">'+
-                      '<div class="col-md-5 text-bold">Data Hash:</div>'+
-                          '<div class="col-md-7">123456</div>'+
-                  '</div>'+
-                  '<div class="col-md-12">'+
-                      '<div class="col-md-5 text-bold">Block Data:</div>'+
-                        '<div class="col-md-7">123456</div>'+
-                  '</div>'+
-                  '<div class="col-md-12">'+
-                      '<div class="col-md-5 text-bold">Block Time:</div>'+
-                          '<div class="col-md-7">123456</div>'+
-                  '</div>'+
-                  '<div class="col-md-12">'+
-                      '<div class="col-md-5 text-bold">Fees:</div>'+
-                          '<div class="col-md-7">123456</div>'+
-                  '</div>'+
-                  '<div class="col-md-12">'+
-                      '<div class="col-md-5 text-bold">Last Block Hash:</div>'+
-                          '<div class="col-md-7">123456</div>'+
-                  '</div>'+
-                  '<div class="col-md-12">'+
-                      '<div class="col-md-5 text-bold">Last Block Parts:</div>'+
-                          '<div class="col-md-7">123456</div>'+
-                  '</div>'+
-                  '<div class="col-md-12">'+
-                      '<div class="col-md-5 text-bold">Last Validation Hash:</div>'+
-                          '<div class="col-md-7">123456</div>'+
-                  '</div>'+
-                  '<div class="col-md-12">'+
-                      '<div class="col-md-5 text-bold">State Hash:</div>'+
-                          '<div class="col-md-7">123456</div>'+
-                  '</div>'+
-              '</div>' + 
+              '<div class="modal-body modal-scroll" ng-transclude></div>' + 
             '</div>' + 
           '</div>' + 
         '</div>',
-      restrict: 'E',
-      transclude: true,
       replace:true,
       
       link: function postLink(scope, element, attrs) 
       {
           scope.$watch(attrs.visible,function(value){
-          
           if(value == true)
             $(element).modal('show');
           else

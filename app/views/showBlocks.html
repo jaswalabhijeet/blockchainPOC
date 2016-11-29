@@ -21,7 +21,7 @@
 				<div class="tab-content">
 					<div id="home" class="tab-pane fade in active">
 						<div class="table-responsive padding-1 tbl-max">
-							<table class="table-font display table table-striped table-bordered table-hover dataTable no-footer" cellspacing="0" >
+							<table class="table-font display table  table-striped table-bordered table-hover dataTable no-footer" cellspacing="0" >
 								<thead>
 									<tr>
 										<th>Chain ID</th>
@@ -36,12 +36,12 @@
 								<tbody>
 								<tr ng-repeat="det in allBlocks">
 									<td>{{det.chain_id}}</td>
-									<td>{{det.height}}</td>
+									<td><span ng-click="toggleModal(det.height)" class="height_class">{{det.height}}</span></td>
 									<td>{{det.time}}</td>
 									<td>{{det.num_txs}}</td>
-									<td>{{det.last_validation_hash}}</td>
-									<td>{{det.data_hash}}</td>
-									<td>{{det.state_hash}}</td>
+									<td><div class="tbl-wrap">{{det.last_validation_hash}}</div></td>
+									<td><div class="tbl-wrap">{{det.data_hash}}</div></td>
+									<td><div class="tbl-wrap">{{det.state_hash}}</div></td>
 								</tr>
 								<tr ng-show="allBlocks.length==0">
 									<td colspan="7" class="text-danger">No data available!</td>
@@ -50,12 +50,59 @@
 							</table>
 						</div>
 					</div>
-					<div id="menu1" class="tab-pane fade">
-					  <h3>Menu 1</h3>
-					  <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-					</div>
 				</div>
 			</div>
+		</div>
+		<modals visible="showModal">
+				<div class="col-md-12">
+                      <div class="col-md-5 text-bold">Height:</div>
+                          <div class="col-md-7">{{insertDet.height}}</div>
+              	</div>
+              	<div class="col-md-12">
+                      <div class="col-md-5 text-bold">Chain Id:</div>
+                        <div class="col-md-7">{{insertDet.chain_id}}</div>
+                  </div>
+                  <div class="col-md-12">
+                      <div class="col-md-5 text-bold">Block Hash:</div>
+                          <div class="col-md-7">{{insertDet.block_hash}}</div>
+                  </div>
+                  <div class="col-md-12">
+                      <div class="col-md-5 text-bold">Number of transactions:</div>
+                        <div class="col-md-7">{{insertDet.num_txs}}</div>
+                  </div>
+                  <div class="col-md-12">
+                      <div class="col-md-5 text-bold">Data Hash:</div>
+                          <div class="col-md-7">{{insertDet.data_hash}}</div>
+                  </div>
+                  <div class="col-md-12">
+                      <div class="col-md-5 text-bold">Block Data:</div>
+                        <div class="col-md-7">{{insertDet.block_data}}</div>
+                  </div>
+                  <div class="col-md-12">
+                      <div class="col-md-5 text-bold">Block Time:</div>
+                          <div class="col-md-7">{{insertDet.time}}</div>
+                  </div>
+                  <div class="col-md-12">
+                      <div class="col-md-5 text-bold">Fees:</div>
+                          <div class="col-md-7">{{insertDet.fees}}</div>
+                  </div>
+                  <div class="col-md-12">
+                      <div class="col-md-5 text-bold">Last Block Hash:</div>
+                          <div class="col-md-7">{{insertDet.block_hash}}</div>
+                  </div>
+                  <div class="col-md-12">
+                      <div class="col-md-5 text-bold">Hash:</div>
+                          <div class="col-md-7">{{insertDet.last_block_parts.hash}}</div>
+                  </div>
+                  <div class="col-md-12">
+                      <div class="col-md-5 text-bold">Last Validation Hash:</div>
+                          <div class="col-md-7">{{insertDet.last_validation_hash}}</div>
+                  </div>
+                  <div class="col-md-12">
+                      <div class="col-md-5 text-bold">State Hash:</div>
+                          <div class="col-md-7">{{insertDet.state_hash}}</div>
+                  </div>
+			</modals>
 		</div>
 		<div class="clearfix"></div>
 	</div>

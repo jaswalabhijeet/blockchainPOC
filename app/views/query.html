@@ -34,7 +34,7 @@
 					</div>
 				</div>
 				<hr class="hr">
-				<div class="table-responsive padding-1">
+				<div class="table-responsive padding-1 tbl-max">
 					<table class="table-font query_tbl display table table-striped table-bordered table-hover dataTable no-footer" cellspacing="0" >
 						<thead>
 							<tr>
@@ -43,29 +43,92 @@
 									<input name="select_all" value="1" type="checkbox">
 								</th>
 								<th>Contract ID</th>
-								<th>Height</th>
 								<th>Contract Name</th>
 								<th>Product ID</th>
 								<th>Product Name</th>
 								<th>Signed By</th>
+								<th>Chain ID</th>
+								<th>Height</th>
+								<th>Block Time</th>
+								<th>Num_txs</th>
+								<th>Data Hash</th>
+								<th >Block Data</th>
+								<th>Block Hash</th>
+								
 							</tr>
 						</thead>
-						<tbody>
+						<tbody>{{audit}}
 						<tr ng-repeat="audit in auditResult">
 							<td class="th-none"></td>
 							<td class="text-left"><input name="select_all" value="1" type="checkbox"></td>
 							<td>{{audit.contractID}}</td>
-							<td><span ng-click="toggleModal(audit.height)" style="cursor:pointer;color:#FF9821">{{audit.height}}</span></td>
 							<td>{{audit.contractName}}</td>
 							<td>{{audit.productID}}</td>
 							<td>{{audit.productName}}</td>
 							<td>{{audit.signedBy}}</td>
+							<td>{{audit.chain_id}}</td>
+							<td><span ng-click="toggleModal(audit.height)" class="height_class">{{audit.height}}</span></td>
+							<td>{{audit.block_time}}</td>
+							<td>{{audit.num_txs}}</td>
+							<td><div class="tbl-wrap">{{audit.data_hash}}</div></td>
+							<td><div class="tbl-wrap">{{audit.block_data}}</div></td>
+							<td><div class="tbl-wrap">{{audit.block_hash}}</div></td>
+							
 						</tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
-			<modal visible="showModal" my-attribute="someObject"></modal>
+			<modal visible="showModal">
+				<div class="col-md-12">
+                      <div class="col-md-5 text-bold">Height:</div>
+                          <div class="col-md-7">{{insertDet.height}}</div>
+              	</div>
+              	<div class="col-md-12">
+                      <div class="col-md-5 text-bold">Chain Id:</div>
+                        <div class="col-md-7">{{insertDet.chain_id}}</div>
+                  </div>
+                  <div class="col-md-12">
+                      <div class="col-md-5 text-bold">Block Hash:</div>
+                          <div class="col-md-7">{{insertDet.block_hash}}</div>
+                  </div>
+                  <div class="col-md-12">
+                      <div class="col-md-5 text-bold">Number of transactions:</div>
+                        <div class="col-md-7">{{insertDet.num_txs}}</div>
+                  </div>
+                  <div class="col-md-12">
+                      <div class="col-md-5 text-bold">Data Hash:</div>
+                          <div class="col-md-7">{{insertDet.data_hash}}</div>
+                  </div>
+                  <div class="col-md-12">
+                      <div class="col-md-5 text-bold">Block Data:</div>
+                        <div class="col-md-7"><span class="divWrap">{{insertDet.block_data}}</span></div>
+                  </div>
+                  <div class="col-md-12">
+                      <div class="col-md-5 text-bold">Block Time:</div>
+                          <div class="col-md-7">{{insertDet.time}}</div>
+                  </div>
+                  <div class="col-md-12">
+                      <div class="col-md-5 text-bold">Fees:</div>
+                          <div class="col-md-7">{{insertDet.fees}}</div>
+                  </div>
+                  <div class="col-md-12">
+                      <div class="col-md-5 text-bold">Last Block Hash:</div>
+                          <div class="col-md-7">{{insertDet.block_hash}}</div>
+                  </div>
+                  <div class="col-md-12">
+                      <div class="col-md-5 text-bold">Last Block Parts:</div>
+                          <div class="col-md-7">{{insertDet.last_block_parts}}</div>
+                  </div>
+                  <div class="col-md-12">
+                      <div class="col-md-5 text-bold">Last Validation Hash:</div>
+                          <div class="col-md-7">{{insertDet.last_validation_hash}}</div>
+                  </div>
+                  <div class="col-md-12">
+                      <div class="col-md-5 text-bold">State Hash:</div>
+                          <div class="col-md-7">{{insertDet.state_hash}}</div>
+                  </div>
+			</modal>
 		</div>
 		<div class="clearfix"></div>
 	</div>

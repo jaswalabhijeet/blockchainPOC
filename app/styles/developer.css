@@ -114,3 +114,51 @@
 .tbl-max-dash{
 	max-height: 200px;
 }
+.height_class{
+	cursor:pointer;
+	color:#FF9821;
+}
+.min-height600{
+	min-height: 600px;
+}
+.colmd7-cus{
+color:white; 
+padding:2% 5%;
+border-right:1px solid grey;
+}
+.margin-btm15{
+	margin-bottom: 15%;
+}
+.usr-cls{
+	color:black; 
+	font-size:10px;
+}
+.pwd-cls{
+	color:black; 
+	font-size:10px;
+}
+.fgt-cls{
+	color:black; 
+	margin:5%;
+}
+.colmd5-cus{
+	color:white; 
+	padding:2% 5%;
+}
+.mgn-bot-24{
+	margin-bottom:24%;
+}
+.divWrap{
+    line-height: 1.5em;
+    height: 3em;       /* height is 2x line-height, so two lines will display */
+    overflow: hidden;  /* prevents extra lines from being visible */
+    word-break: break-all;
+}
+.modal-scroll{
+	max-height:500px;
+	overflow:scroll;
+}
+.tbl-wrap{
+	word-break:break-all;
+	width:400px;
+}

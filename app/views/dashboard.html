@@ -23,14 +23,15 @@
 							</tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>1</td>
-							<td>Foo</td>
+						<tr ng-show="totAmount >0">
+							<td>City Bank</td>
+							<td>{{totAmount}}</td>
 						</tr>
-						<tr>
-							<td>2</td>
-							<td>dff</td>
-						</tr>
+						<tr ng-show="totAmount <1">
+					        <td colspan="2" class="text-ceneter text-danger">
+					            No Data Available!
+					        </td>
+					    </tr>
 						</tbody>
 					</table>
 				</div>
