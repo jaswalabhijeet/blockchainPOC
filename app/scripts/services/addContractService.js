@@ -14,7 +14,7 @@ app.factory('AddContractService', ['$q', '$http', function ($q, $http) {
         var deferred = $q.defer();
         $http({
             method: 'GET',
-            url: 'http://52.73.17.136:32771/status'
+            url: 'http://52.73.17.136:32771//status'
         }).then(function (blockStatus) {
             deferred.resolve(blockStatus);
         }, function (error) {

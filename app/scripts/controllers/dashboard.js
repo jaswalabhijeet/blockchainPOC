@@ -70,18 +70,17 @@ $scope.approveBtnClick = function (contractDetails)
 	  			"supplierID":contractDetails.supplierID};
 		AddContractService.getBlockStatus().then(function (response) 
 	    {
+			
 	    	$scope.prevBlockHeight = response.data.result[1].latest_block_height;
-	 		 	
+	 			
 	    	DashboardService.approveContract(JSON.stringify($scope.approvalData)).then(function (approvalResponse) 
 	    	{
 	    		var insertDet={};
 	    		AddContractService.getBlockStatus().then(function (newBlockChainStatus) 
 	    		{
 	    			$scope.newBlockHeight = newBlockChainStatus.data.result[1].latest_block_height;
-	    			
 	    			AddContractService.fetchBlocks($scope.prevBlockHeight, $scope.newBlockHeight).then(function (blocksData) 
 	                {
-	                	
 	                	angular.forEach(blocksData.data.result[1].block_metas, function (value, key) 
 	                    {
 	                    	if (value.header.num_txs >=1) 
@@ -108,12 +107,15 @@ $scope.approveBtnClick = function (contractDetails)
 	                                insertDet["block_data"]=blockData.data.result[1].block.data.txs[0][1].data;
 	                                insertDet["data_hash"]=blockData.data.result[1].block.header.data_hash;
 	                                insertDet["block_time"]=blockData.data.result[1].block.header.time;
+									
 	                                var temp=[];
 	                                temp.push(insertDet);
 	                                var jsonObj={};
 	                                jsonObj["row"]=temp;
+									console.log(JSON.stringify(jsonObj));exit;
 	                                AddContractService.insertBlockData(JSON.stringify(jsonObj)).then(function (insertResponse) 
 	                                {
+										
 	                                    $scope.displayLoading = false;
 	                                    $scope.displayError = "Approved Successfully!";
 	                                    location.reload(); 

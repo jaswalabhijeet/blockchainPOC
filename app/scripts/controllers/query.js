@@ -6,7 +6,7 @@
  * # queryCtrl
  */
 app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService','$state','$timeout','AddContractService','$filter', function ($scope,$rootScope,$cookieStore,QueryService,$state,$timeout,AddContractService,$filter) {
-
+	
     $scope.loggedUser = $cookieStore.get('loginData');
  	$rootScope.logUser = $cookieStore.get('loginTempData').userName;
   $scope.availableTags={};
@@ -37,6 +37,7 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
               
           });
           $scope.complete();
+		  $scope.displayLoading = false;
     	}, function (error) {
             console.log("Error while fetching block data: " + error);
             $scope.displayLoading = false;
@@ -49,7 +50,7 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
 		$scope.auditResult=[];
         QueryService.getAuditDetails().then(function (response) 
         {
-        	
+        	console.log(response);
     			angular.forEach(response.data.row, function(value, key)
     			{
     				
@@ -68,12 +69,13 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
     					}
     				}
 			   });
-         $scope.auditResult = $filter('orderBy')($scope.auditResult, 'height', false);
+			$scope.auditResult = $filter('orderBy')($scope.auditResult, 'height', false);
          
 			setTimeout(function()
 			{
 				$('.query_tbl').DataTable();
 			}, 20);
+			$scope.displayLoading = false;
     	}, function (error) {
             console.log("Error while fetching block data: " + error);
             $scope.displayLoading = false;
@@ -101,6 +103,7 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
     
     AddContractService.fetchBlockData(height).then(function (blockData) 
     {
+		console.log(blockData);
         $scope.insertDet["chain_id"]=blockData.data.result[1].block.header.chain_id;
         $scope.insertDet["height"]=parseInt(blockData.data.result[1].block.header.height);
         $scope.insertDet["num_txs"]=parseInt(blockData.data.result[1].block.header.num_txs);
