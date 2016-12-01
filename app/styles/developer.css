@@ -96,7 +96,36 @@
 	background-color:#575757;
 }
 .login-container{
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+	background-size: 100% 100%;
+	background-image:url("../images/bg.png");
+}
+.login-container-overlay{
 	background-color:#333;
+	position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+	background: rgba(0, 0, 0, 0.3);
+}
+.login-box {
+    width: 700px;
+    height: 250px;
+    text-align: center;
+    position: absolute;
+    top: 150px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    color: #fff;
+	opacity:0.5;
+	background-color:#3030f9;
 }
 .icon-event{
 	cursor: pointer;
@@ -130,11 +159,11 @@ border-right:1px solid grey;
 	margin-bottom: 15%;
 }
 .usr-cls{
-	color:black; 
+	color:#fff; 
 	font-size:10px;
 }
 .pwd-cls{
-	color:black; 
+	color:#fff; 
 	font-size:10px;
 }
 .fgt-cls{
@@ -183,4 +212,57 @@ border-right:1px solid grey;
     left: 0;
     margin: auto;
     color: #fff;
+}
+.line:after{
+	content:'';
+	position:absolute;
+	right:0;
+	height:100%;
+	width:1px;
+	background:white;
+	margin:10px 0;
+	top:0;
+	color:red;
+}
+.btn-sup {
+    color: #000;
+	font-weight:bold;
+    background-color: #ffff00;
+    border-color: #ffff00;
+}
+.logo-area 
+{
+    text-align: center;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    color: #fff;
+}
+.logo-head
+{
+    text-align: center;
+    position: absolute;
+    top: 140px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    color: #fff;
+	font-size:40px;
+	font-weight:weight;
+}
+.logo-sub-head
+{
+    text-align: center;
+    position: absolute;
+    top: 200px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    color: #fff;
+	font-size:18px;
 }

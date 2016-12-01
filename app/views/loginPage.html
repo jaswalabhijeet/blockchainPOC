@@ -2,45 +2,51 @@
 	<div class="row" >
 		<div class="test" >
 			<div class="col-md-12 login-container min-height600">
-				<div class="col-md-7 min-height600 colmd7-cus">
-					<div class="form-panel-font margin-btm15">Supply Chain Integrity: Browse, Edit & Monitor</div>
-					<div class="well row pt-2x pb-3x bk-light">
-						<div class="col-md-8 col-md-offset-2" >
-							<form name="login" novalidate="" ng-submit="loginButtonClick();" class="mt ng-pristine ng-invalid ng-invalid-required">
-								<label class="text-uppercase text-sm usr-cls">Username</label>
-								<input type="text" placeholder="Please enter your Username" class="form-control mb ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="uname" ng-model="username" required="">
-								
-								<label class="text-uppercase text-sm pwd-cls">Password</label>
-								<input type="password" placeholder="Please enter your Password" class="form-control mb ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="pwd" ng-model="password" required="">
-
-								<div>
-									<label for="checkbox7" class="text-danger text-center ng-binding">
-										<input name="select_all" value="1" type="checkbox" ng-model="remeberMe"> Remember Me
-									</label>
-								</div>
-								<div  class="text-danger padding-1">{{displayError}}</div>
-								<button class="col-md-4 btn btn-warning" type="submit" ng-disabled="login.$invalid">SIGN IN</button>
-								<span class="fgt-cls">Forgot password?<span>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-5 colmd5-cus">
-					<div class="form-panel-font mgn-bot-24">&nbsp;</div>
-					<div class="well row pt-2x pb-3x bk-light">
-						<div class="col-md-8 col-md-offset-2">
-							<form name="loginG" novalidate="" ng-submit="" class="mt ng-pristine ng-invalid ng-invalid-required">
-								<label class="text-uppercase text-sm usr-cls">Name</label>
-								<input type="text" placeholder="Please Enter Your Name" class="form-control mb ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="uname" ng-model="uname" required="">
-								
-								<label class="text-uppercase text-sm pwd-cls">Email</label>
-								<input type="password" placeholder="Please Enter Your Email" class="form-control mb ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="pwd" ng-model="pwd" required="">
-
-								<div>
-									<label for="checkbox7" class="text-danger text-center ng-binding"></label>
-								</div>
-								<button class="col-md-4 btn btn-warning btn-block" type="submit" ng-disabled="loginG.$invalid" disabled="disabled">Login as Guest</button>	
-							</form>
+				<div class="col-md-12 min-height600 colmd7-cus login-container-overlay">
+					<div class="logo-area"><img src="../images/logo.png"></div>
+					<div class="logo-head">Supply Chain Integrity</div>
+					<div class="logo-sub-head">Medical Drug Supply Chain Integrity</div>
+					<div class="well pt-2x pb-3x bk-light login-box">
+						<div class="row">
+							<div class="col-md-6 line">
+									<div style="text-align:left;margin-bottom:1%; color:white;"><label class="text-sm usr-cls">Email</label>
+										<input type="text" placeholder="Please enter your Email" class="form-control mb ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="uname" ng-model="username" required="">
+									</div>
+									<div style="text-align:left;margin-bottom:1%; color:white;">
+										<label class="text-sm pwd-cls">Password</label>
+										<input type="password" placeholder="Please enter your Password" class="form-control mb ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="pwd" ng-model="password" required="">
+									</div>
+									<div style="text-align:left;margin-bottom:3%;">&nbsp;</div>
+									<div  class="text-danger padding-1">{{displayError}}</div>
+									<div class="pull-right">
+										<button class="col-md-4 btn btn-sup" style="width:100%;" type="submit" ng-disabled="login.$invalid">Login as Guest</button>
+									</div>
+							</div>
+							<div class="col-md-6 ">
+								<form name="login" novalidate="" ng-submit="loginButtonClick();" class="mt ng-pristine ng-invalid ng-invalid-required">
+									<div style="text-align:left;margin-bottom:1%;">
+										<label class="text-sm usr-cls">Email</label>
+										<input type="text" placeholder="Please enter your Email" class="form-control mb ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="uname" ng-model="username" required="">
+									</div>
+									<div style="text-align:left;margin-bottom:1%; color:white;">
+										<label class="text-sm pwd-cls">Password</label>
+										<input type="password" placeholder="Please enter your Password" class="form-control mb ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="pwd" ng-model="password" required="">
+									</div>
+									<div style="text-align:left;margin-bottom:1%; ">
+										<label for="checkbox7" style="color:white;"  class="text-danger text-center ng-binding">
+											<input name="select_all" value="1" type="checkbox" ng-model="remeberMe"> 
+											Remember Me
+										</label>
+										<span class="fgt-cls" style="color:white;">Forgot password?<span>
+									</div>
+									<div  class="text-danger padding-1">{{displayError}}</div>
+									<div class="pull-right">
+										<button class="col-md-4 btn btn-sup" style="width:100%;" type="submit" ng-disabled="login.$invalid">Sign In</button>
+									</div>
+									
+								</form>
+							</div>
+							
 						</div>
 					</div>
 				</div>
