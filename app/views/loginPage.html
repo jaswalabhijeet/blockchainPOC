@@ -1,47 +1,32 @@
 <div class="container-fluid">
 	<div class="row" >
 		<div class="test" >
-			<div class="col-md-12 login-container min-height600">
-				<div class="col-md-12 min-height600 colmd7-cus login-container-overlay">
-					<div class="logo-area"><img src="../images/logo.png"></div>
-					<div class="logo-head">Supply Chain Integrity</div>
-					<div class="logo-sub-head">Medical Drug Supply Chain Integrity</div>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 login-container min-height600">
+				<div class="col-md-12 min-height600">
+					<div class="logo-area"><img src="../images/logo.png" style="width:250px;height;200px;"></div>
+					<div class="logo-head">Medical Drug Supply Chain Integrity</div>
 					<div class="well pt-2x pb-3x bk-light login-box">
 						<div class="row">
-							<div class="col-md-6 line">
-									<div style="text-align:left;margin-bottom:1%; color:white;"><label class="text-sm usr-cls">Email</label>
-										<input type="text" placeholder="Please enter your Email" class="form-control mb ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="uname" ng-model="username" required="">
-									</div>
-									<div style="text-align:left;margin-bottom:1%; color:white;">
-										<label class="text-sm pwd-cls">Password</label>
-										<input type="password" placeholder="Please enter your Password" class="form-control mb ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="pwd" ng-model="password" required="">
-									</div>
-									<div style="text-align:left;margin-bottom:3%;">&nbsp;</div>
-									<div  class="text-danger padding-1">{{displayError}}</div>
-									<div class="pull-right">
-										<button class="col-md-4 btn btn-sup" style="width:100%;" type="submit" ng-disabled="login.$invalid">Login as Guest</button>
-									</div>
-							</div>
-							<div class="col-md-6 ">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 								<form name="login" novalidate="" ng-submit="loginButtonClick();" class="mt ng-pristine ng-invalid ng-invalid-required">
-									<div style="text-align:left;margin-bottom:1%;">
-										<label class="text-sm usr-cls">Email</label>
-										<input type="text" placeholder="Please enter your Email" class="form-control mb ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="uname" ng-model="username" required="">
+									<div style="text-align:left;margin-bottom:2%;">
+										<label class="text-sm usr-cls">Username</label>
+										<input type="text" placeholder="Please enter your username" class="form-control mb ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="uname" ng-model="username" required="">
 									</div>
-									<div style="text-align:left;margin-bottom:1%; color:white;">
+									<div style="text-align:left;margin-bottom:2%; color:white;">
 										<label class="text-sm pwd-cls">Password</label>
 										<input type="password" placeholder="Please enter your Password" class="form-control mb ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="pwd" ng-model="password" required="">
 									</div>
-									<div style="text-align:left;margin-bottom:1%; ">
-										<label for="checkbox7" style="color:white;"  class="text-danger text-center ng-binding">
+									<div style="text-align:left;margin-bottom:2%; ">
+										<label for="checkbox7"  class="text-center ng-binding usr-cls">
 											<input name="select_all" value="1" type="checkbox" ng-model="remeberMe"> 
 											Remember Me
 										</label>
-										<span class="fgt-cls" style="color:white;">Forgot password?<span>
+										<span class="fgt-cls" >Forgot password?<span>
 									</div>
 									<div  class="text-danger padding-1">{{displayError}}</div>
 									<div class="pull-right">
-										<button class="col-md-4 btn btn-sup" style="width:100%;" type="submit" ng-disabled="login.$invalid">Sign In</button>
+										<button class="col-xs-4 col-sm-4 col-md-4 col-lg-4 btn btn-warning" style="width:100%;" type="submit" ng-disabled="login.$invalid">Sign In</button>
 									</div>
 									
 								</form>
@@ -50,6 +35,7 @@
 						</div>
 					</div>
 				</div>
+				
 			</div>
 		</div>
 	</div>
