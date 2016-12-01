@@ -9,25 +9,23 @@
 angular.module('blockChainApp').controller('addContractCtrl', ['$scope', 'AddContractService','$cookieStore','$state','$filter','$rootScope', function ($scope, AddContractService,$cookieStore,$state,$filter,$rootScope) 
 {
 	$(document).ready(function() {
-    $('.set-hgt').attr('style','min-height:652px');
-  });
+        $('.set-hgt').attr('style','min-height:652px');
+    });
 	
     $scope.loggedUser = $cookieStore.get('loginData');
     $rootScope.logUser = $cookieStore.get('loginTempData').userName;
 	$scope.findTotal = function () {
 		$scope.totalPrice=$scope.quantity*$scope.pricePerUOM;
-		
 	}
 	
     $scope.prevBlockHeight = "";
     $scope.newBlockHeight = "";
-    
-    $scope.createContractBtnClick = function () {
+    $scope.createContractBtnClick = function () 
+    {
         $scope.displayLoading = true;
         AddContractService.getBlockStatus().then(function (response) 
         {    
             $scope.prevBlockHeight = response.data.result[1].latest_block_height;
-
             //console.log(response);
             var dateAsString = $filter('date')(new Date(), "ddMMyyyyHHmmss");
             var supDate = $filter('date')($scope.supDate, "ddMMyyyy");

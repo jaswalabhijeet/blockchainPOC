@@ -53,6 +53,7 @@ app.controller('showBlocksCtrl', ['$scope','$rootScope','$cookieStore','AddContr
 					{
 						$('.blocks_tbl').DataTable();
 					}, 20);
+              $scope.displayLoading = false;
             	}, function (error) {
             		console.log("Error while fetching block data: " + error);
             		$scope.displayLoading = false;

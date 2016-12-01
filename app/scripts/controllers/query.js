@@ -5,12 +5,11 @@
  * @description
  * # queryCtrl
  */
-app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService','$state','$timeout','AddContractService','$filter', function ($scope,$rootScope,$cookieStore,QueryService,$state,$timeout,AddContractService,$filter) {
-	
-    $scope.loggedUser = $cookieStore.get('loginData');
+app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService','$state','$timeout','AddContractService','$filter', function ($scope,$rootScope,$cookieStore,QueryService,$state,$timeout,AddContractService,$filter) 
+{
+	$scope.loggedUser = $cookieStore.get('loginData');
  	$rootScope.logUser = $cookieStore.get('loginTempData').userName;
   $scope.availableTags={};
-
 
   $(document).ready(function() {
     $('.set-hgt').attr('style','min-height:652px');
@@ -37,7 +36,7 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
               
           });
           $scope.complete();
-		  $scope.displayLoading = false;
+		      $scope.displayLoading = false;
     	}, function (error) {
             console.log("Error while fetching block data: " + error);
             $scope.displayLoading = false;
@@ -69,8 +68,7 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
     					}
     				}
 			   });
-			$scope.auditResult = $filter('orderBy')($scope.auditResult, 'height', false);
-         
+			$scope.auditResult = $filter('orderBy')($scope.auditResult, 'height', false); 
 			setTimeout(function()
 			{
 				$('.query_tbl').DataTable();
@@ -82,7 +80,8 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
         });
 	}
 	
-    $scope.complete=function(){
+  $scope.complete=function()
+  {
 
     $( "#tags" ).autocomplete({
       source: $scope.result,
@@ -100,10 +99,9 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
   $scope.insertDet={};
   $scope.toggleModal = function(height)
   {
-    
+    $scope.displayLoading = true;
     AddContractService.fetchBlockData(height).then(function (blockData) 
     {
-		console.log(blockData);
         $scope.insertDet["chain_id"]=blockData.data.result[1].block.header.chain_id;
         $scope.insertDet["height"]=parseInt(blockData.data.result[1].block.header.height);
         $scope.insertDet["num_txs"]=parseInt(blockData.data.result[1].block.header.num_txs);
@@ -130,7 +128,7 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
 
   $scope.toggleModalBlock = function(blkDat)
   {
-    
+    $scope.displayLoading = true;
     AddContractService.fetchBlockData(blkDat).then(function (blockData) 
     {
         $scope.insertDet["chain_id"]=blockData.data.result[1].block.header.chain_id;
@@ -168,7 +166,8 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
     }
 }]);
 
-app.directive('modal', function () {
+app.directive('modal', function () 
+{
     return {
       transclude: true,
       restrict: 'E',
@@ -200,8 +199,8 @@ app.directive('modal', function () {
   });
 
   
-app.directive('modalBlock', function () {
-  console.log("sd");
+app.directive('modalBlock', function () 
+{
     return {
       transclude: true,
       restrict: 'E',

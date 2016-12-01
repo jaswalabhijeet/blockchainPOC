@@ -30,10 +30,9 @@
 	}, 0);
 	$scope.getContract=function () 
 	{
+		$scope.displayLoading = true;
 		DashboardService.getContractsDeployedByMe().then(function (response) 
 		{
-			//var tmpJson = {"row":[{"contractID":3,"contractName":"test","supplierID":3,"supplierName":"test","productID":3,"productName":"test","uom":"test","quantity":3,"pricePerUOM":3,"totalPrice":4,"currency":"$","supplyByDate":"2016-11-17 04:06:10","carrier":"test","pickTo":"us","shipTo":"us","Trackingnumber":"test","signedBy":"supplier","pendingWith":"supplier","createdBy":"buyer","createdDate":"2016-11-17 04:06:10","status":"pending","filler1":"","filler2":"","filler3":"","filler4":"","filler5":""},{"contractID":30,"contractName":"testinsert","supplierID":3,"supplierName":"testinsert","productID":1,"productName":"test","uom":"each","quantity":10,"pricePerUOM":10,"totalPrice":100,"currency":"$","supplyByDate":22112016,"carrier":null,"pickTo":null,"shipTo":null,"Trackingnumber":null,"signedBy":null,"pendingWith":"supplier","createdBy":"buyer","createdDate":"22112016","status":"pending","filler1":null,"filler2":null,"filler3":null,"filler4":null,"filler5":null},{"contractID":40,"contractName":"testinsert1","supplierID":3,"supplierName":"testinsert1","productID":1,"productName":"test","uom":"each","quantity":10,"pricePerUOM":10,"totalPrice":100,"currency":"$","supplyByDate":22112016,"carrier":null,"pickTo":null,"shipTo":null,"Trackingnumber":null,"signedBy":null,"pendingWith":"supplier","createdBy":"buyer","createdDate":"22112016","status":"pending","filler1":null,"filler2":null,"filler3":null,"filler4":null,"filler5":null}]};
-			
 			$scope.contractsDeply=[];
 			$scope.contractsPending=[];
 			angular.forEach(response.data.row, function(value, key)
@@ -47,18 +46,15 @@
 					$scope.contractsPending.push(value);
 				}
 			});
-			
-			/**dummy end */
-		
-	});
+			$scope.displayLoading = false;
+		});
 	}
 
 $scope.prevBlockHeight = "";
 $scope.newBlockHeight = "";
     
 $scope.approveBtnClick = function (contractDetails) 
-{
-	
+{	
 	$scope.displayLoading = true;
 	if($rootScope.logUser=='supplier')
 	{
@@ -70,9 +66,7 @@ $scope.approveBtnClick = function (contractDetails)
 	  			"supplierID":contractDetails.supplierID};
 		AddContractService.getBlockStatus().then(function (response) 
 	    {
-			
 	    	$scope.prevBlockHeight = response.data.result[1].latest_block_height;
-	 			
 	    	DashboardService.approveContract(JSON.stringify($scope.approvalData)).then(function (approvalResponse) 
 	    	{
 	    		var insertDet={};
@@ -115,7 +109,6 @@ $scope.approveBtnClick = function (contractDetails)
 									console.log(JSON.stringify(jsonObj));exit;
 	                                AddContractService.insertBlockData(JSON.stringify(jsonObj)).then(function (insertResponse) 
 	                                {
-										
 	                                    $scope.displayLoading = false;
 	                                    $scope.displayError = "Approved Successfully!";
 	                                    location.reload(); 
@@ -197,7 +190,6 @@ $scope.approveBtnClick = function (contractDetails)
 	                                temp.push(insertDet);
 	                                var jsonObj={};
 	                                jsonObj["row"]=temp;
-	                                //console.log(JSON.stringify(jsonObj));exit;
 	                                AddContractService.insertBlockData(JSON.stringify(jsonObj)).then(function (insertResponse) 
 	                                {
 	                                    $scope.displayLoading = false;
@@ -316,7 +308,6 @@ $scope.approveBtnClick = function (contractDetails)
 
 $scope.cancelBtnClick=function (contractDetails) 
 {
-	
 	$scope.displayLoading = true;
 	if($rootScope.logUser=='supplier')
 	{
@@ -329,7 +320,6 @@ $scope.cancelBtnClick=function (contractDetails)
 		AddContractService.getBlockStatus().then(function (response) 
 	    {
 	    	$scope.prevBlockHeight = response.data.result[1].latest_block_height;
-	 		// 	console.log($scope.prevBlockHeight);
 	    	DashboardService.approveContract($scope.approvalData).then(function (approvalResponse) 
 	    	{
 	    		var insertDet={};
