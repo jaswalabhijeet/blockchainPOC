@@ -93,10 +93,10 @@
 }
 .test
 {
-	background-color:#575757;
+    background-image: url(../images/bg.jpg); 
 }
 .login-container{
- 	background-color:#333;
+ 	 background-image: url(../images/bg.jpg);
 	position: fixed;
     top: 0;
     left: 0;
@@ -233,7 +233,7 @@ border-right:1px solid grey;
 {
     text-align: center;
     position: absolute;
-    top: 0px;
+    top: -40px;
     right: 0;
     bottom: 0;
     left: 0;
