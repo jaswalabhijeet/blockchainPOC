@@ -7,8 +7,23 @@
  * # UserLoginService
  * User Service for user authentication
  */
-app.factory('UserLoginService', ['$q', '$http', '$cookies','$cookieStore', function ($q, $http, $cookies,$cookieStore) {
+app.factory('UserLoginService', ['$q', '$http', '$cookies','$cookieStore', function ($q, $http, $cookies,$cookieStore) 
+{
     var userDetails = {};
+
+    userDetails.getUsernameDetails = function () 
+    {
+        var deferred = $q.defer();
+        $http({
+            method: 'GET',
+            url: 'http://34.192.232.173:3000/username'
+        }).then(function (usernameDetails) {
+            deferred.resolve(usernameDetails);
+        }, function (error) {
+            deferred.reject(error);
+        });
+        return deferred.promise;
+    }
 
     userDetails.isAuthenticated = function () {
         if ($cookieStore.get('loginData') != null) {
@@ -24,7 +39,7 @@ app.factory('UserLoginService', ['$q', '$http', '$cookies','$cookieStore', funct
         var deferred = $q.defer();
         $http({
             method: 'POST',
-            url: 'http://52.73.17.136:3000/login',
+            url: 'http://34.192.232.173:3000/login',
             data: {
                 username: userName,
                 password: passWord

@@ -3,66 +3,95 @@
 		<div class="test" >
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 login-container min-height600">
 				<div class=" min-height600">
-					<MARQUEE WIDTH="100%">
-						<div>
-							<div class="col-md-1" style="color:#000;background-color:#a9c5f2;margin-top:1%;">Block 0</div>
-							<div class="col-md-1" style="color:#000;background-image:url(../images/link.png);margin-top:1%;">
-									<img src="../images/link.png" style="width:20px;height;10px;">
-							</div>
-							<div class="col-md-1" style="color:#000;background-color:#a9c5f2; margin-top:1%;">Block 2</div>
-							<div class="col-md-1" style="color:#000;background-image:url(../images/link.png);margin-top:1%;">
-									<img src="../images/link.png" style="width:20px;height;10px;">
-							</div>
-							<div class="col-md-1" style="color:#000;background-color:#a9c5f2; margin-top:1%;">Block 4</div>
-							<div class="col-md-1" style="color:#000;background-image:url(../images/link.png);margin-top:1%;">
-									<img src="../images/link.png" style="width:20px;height;10px;">
-							</div>
-							<div class="col-md-1" style="color:#000;background-color:#a9c5f2; margin-top:1%;">Block 6</div>
-							<div class="col-md-1" style="color:#000;background-image:url(../images/link.png); margin-top:1%;">
-									<img src="../images/link.png" style="width:20px;height;10px;">
-							</div>
-							<div class="col-md-1" style="color:#000;background-color:#a9c5f2;margin-top:1%;">Block 6</div>
-						</div>
-					</MARQUEE>
-					<div class="example1">
-							<div class="col-md-1" style="color:#000;background-color:#a9c5f2;margin-top:1%;">Block 0</div>
-						</div>
-					<div class="logo-area"><img src="../images/logo.png" style="width:250px;height;200px; margin:1% 0%;"></div>
+					<div class="logo-area"><img src="../images/logo.png"></div>
 					<div class="logo-head">Medical Drug Supply Chain Integrity</div>
-
 					<div class="well pt-2x pb-3x bk-light login-box">
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 								<form name="login" novalidate="" ng-submit="loginButtonClick();" class="mt ng-pristine ng-invalid ng-invalid-required">
-									<div style="text-align:left;margin-bottom:2%;">
+									<div class="usr-hld">
 										<label class="text-sm usr-cls">Username</label>
-										<input type="text" placeholder="Please enter your username" class="form-control mb ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="uname" ng-model="username" required="">
+										<input type="text" max-results="10" delay="300" min-length="2" allow-only-results="true" ng-keyup="complete();" id="uname" placeholder="Please enter your username" class="form-control mb ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="uname" ng-model="username">
 									</div>
-									<div style="text-align:left;margin-bottom:2%; color:white;">
+									<div class="usr-hld">
 										<label class="text-sm pwd-cls">Password</label>
-										<input type="password" placeholder="Please enter your Password" class="form-control mb ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="pwd" ng-model="password" required="">
+										<input type="password" placeholder="Please enter your Password" class="form-control mb ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" name="pwd" ng-model="password">
 									</div>
-									<div style="text-align:left;margin-bottom:2%; ">
+									<div style="text-align:left;margin-bottom:1%; ">
 										<label for="checkbox7"  class="text-center ng-binding usr-cls">
-											<input name="select_all" value="1" type="checkbox" ng-model="remeberMe"> 
+											<input name="rememberMe" value="1" type="checkbox" ng-model="remeberMe"> 
 											Remember Me
 										</label>
-										<span class="fgt-cls" >Forgot password?<span>
+										<span class="fgt-cls">Forgot password?<span>
 									</div>
-									<div  class="text-danger padding-1">{{displayError}}</div>
+									<div  class="text-danger padding-1 text-bold">{{displayError}}</div>
 									<div class="pull-right">
-										<button class="col-xs-4 col-sm-4 col-md-4 col-lg-4 btn btn-warning" style="width:100%;" type="submit" ng-disabled="login.$invalid">Sign In</button>
+										<button class="col-xs-4 col-sm-4 col-md-4 col-lg-4 btn btn-sup" style="width:100%;" type="submit" ng-disabled="login.$invalid">Sign In</button>
 									</div>
 									
 								</form>
-							</div>:
+							</div>
 							
 						</div>
 					</div>
+					<div class="col-lg-12 ">
+<div class="carousel slide" id="myCarousel">
+  <div class="carousel-inner">
+    <div class="item active">
+      <div class="col-lg-2 div-block"><a href="#">asdsd</a></div>
+    </div>
+    <div class="item">
+      <div class="col-lg-2  div-block">block1</div>
+    </div>
+    <div class="item">
+      <div class="col-lg-2  div-block">block2</div>
+    </div>
+    <div class="item">
+      <div class="col-lg-2  div-block">block3</div>
+    </div>
+    <div class="item">
+      <div class="col-lg-2  div-block">block4</a></div>
+    </div>
+    <div class="item">
+      <div class="col-lg-2  div-block">block5</a></div>
+    </div>
+    <div class="item">
+      <div class="col-lg-2  div-block">block6</div>
+    </div>
+    <div class="item">
+      <div class="col-lg-2  div-block">block7</a></div>
+    </div>
+    <div class="item">
+      <div class="col-lg-2  div-block">block8</a></div>
+    </div>
+    <div class="item">
+      <div class="col-lg-2  div-block">block9</a></div>
+    </div>
+    <div class="item">
+      <div class="col-lg-2  div-block">block10</a></div>
+    </div>
+    <div class="item">
+      <div class="col-lg-2  div-block">block11</a></div>
+    </div>
+    <div class="item">
+      <div class="col-lg-2  div-block">block12</a></div>
+    </div>
+    <div class="item">
+      <div class="col-lg-2  div-block">block8</a></div>
+    </div>
+  </div>
+</div>
+</div>
 
 				</div>
 				
 			</div>
 		</div>
 	</div>
+</div>
+<div class="spinner-overlay" ng-show="displayLoading">
+    <div class="spinner-area">
+        <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+        <span class="sr-only">Loading...</span>
+    </div>
 </div>

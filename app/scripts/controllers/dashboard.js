@@ -9,7 +9,7 @@
  app.controller('dashboardCtrl', ['DashboardService','UserLoginService', '$scope','$cookieStore','$state','$rootScope','AddContractService','$filter',function (DashboardService, UserLoginService, $scope, $cookieStore,$state,$rootScope,AddContractService,$filter)
  {
  	$scope.loggedUser = $cookieStore.get('loginData');
- 	$rootScope.logUser = $cookieStore.get('loginTempData').userName;
+ 	$rootScope.logUser = $cookieStore.get('loginTempData').profileType;
  	$scope.totAmount=$cookieStore.get('totAmnt');
 	$(document).ready(function() {
     $('.set-hgt').attr('style','min-height:652px');

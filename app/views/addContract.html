@@ -38,42 +38,39 @@
 						<div class="col-md-12  padding-1">
 							<div class="col-md-6">
 								<label for="form-field-mask-1">
-									Product ID
-								</label>
-								<div class="input-group">
-									<input ng-model="productID" class="form-control input-mask-date" type="text" id="form-field-mask-1">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<label for="form-field-mask-1">
 									Product Name
 								</label>
 								<div class="input-group">
 									<input ng-model="productName" class="form-control input-mask-date" type="text" id="form-field-mask-1">
 								</div>
 							</div>
+
+							<div class="col-md-6">
+								<label for="form-field-mask-1">
+									Product ID
+								</label>
+								<div class="input-group">
+									<input ng-model="productID" class="form-control input-mask-date" type="text" id="form-field-mask-1">
+								</div>
+							</div>
 						</div>
 						
 						<div class="col-md-12  padding-1">
 							<hr class="hr">
-							<div class="col-md-6">
-								<label for="form-field-mask-1">
-									Currency
-								</label>
-								<div class="input-group">
-									<select class="form-control" ng-model="currency">
-										<option value=" ">-Select-</option>
-										<option value="inr">INR</option>
-										<option value="dollar">D0llar</option>
-									</select>
-								</div>
-							</div>
-							<div class="col-md-6">
+							<div class="col-md-12">
 								<label for="form-field-mask-1">
 									UOM
 								</label>
 								<div class="input-group">
-									<input ng-model="uom" class="form-control input-mask-date" type="text" id="form-field-mask-1">
+									<select class="form-control" ng-model="uom">
+										<option value=" ">-Select-</option>
+										<option value="each">each</option>
+										<option value="case">case</option>
+										<option value="package">package</option>
+										<option value="kg">kg</option>
+										<option value="lbs">lbs</option>
+										<option value="oz">oz</option>
+									</select>
 								</div>
 							</div>
 						</div>

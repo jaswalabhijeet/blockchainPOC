@@ -92,7 +92,7 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
           }, 0);
         }
     });
-    } 
+  } 
   
   $scope.showModal = false;
   $scope.showModalBlock = false;
