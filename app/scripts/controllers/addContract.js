@@ -14,10 +14,75 @@ angular.module('blockChainApp').controller('addContractCtrl', ['$scope', 'AddCon
 	
     $scope.loggedUser = $cookieStore.get('loginData');
     $rootScope.logUser = $cookieStore.get('loginTempData').userName;
+    $rootScope.logType = $cookieStore.get('loginTempData').profileType;
+    $scope.pdctId="";
+    $scope.pdctPrice="";
 	$scope.findTotal = function () {
 		$scope.totalPrice=$scope.quantity*$scope.pricePerUOM;
 	}
 	
+    $scope.getProductName=function () 
+    {
+        $scope.displayLoading = true;
+        AddContractService.getPdctDetails().then(function (response) 
+        {
+            $scope.pdctName=[];
+            $scope.pdctDetails=[];
+            angular.forEach(response.data.row, function(value, key)
+            {
+                    $scope.pdctName.push(value.product_name);
+                
+                    $scope.pdctDetails.push(value);
+                
+            });
+            $scope.displayLoading = false;
+        });
+    }
+    $scope.getProductDetails=function (pname) 
+    {
+        $scope.displayLoading = true;
+        angular.forEach($scope.pdctDetails, function(value, key)
+        {
+                if(value.product_name==pname)
+                {
+                    $scope.productID=value.product_id;  
+                     $scope.pricePerUOM=value.price;
+                }   
+        });
+        $scope.displayLoading = false;
+    }
+
+    $scope.getSupplierName=function () 
+    {
+        $scope.displayLoading = true;
+        AddContractService.getSupplierDetails().then(function (response) 
+        {
+            $scope.supName=[];
+            $scope.supDetails=[];
+            angular.forEach(response.data.row, function(value, key)
+            {
+                $scope.supName.push(value.username);   
+                $scope.supDetails.push(value);               
+            });
+            $scope.displayLoading = false;
+        });
+    }
+    $scope.getSupplierDetails=function (sname) 
+    {
+        $scope.displayLoading = true;
+        angular.forEach($scope.supDetails, function(value, key)
+        {
+                if(value.username==sname)
+                {
+                    $scope.supplierID=value.id;  
+                }   
+        });
+        $scope.displayLoading = false;
+    }
+
+    $scope.getProductName();
+    $scope.getSupplierName();
+
     $scope.prevBlockHeight = "";
     $scope.newBlockHeight = "";
     $scope.createContractBtnClick = function () 

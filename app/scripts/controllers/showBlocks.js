@@ -11,6 +11,7 @@ app.controller('showBlocksCtrl', ['$scope','$rootScope','$cookieStore','AddContr
 
     $scope.loggedUser = $cookieStore.get('loginData');
     $rootScope.logUser = $cookieStore.get('loginTempData').userName;
+    $rootScope.logType = $cookieStore.get('loginTempData').profileType;
     $(document).ready(function() {
    			 $('.set-hgt').attr('style','min-height:652px');
   	});

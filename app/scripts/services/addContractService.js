@@ -7,8 +7,38 @@
  * # UserLoginService
  * User Service for user authentication
  */
-app.factory('AddContractService', ['$q', '$http', function ($q, $http) {
+app.factory('AddContractService', ['$q', '$http','$rootScope', function ($q, $http,$rootScope) 
+{
     var addContractService = {};
+
+    addContractService.getPdctDetails = function () 
+    {
+        var deferred = $q.defer();
+        $http({
+            method: 'GET',
+            url: 'http://34.192.232.173:3000/productDetails?profile_type='+$rootScope.logType
+        }).then(function (pdtDetails) {
+            deferred.resolve(pdtDetails);
+        }, function (error) {
+            deferred.reject(error);
+        });
+        return deferred.promise;
+    }
+
+    addContractService.getSupplierDetails = function () 
+    {
+        var deferred = $q.defer();
+        $http({
+            method: 'GET',
+            url: 'http://34.192.232.173:3000/supplierDetails?profile_type='+$rootScope.logType
+        }).then(function (supDetails) {
+            deferred.resolve(supDetails);
+        }, function (error) {
+            deferred.reject(error);
+        });
+        return deferred.promise;
+    }
+
     addContractService.getBlockStatus = function () 
 	{
         var deferred = $q.defer();

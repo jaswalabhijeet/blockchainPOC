@@ -9,6 +9,7 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
 {
 	$scope.loggedUser = $cookieStore.get('loginData');
  	$rootScope.logUser = $cookieStore.get('loginTempData').userName;
+  $rootScope.logType = $cookieStore.get('loginTempData').profileType;
   $scope.availableTags={};
 
   $(document).ready(function() {

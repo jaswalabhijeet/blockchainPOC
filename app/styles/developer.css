@@ -157,6 +157,9 @@ color:white;
 padding:2% 5%;
 border-right:1px solid grey;
 }
+.margin-top1{
+    margin-top: 1%;
+}
 .margin-btm15{
 	margin-bottom: 15%;
 }
@@ -242,7 +245,7 @@ border-right:1px solid grey;
 {
     text-align: center;
     position: absolute;
-    top: 60px;
+    top: 80px;
     right: 0;
     bottom: 0;
     left: 0;
@@ -346,8 +349,6 @@ border-right:1px solid grey;
 .carousel-inner .active.left { left: -20%; }
 .carousel-inner .next        { left:  20%; }
 .carousel-control.left,.carousel-control.right {background-image:none;}
-
-.col-lg-2 {width: 20%;}
 
 .div-block{
     height: 30px;

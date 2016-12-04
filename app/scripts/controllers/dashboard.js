@@ -9,7 +9,8 @@
  app.controller('dashboardCtrl', ['DashboardService','UserLoginService', '$scope','$cookieStore','$state','$rootScope','AddContractService','$filter',function (DashboardService, UserLoginService, $scope, $cookieStore,$state,$rootScope,AddContractService,$filter)
  {
  	$scope.loggedUser = $cookieStore.get('loginData');
- 	$rootScope.logUser = $cookieStore.get('loginTempData').profileType;
+ 	$rootScope.logUser = $cookieStore.get('loginTempData').userName;
+ 	$rootScope.logType = $cookieStore.get('loginTempData').profileType;
  	$scope.totAmount=$cookieStore.get('totAmnt');
 	$(document).ready(function() {
     $('.set-hgt').attr('style','min-height:652px');
@@ -30,7 +31,7 @@
 	}, 0);
 	$scope.getContract=function () 
 	{
-		$scope.displayLoading = true;
+		//$scope.displayLoading = true;
 		DashboardService.getContractsDeployedByMe().then(function (response) 
 		{
 			$scope.contractsDeply=[];
@@ -50,8 +51,8 @@
 		});
 	}
 
-$scope.prevBlockHeight = "";
-$scope.newBlockHeight = "";
+	$scope.prevBlockHeight = "";
+	$scope.newBlockHeight = "";
     
 $scope.approveBtnClick = function (contractDetails) 
 {	

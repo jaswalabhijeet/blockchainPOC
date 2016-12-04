@@ -73,7 +73,8 @@ app.controller('loginCtrl', ['UserLoginService', '$scope', '$cookieStore','$stat
         
 
         $('#myCarousel').carousel({
-            interval: 4000
+            interval: 3000,
+            pause: "hover"
         })
 
         $('.carousel .item').each(function()
