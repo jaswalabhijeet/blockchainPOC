@@ -7,34 +7,14 @@
 		<div class="col-md-10 set-hgt padding_bg">
 			<div class="form-panel">
 				<div class="form-panel-border-sam">
-					<div class="form-panel-font">Supply Chain Integrity</div>
-					<div class="form-panel-margin">Browse,Edit & Monitor</div>
+					<div class="form-panel-font">Medical Drug Supply Chain Integrity</div>
+					
 				</div>
 				<div class="form-panel-head">Add Contract</div>
 			</div>
 			<div class="form-panel-sub-head">
-				<div class="form-panel-border">
+				<div class="">
 					<div class="col-md-12">
-						<div class="col-md-12 padding-1">
-							<div class="col-md-12">
-								<label for="form-field-mask-1">
-									Contract Name
-								</label>
-								<div class="input-group">
-									<input ng-model="contractName" class="form-control input-mask-date" type="text" id="form-field-mask-1">
-								</div>
-							</div>
-						</div>
-						<div class="col-md-12  padding-1">
-							<div class="col-md-12">
-								<label for="form-field-mask-1">
-									Supply By Date
-								</label>
-								<div class="input-group">
-									<input class="form-control input-mask-date" ng-model="supDate" type="date" id="form-field-mask-1">
-								</div>
-							</div>
-						</div>
 						<div class="col-md-12  padding-1">
 							<div class="col-md-6">
 								<label for="form-field-mask-1">
@@ -57,10 +37,62 @@
 								</div>
 							</div>
 						</div>
+						<div class="col-md-12  padding-1">
+							<div class="col-md-6">
+								<label for="form-field-mask-1">
+									Supplier Name
+								</label>
+								<div class="input-group">
+									<select class="form-control" ng-model="supplierName"  ng-change="getSupplierDetails(supplierName);">
+										<option value=" ">-Select-</option>
+										<option ng-repeat="sname in supName" value="{{sname}}">{{sname}}</option>
+									</select>
+								</div>
+							</div>	
+							<div class="col-md-6">
+								<label for="form-field-mask-1">
+									Supplier ID
+								</label>
+								<div class="input-group">
+									<input ng-model="supplierID" readonly class="form-control input-mask-date" type="text" id="form-field-mask-1">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12 padding-1">
+							<div class="col-md-12">
+								<label for="form-field-mask-1">
+									Contract Name
+								</label>
+								<div class="input-group">
+									<input ng-model="contractName" readonly class="form-control input-mask-date" type="text" id="form-field-mask-1">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12  padding-1">
+							<div class="col-md-12">
+								<label for="form-field-mask-1">
+									Supply By Date
+								</label>
+								<div class="input-group">
+									<input class="form-control input-mask-date" ng-model="supDate" type="date" id="form-field-mask-1">
+								</div>
+							</div>
+						</div>
+						
 						
 						<div class="col-md-12  padding-1">
-							<hr class="hr">
 							<div class="col-md-12">
+								<label for="form-field-mask-1">
+									Quantity
+								</label>
+								<div class="input-group">
+									<input ng-model="quantity" ng-change="findTotal()" class="form-control input-mask-date" type="text" id="form-field-mask-1">
+								</div>
+							</div>
+							
+						</div>
+						<div class="col-md-12  padding-1">
+							<div class="col-md-6">
 								<label for="form-field-mask-1">
 									UOM
 								</label>
@@ -74,16 +106,6 @@
 										<option value="lbs">lbs</option>
 										<option value="oz">oz</option>
 									</select>
-								</div>
-							</div>
-						</div>
-						<div class="col-md-12  padding-1">
-							<div class="col-md-6">
-								<label for="form-field-mask-1">
-									Quantity
-								</label>
-								<div class="input-group">
-									<input ng-model="quantity" ng-change="findTotal()" class="form-control input-mask-date" type="text" id="form-field-mask-1">
 								</div>
 							</div>
 							<div class="col-md-6">
@@ -108,30 +130,9 @@
 						
 						<div class="col-md-12  padding-1">
 							<hr class="hr">
-							<div class="col-md-6">
-								<label for="form-field-mask-1">
-									Supplier Name
-								</label>
-								<div class="input-group">
-									<select class="form-control" ng-model="supplierName"  ng-change="getSupplierDetails(supplierName);">
-										<option value=" ">-Select-</option>
-										<option ng-repeat="sname in supName" value="{{sname}}">{{sname}}</option>
-									</select>
-								</div>
-							</div>	
-							<div class="col-md-6">
-								<label for="form-field-mask-1">
-									Supplier ID
-								</label>
-								<div class="input-group">
-									<input ng-model="supplierID" readonly class="form-control input-mask-date" type="text" id="form-field-mask-1">
-								</div>
-							</div>
-						</div>
-						<div class="col-md-12  padding-1">
 							<div class="col-md-12">
 								<div class="input-group">
-									<button type="submit" ng-click="createContractBtnClick()" class="btn btn-warning">Create Contract</button>
+									<button type="submit" ng-click="createContractBtnClick()" class="btn btn-sup">Create Contract</button>
 								</div>
 							</div>
 						</div>
@@ -144,4 +145,12 @@
 		<div class="clearfix"></div>
 	</div>
 	</div>
+</div>
+
+
+<div class="spinner-overlay" ng-show="displayLoading">
+    <div class="spinner-area">
+        <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+        <span class="sr-only">Loading...</span>
+    </div>
 </div>

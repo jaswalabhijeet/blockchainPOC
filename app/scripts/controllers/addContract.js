@@ -47,6 +47,7 @@ angular.module('blockChainApp').controller('addContractCtrl', ['$scope', 'AddCon
                 {
                     $scope.productID=value.product_id;  
                      $scope.pricePerUOM=value.price;
+                     $scope.contractName="Suply "+pname;
                 }   
         });
         $scope.displayLoading = false;

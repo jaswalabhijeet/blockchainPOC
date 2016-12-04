@@ -50,6 +50,16 @@
 			$scope.displayLoading = false;
 		});
 	}
+	$scope.generateBatchId=function (pname) 
+	{
+		$scope.batchId=pname.substr(0, 3)+""+$filter('date')(new Date(), "ddMMyyyyHHmmss");
+		console.log($scope.batchId);
+	}
+	$scope.generateTrackNum=function () 
+	{
+		$scope.trackNum=$rootScope.logUser+""+$filter('date')(new Date(), "ddMMyyyyHHmmss");
+		console.log($scope.trackNum);
+	}
 
 	$scope.prevBlockHeight = "";
 	$scope.newBlockHeight = "";
