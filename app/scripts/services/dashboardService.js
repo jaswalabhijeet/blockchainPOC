@@ -15,7 +15,7 @@ app.factory('DashboardService', ['$q', '$http','$rootScope', function ($q, $http
         var deferred = $q.defer();
         $http({
             method: 'GET',
-            url: 'http://52.73.17.136:3000/contractDetails?username='+$rootScope.logUser
+            url: 'http://34.192.232.173:3000/contractDetails?username='+$rootScope.logUser
         }).then(function (blockStatus) {
             deferred.resolve(blockStatus);
         }, function (error) {
@@ -29,7 +29,7 @@ app.factory('DashboardService', ['$q', '$http','$rootScope', function ($q, $http
         var deferred = $q.defer();
         $http({
             method: 'POST',
-            url: 'http://52.73.17.136:8083/approveContract/',
+            url: 'http://34.192.232.173:8085/approveContract/',
             data: approvalData,
             json:true,//send the desired json data in the post....
             headers: {'Content-Type':'application/json'} 
@@ -46,7 +46,7 @@ app.factory('DashboardService', ['$q', '$http','$rootScope', function ($q, $http
         var deferred = $q.defer();
         $http({
             method: 'POST',
-            url: 'http://52.73.17.136:8083/shipmentNotification/',
+            url: 'http://34.192.232.173:8085/shipmentNotification/',
             data: notificationDetails,
             json:true,//send the desired json data in the post....
             headers: {'Content-Type':'application/json'} 
@@ -63,7 +63,7 @@ app.factory('DashboardService', ['$q', '$http','$rootScope', function ($q, $http
         var deferred = $q.defer();
         $http({
             method: 'POST',
-            url: 'http://52.73.17.136:8083/signofByContractOwner/',
+            url: 'http://34.192.232.173:8085/signofByContractOwner/',
             data: signOffDetails,
             json:true,//send the desired json data in the post....
             headers: {'Content-Type':'application/json'} 

@@ -70,7 +70,8 @@ app.controller('loginCtrl', ['UserLoginService', '$scope', '$cookieStore','$stat
         }
 
         window.history.forward(-1);
-        
+
+        //for block movement start
 
         $('#myCarousel').carousel({
             interval: 3000,
@@ -85,7 +86,7 @@ app.controller('loginCtrl', ['UserLoginService', '$scope', '$cookieStore','$stat
           }
           next.children(':first-child').clone().appendTo($(this));
           
-          for (var i=0;i<8;i++) {
+          for (var i=0;i<12;i++) {
             next=next.next();
             if (!next.length) {
                 next = $(this).siblings(':first');
@@ -94,5 +95,7 @@ app.controller('loginCtrl', ['UserLoginService', '$scope', '$cookieStore','$stat
             next.children(':first-child').clone().appendTo($(this));
           }
         });
+
+        //for block movement close
 
 }]);

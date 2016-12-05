@@ -12,9 +12,10 @@
  	$rootScope.logUser = $cookieStore.get('loginTempData').userName;
  	$rootScope.logType = $cookieStore.get('loginTempData').profileType;
  	$scope.totAmount=$cookieStore.get('totAmnt');
+
 	$(document).ready(function() {
-    $('.set-hgt').attr('style','min-height:652px');
-  });
+    	$('.set-hgt').attr('style','min-height:652px');
+  	});
 	setTimeout(function(){
 		$('#depl_data_tbl').DataTable({
 			paging: false,
@@ -31,7 +32,7 @@
 	}, 0);
 	$scope.getContract=function () 
 	{
-		//$scope.displayLoading = true;
+		$scope.displayLoading = true;
 		DashboardService.getContractsDeployedByMe().then(function (response) 
 		{
 			$scope.contractsDeply=[];
@@ -52,8 +53,7 @@
 	}
 	$scope.generateBatchId=function (pname) 
 	{
-		$scope.batchId=pname.substr(0, 3)+""+$filter('date')(new Date(), "ddMMyyyyHHmmss");
-		console.log($scope.batchId);
+		$rootScope.batchId=pname.substr(0, 3)+""+$filter('date')(new Date(), "ddMMyyyyHHmmss");
 	}
 	$scope.generateTrackNum=function () 
 	{

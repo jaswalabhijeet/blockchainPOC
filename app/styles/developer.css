@@ -355,7 +355,17 @@ border-right:1px solid grey;
     width: 100px;
     border-radius: 10px;
     background-color: #fff;
-    margin: 1% 1%;
+    margin: 1% 5px;
+    padding: 12px 2%;
+    font-weight: bold;
+    color: #2867ae;
+}
+.div-block-start{
+height: 50px;
+    width: 100px;
+    border-radius: 10px;
+    background-color: #f2dede;
+    margin: 1% 5px;
     padding: 12px 2%;
     font-weight: bold;
     color: #2867ae;
@@ -366,4 +376,7 @@ border-right:1px solid grey;
     border-radius: 5px;
     background-color: #8a6d3b;
     margin: 2% 3px;
+}
+.textbox-width{
+    width: 260px !important;
 }

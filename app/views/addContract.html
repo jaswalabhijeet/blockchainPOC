@@ -13,7 +13,7 @@
 				<div class="form-panel-head">Add Contract</div>
 			</div>
 			<div class="form-panel-sub-head">
-				<div class="">
+				<form name="AddContract" novalidate="" ng-submit="createContractBtnClick();" class="mt ng-pristine ng-invalid ng-invalid-required">
 					<div class="col-md-12">
 						<div class="col-md-12  padding-1">
 							<div class="col-md-6">
@@ -21,7 +21,7 @@
 									Product Name
 								</label>
 								<div class="input-group">
-									<select class="form-control" ng-model="productName"  ng-change="getProductDetails(productName);">
+									<select class="form-control textbox-width" ng-model="productName" required  ng-change="getProductDetails(productName);">
 										<option value=" ">-Select-</option>
 										<option ng-repeat="pname in pdctName" value="{{pname}}">{{pname}}</option>
 									</select>
@@ -33,7 +33,7 @@
 									Product ID
 								</label>
 								<div class="input-group">
-									<input ng-model="productID" readonly class="form-control" type="text">
+									<input ng-model="productID" readonly class="form-control textbox-width" type="text">
 								</div>
 							</div>
 						</div>
@@ -43,7 +43,7 @@
 									Supplier Name
 								</label>
 								<div class="input-group">
-									<select class="form-control" ng-model="supplierName"  ng-change="getSupplierDetails(supplierName);">
+									<select class="form-control textbox-width" required ng-model="supplierName"  ng-change="getSupplierDetails(supplierName);">
 										<option value=" ">-Select-</option>
 										<option ng-repeat="sname in supName" value="{{sname}}">{{sname}}</option>
 									</select>
@@ -54,50 +54,28 @@
 									Supplier ID
 								</label>
 								<div class="input-group">
-									<input ng-model="supplierID" readonly class="form-control input-mask-date" type="text" id="form-field-mask-1">
-								</div>
-							</div>
-						</div>
-						<div class="col-md-12 padding-1">
-							<div class="col-md-12">
-								<label for="form-field-mask-1">
-									Contract Name
-								</label>
-								<div class="input-group">
-									<input ng-model="contractName" readonly class="form-control input-mask-date" type="text" id="form-field-mask-1">
-								</div>
-							</div>
-						</div>
-						<div class="col-md-12  padding-1">
-							<div class="col-md-12">
-								<label for="form-field-mask-1">
-									Supply By Date
-								</label>
-								<div class="input-group">
-									<input class="form-control input-mask-date" ng-model="supDate" type="date" id="form-field-mask-1">
+									<input ng-model="supplierID" required readonly class="form-control textbox-width" type="text" id="form-field-mask-1">
 								</div>
 							</div>
 						</div>
 						
 						
+						
 						<div class="col-md-12  padding-1">
-							<div class="col-md-12">
+							<div class="col-md-6">
 								<label for="form-field-mask-1">
 									Quantity
 								</label>
 								<div class="input-group">
-									<input ng-model="quantity" ng-change="findTotal()" class="form-control input-mask-date" type="text" id="form-field-mask-1">
+									<input ng-model="quantity" ng-change="findTotal()" class="form-control textbox-width" type="text" id="form-field-mask-1">
 								</div>
 							</div>
-							
-						</div>
-						<div class="col-md-12  padding-1">
 							<div class="col-md-6">
 								<label for="form-field-mask-1">
 									UOM
 								</label>
 								<div class="input-group">
-									<select class="form-control" ng-model="uom">
+									<select class="form-control textbox-width" ng-model="uom">
 										<option value=" ">-Select-</option>
 										<option value="each">each</option>
 										<option value="case">case</option>
@@ -108,22 +86,41 @@
 									</select>
 								</div>
 							</div>
+						</div>
+						<div class="col-md-12  padding-1">
+							
 							<div class="col-md-6">
 								<label for="form-field-mask-1">
 									Price Per UOM
 								</label>
 								<div class="input-group">
-									<input ng-model="pricePerUOM" readonly class="form-control" type="text">
+									<input ng-model="pricePerUOM" readonly class="form-control textbox-width" type="text">
 								</div>
 							</div>
-						</div>
-						<div class="col-md-12  padding-1">
-							<div class="col-md-12">
+							<div class="col-md-6">
 								<label for="form-field-mask-1">
 									Total Price
 								</label>
 								<div class="input-group">
-									<input ng-model="totalPrice" readonly class="form-control input-mask-date" type="text" id="form-field-mask-1">
+									<input ng-model="totalPrice" readonly class="form-control textbox-width" type="text" id="form-field-mask-1">
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12  padding-1">
+							<div class="col-md-6">
+								<label for="form-field-mask-1">
+									Supply By Date
+								</label>
+								<div class="input-group">
+									<input class="form-control textbox-width" ng-model="supDate" type="date" id="form-field-mask-1">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<label for="form-field-mask-1">
+									Contract Name
+								</label>
+								<div class="input-group">
+									<input ng-model="contractName" readonly class="form-control textbox-width" type="text" id="form-field-mask-1">
 								</div>
 							</div>
 						</div>
@@ -132,13 +129,13 @@
 							<hr class="hr">
 							<div class="col-md-12">
 								<div class="input-group">
-									<button type="submit" ng-click="createContractBtnClick()" class="btn btn-sup">Create Contract</button>
+									<button type="submit" class="btn btn-warning" ng-disabled="addContract.$invalid">Create Contract</button>
 								</div>
 							</div>
 						</div>
 					</div>
 					&nbsp;
-				</div>
+				
 				
 			</div>
 		</div>

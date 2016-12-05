@@ -14,7 +14,8 @@
 			<div class="form-panel-sub-head">
 				<span class="form-panel-sub-head-span">My Bank Account</span>
 				<div class="table-responsive form-panel-border tbl-max-dash">
-					<table class="table data_tbl table-striped table-bordered table-font ">
+					{{displayError}}
+					<table class="table data_tbl table-striped table-bordered table-font " style="width:50%;">
 						<thead>
 							<tr>
 								<th>Bank Name</th>
@@ -26,7 +27,7 @@
 							<td>City Bank</td>
 							<td>{{totAmount}}</td>
 						</tr>
-						<tr ng-show="totAmount <1">
+						<tr ng-show="!totAmount">
 					        <td colspan="2" class="text-ceneter text-danger">
 					            No Data Available!
 					        </td>
@@ -49,14 +50,14 @@
 						<tbody>
 						<tr ng-repeat="contract in contractsDeply">
 							
-							<td>{{ contract.contractID }}</td>
+							<td>{{ contract.orderID }}</td>
 							<td>{{ contract.contractName }}</td>
-							<td>{{  }}</td>
+							<td>{{  contract.createdDate}}</td>
 							<td>{{ contract.pendingWith }}</td>
-							<td>{{ contract.status }}</td>
+							<td>{{  }}</td>
 						</tr>
 						<tr ng-show="contractsDeply.length==0">
-					        <td colspan="4" class="text-ceneter text-danger">
+					        <td colspan="5" class="text-ceneter text-danger">
 					            No Data Available!
 					        </td>
 					    </tr>
@@ -73,27 +74,28 @@
 								<th>Created Date</th>
 								<th>Product Name</th>
 								<th>Supplier Name</th>
-								<th ng-show="logType!= 'Cariier'">Supply By Date</th>
-								<th ng-show="logType!= 'Cariier'">Batch Id</th>
-								<th ng-show="logType!= 'Cariier'">Carrier Name</th>
+								<th ng-show="logType!= 'Carriers'">Supply By Date</th>
+								<th ng-show="logType!= 'Carriers'">Batch Id</th>
+								<th ng-show="logType!= 'Carriers'">Carrier Name</th>
 								<th ng-show="logType!= 'Distributor'">Tracking Number</th>
-								<th><button type="submit" class="btn btn-sup" ng-click="generateTrackNum();">Generate</button></th>
+								<th>Action</th>
 							</tr>
 						</thead>
 						<tbody>
 						<tr ng-repeat="pend in contractsPending">
-							<td>{{  }}</td>
+							<td>{{ pend.orderID }}</td>
 							<td>{{ pend.contractName }}</td>
-							<td>{{ }}</td>
+							<td>{{ pend.createdDate }}</td>
 							<td>{{ pend.productName }}</td>
 							<td>{{ pend.supplierName }}</td>
-							<td ng-show="logType!= 'Cariier'">{{ }}</td>
-							<td ng-show="logType!= 'Cariier'">
-								<div class="input-group">
-									<button type="submit" class="btn btn-sup" ng-click="generateBatchId("product");">Generate</button>
+							<td ng-show="logType!= 'Carriers'">{{ }}</td>
+							<td ng-show="logType!= 'Carriers'">
+								<div class="input-group" ng-show="!batchId">
+									<button type="submit" class="btn btn-sup" ng-click="generateBatchId('product');">Generate</button>
 								</div>
+								{{batchId}}
 							</td>
-							<td ng-show="logType!= 'Cariier'">
+							<td ng-show="logType!= 'Carriers'">
 								<div class="input-group" ng-show="logType== 'Distributor'">
 									<select class="form-control" ng-model="uom">
 										<option value=" ">-Select-</option>

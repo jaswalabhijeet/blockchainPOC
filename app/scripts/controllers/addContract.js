@@ -15,6 +15,7 @@ angular.module('blockChainApp').controller('addContractCtrl', ['$scope', 'AddCon
     $scope.loggedUser = $cookieStore.get('loginData');
     $rootScope.logUser = $cookieStore.get('loginTempData').userName;
     $rootScope.logType = $cookieStore.get('loginTempData').profileType;
+
     $scope.pdctId="";
     $scope.pdctPrice="";
 	$scope.findTotal = function () {
@@ -88,36 +89,31 @@ angular.module('blockChainApp').controller('addContractCtrl', ['$scope', 'AddCon
     $scope.newBlockHeight = "";
     $scope.createContractBtnClick = function () 
     {
-        $scope.displayLoading = true;
+        //$scope.displayLoading = true;
         AddContractService.getBlockStatus().then(function (response) 
         {    
             $scope.prevBlockHeight = response.data.result[1].latest_block_height;
-            //console.log(response);
-            var dateAsString = $filter('date')(new Date(), "ddMMyyyyHHmmss");
-            var supDate = $filter('date')($scope.supDate, "ddMMyyyy");
+             
+            var cid = $filter('date')(new Date(), "ddMMyyyyHHmmss");
             var insertDet={};
             var createContractData = {};
-            createContractData["contractID"] = dateAsString;
+            createContractData["orderID"] = parseInt(cid);
             createContractData["contractName"] = $scope.contractName;
-            createContractData["supplierID"] = $scope.supplierID;
+            createContractData["supplierID"] = parseInt($scope.supplierID);
             createContractData["supplier"] = $scope.supplierName;
-            createContractData["supplyByDate"] = supDate;
-            
-			
             createContractData["productName"] = $scope.productName;
-            createContractData["productID"] = $scope.productID;
+            createContractData["productID"] = parseInt($scope.productID);
             createContractData["uom"] = $scope.uom;
-            createContractData["quantity"] = $scope.quantity;
+            createContractData["quantity"] = parseInt($scope.quantity);
             createContractData["pricePerUOM"] = $scope.pricePerUOM;
             createContractData["totalPrice"] = $scope.totalPrice;
-            createContractData["currency"] = $scope.currency;
             
-            AddContractService.createContract(createContractData).then(function (createContractResponse) {
-                //console.log(createContractResponse);exit;
-                AddContractService.getBlockStatus().then(function (newBlockChainStatus) {
-                    
+            AddContractService.createContract(createContractData).then(function (createContractResponse) 
+            {
+                AddContractService.getBlockStatus().then(function (newBlockChainStatus) 
+                {
                     $scope.newBlockHeight = newBlockChainStatus.data.result[1].latest_block_height;
-                    //console.log(newBlockChainStatus);
+                    console.log("sdsd");
                     AddContractService.fetchBlocks($scope.prevBlockHeight, $scope.newBlockHeight).then(function (blocksData) 
                     {
                         angular.forEach(blocksData.data.result[1].block_metas, function (value, key) 
@@ -126,8 +122,7 @@ angular.module('blockChainApp').controller('addContractCtrl', ['$scope', 'AddCon
                             {
                                 AddContractService.fetchBlockData(value.header.height).then(function (blockData) 
                                 {
-
-                                    insertDet["contractID"]=parseInt(createContractData["contractID"]);
+                                    insertDet["orderID"]=parseInt(createContractData["orderID"]);
                                     insertDet["contractName"]=createContractData["contractName"];
                                     insertDet["supplierID"]=parseInt(createContractData["supplierID"]);
                                     insertDet["supplierName"]=createContractData["supplier"];
@@ -137,24 +132,34 @@ angular.module('blockChainApp').controller('addContractCtrl', ['$scope', 'AddCon
                                     insertDet["quantity"]=parseInt(createContractData["quantity"]);
                                     insertDet["pricePerUOM"]=parseInt(createContractData["pricePerUOM"]);
                                     insertDet["totalPrice"]=parseInt(createContractData["totalPrice"]);
-                                    insertDet["currency"]=createContractData["currency"];
-                                    insertDet["supplyByDate"]=createContractData["supplyByDate"];
+                                    insertDet["batchID"]="";
+                                    insertDet["carrierName"]="";
+                                    insertDet["trackingNumber"]="";
+                                    insertDet["supplyByDate"]=$filter('date')($scope.supDate, "ddMMyyyy");
                                     insertDet["createdDate"]=$filter('date')(new Date(), "ddMMyyyyHHmmss");
+                                    insertDet["createdBy"]=$rootScope.logUser;
+                                    insertDet["profileType"]=$rootScope.logType;
+                                    insertDet["pendingWith"]="";
+                                    insertDet["status"]="";
                                     insertDet["loginuser"]=$rootScope.logUser;
+                                    insertDet["signedBy"]="";
+                                    insertDet["approvalstatus"]="";
                                     insertDet["chain_id"]=blockData.data.result[1].block.header.chain_id;
                                     insertDet["height"]=parseInt(blockData.data.result[1].block.header.height);
-                                    insertDet["num_txs"]=parseInt(blockData.data.result[1].block.header.num_txs);
-                                    insertDet["pendingWith"]="";
-                                    
                                     insertDet["block_hash"]=blockData.data.result[1].block.last_validation.precommits[0].block_hash;
-                                    insertDet["block_data"]=blockData.data.result[1].block.data.txs[0][1].data;
+                                    insertDet["num_txs"]=parseInt(blockData.data.result[1].block.header.num_txs);
                                     insertDet["data_hash"]=blockData.data.result[1].block.header.data_hash;
                                     insertDet["block_time"]=blockData.data.result[1].block.header.time;
+                                    insertDet["filler1"]="";
+                                    insertDet["filler2"]="";
+                                    insertDet["filler3"]="";
+                                    insertDet["filler4"]="";
+                                    insertDet["filler5"]="";
                                     var temp=[];
                                     temp.push(insertDet);
                                     var jsonObj={};
                                     jsonObj["row"]=temp;
-                                    
+                                    console.log(JSON.stringify(jsonObj));
                                     AddContractService.insertBlockData(JSON.stringify(jsonObj)).then(function (insertResponse) 
                                     {
                                         $scope.displayLoading = false;

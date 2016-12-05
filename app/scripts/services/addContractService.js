@@ -44,7 +44,7 @@ app.factory('AddContractService', ['$q', '$http','$rootScope', function ($q, $ht
         var deferred = $q.defer();
         $http({
             method: 'GET',
-            url: 'http://52.73.17.136:32771//status'
+            url: 'http://34.192.232.173:32768/status'
         }).then(function (blockStatus) {
             deferred.resolve(blockStatus);
         }, function (error) {
@@ -57,7 +57,7 @@ app.factory('AddContractService', ['$q', '$http','$rootScope', function ($q, $ht
         var deferred = $q.defer();
         $http({
             method: 'POST',
-            url: 'http://52.73.17.136:8083/createContract/',
+            url: 'http://34.192.232.173:8085/createContract/',
             data: createContractData,
 			json:true,//send the desired json data in the post....
 			headers: {'Content-Type':'application/json'} 
@@ -76,7 +76,7 @@ app.factory('AddContractService', ['$q', '$http','$rootScope', function ($q, $ht
         var deferred = $q.defer();
         $http({
             method: 'GET',
-            url: 'http://52.73.17.136:32771/blockchain?minHeight=' + minHeight + '&maxHeight=' + maxHeight
+            url: 'http://34.192.232.173:32768/blockchain?minHeight=' + minHeight + '&maxHeight=' + maxHeight
         }).then(function (success) {
             deferred.resolve(success);
         }, function (error) {
@@ -89,7 +89,7 @@ app.factory('AddContractService', ['$q', '$http','$rootScope', function ($q, $ht
         var deferred = $q.defer();
         $http({
             method: 'GET',
-            url: 'http://52.73.17.136:32771/get_block?height=' + height
+            url: 'http://34.192.232.173:32768/get_block?height=' + height
         }).then(function (success) {
             deferred.resolve(success);
         }, function (error) {
@@ -102,7 +102,7 @@ app.factory('AddContractService', ['$q', '$http','$rootScope', function ($q, $ht
         var deferred = $q.defer();
         $http({
             method: 'POST',
-            url: 'http://52.73.17.136:3000/insertContract',
+            url: 'http://34.192.232.173:3000/insertContract',
             data: insertData,
 			json:true,//send the desired json data in the post....
 			headers: {'Content-Type':'application/json'} 
