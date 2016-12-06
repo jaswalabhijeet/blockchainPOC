@@ -1,144 +1,193 @@
 <div class="container-fluid">
 	<div class="row">
-	<div class="test margin_left">	
-		<div class="col-md-2 padding_height">
-			<div ng-include="'views/sideNav.html'"></div>
-		</div>
-		<div class="col-md-10 set-hgt padding_bg">
-			<div class="form-panel">
-				<div class="form-panel-border-sam">
-					<div class="form-panel-font">Medical Drug Supply Chain Integrity</div>
-				</div>
-				<div class="form-panel-head">My Dashboard{{displayError}}</div>
+		<div class="test margin_left">
+			<div class="col-md-2 padding_height">
+				<div ng-include="'views/sideNav.html'"></div>
 			</div>
-			<div class="form-panel-sub-head">
-				<span class="form-panel-sub-head-span">My Bank Account</span>
-				<div class="table-responsive form-panel-border tbl-max-dash">
-					{{displayError}}{{displaySuccess}}
-					<table class="table data_tbl table-striped table-bordered table-font " style="width:50%;">
-						<thead>
-							<tr>
-								<th>Bank Name</th>
-								<th>Account Balance</th>
-							</tr>
-						</thead>
-						<tbody>
-						<tr ng-show="totAmount >0">
-							<td>City Bank</td>
-							<td>{{totAmount}}</td>
-						</tr>
-						<tr ng-show="!totAmount">
-					        <td colspan="2" class="text-ceneter text-danger">
-					            No Data Available!
-					        </td>
-					    </tr>
-						</tbody>
-					</table>
+			<div class="col-md-10 padding_bg">
+				<div class="form-panel">
+					<div class="form-panel-border-sam">
+						<div class="form-panel-font">Medical Drug Supply Chain Integrity</div>
+					</div>
+					<div class="form-panel-head">My Dashboard{{displayError}}</div>
 				</div>
-				<span class="form-panel-sub-head-span2">Orders Created By {{logUser}}</span>
-				<div class="table-responsive form-panel-border tbl-max-dash">
-					<table class="table table-striped table-bordered table-font">
-						<thead>
-							<tr>
-								<th>Order ID</th>
-								<th>Contract Name</th>
-								<th>Created Date</th>
-								<th>Pending With</th>
+				<div class="form-panel-sub-head">
+					<span class="form-panel-sub-head-span">My Bank Account</span>
+					<div class="table-responsive form-panel-border tbl-max-dash" ng-show="totAmount">
+						{{displayError}}{{displaySuccess}}
+						<table class="table-font display table table-striped table-hover tbl-rad" style="width:30%;">
+							<thead>
+								<tr>
+									<th>Bank Name</th>
+									<th>Account Balance</th>
+								</tr>
+							</thead>
+							<tbody>
+							<tr ng-show="totAmount >0">
+								<td>City Bank</td>
+								<td>{{totAmount}}</td>
 							</tr>
-						</thead>
-						<tbody>
-						<tr ng-repeat="contract in contractsDeply">
-							
-							<td>{{ contract.orderID }}</td>
-							<td>{{ contract.contractName }}</td>
-							<td>
-								<div id="{{'supDtTm'+contract.orderID}}">
-									{{  dateTimeFormat(contract.createdDate,contract.orderID);}}
-								</div>
-							</td>
-							<td>{{ contract.pendingWith }}</td>
-						</tr>
-						<tr ng-show="contractsDeply.length==0">
-					        <td colspan="5" class="text-ceneter text-danger">
-					            No Data Available!
-					        </td>
-					    </tr>
-						</tbody>
-					</table>
-				</div>
-				<span class="form-panel-sub-head-span2">Orders Pending For My Approval</span>
-				<div class="table-responsive padding-1-0 tbl-max-dash">
-					<table class="table-font display table table-striped table-bordered table-hover dataTable no-footer" cellspacing="0" >
-						<thead>
+							<tr ng-show="!totAmount">
+						        <td colspan="2" class="text-ceneter text-danger">
+						            No Data Available!
+						        </td>
+						    </tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="table-responsive form-panel-border tbl-max-dash" ng-show="!totAmount">
+						{{displayError}}{{displaySuccess}}
+						<table class="table-font display table table-striped table-hover tbl-rad" style="width:30%;">
+							<thead>
+								<tr>
+									<th>Bank Name</th>
+									<th>Account Balance</th>
+								</tr>
+							</thead>
+							<tbody>
 							<tr>
-								<th>Order Id</th>
-								<th>Contract Name</th>
-								<th>Created Date</th>
-								<th>Product Name</th>
-								<th>Supplier Name</th>
-								<th ng-show="logType!= 'Carriers'">Supply By Date</th>
-								<th ng-show="logType!= 'Carriers'">Batch Id</th>
-								<th ng-show="logType!= 'Carriers'">Carrier Name</th>
-								<th ng-show="logType!= 'Distributor'">Tracking Number</th>
-								<th>Action</th>
+						        <td colspan="2" class="text-ceneter text-danger">
+						            No Data Available!
+						        </td>
+						    </tr>
+							</tbody>
+						</table>
+					</div>
+					<span class="form-panel-sub-head-span2">Orders Created By {{logUser}}</span>
+					<div class="table-responsive form-panel-border tbl-max-dash" ng-show="contractsDeply.length!=0">
+						<table class="table-font display table table-striped table-hover tbl-rad" style="width:50%;">
+							<thead>
+								<tr>
+									<th>Order ID</th>
+									<th>Contract Name</th>
+									<th>Created Date</th>
+									<th>Pending With</th>
+								</tr>
+							</thead>
+							<tbody>
+							<tr ng-repeat="contract in contractsDeply">
+								<td>{{ contract.orderID }}</td>
+								<td>{{ contract.contractName }}</td>
+								<td>
+									<div id="{{'supDtTm'+contract.orderID}}">
+										{{  dateTimeFormat(contract.createdDate,contract.orderID);}}
+									</div>
+								</td>
+								<td>{{ contract.pendingWith }}</td>
 							</tr>
-						</thead>
-						<tbody>
-						<tr ng-repeat="pend in contractsPending">
-							<td>{{ pend.orderID }}</td>
-							<td>{{ pend.contractName }}</td>
-							<td>{{ pend.createdDate }}</td>
-							<td>{{ pend.productName }}</td>
-							<td>{{ pend.supplierName }}</td>
-							<td ng-show="logType!= 'Carriers'">
-								<div id="{{'supDt'+pend.orderID}}">{{ dateFormat(pend.supplyByDate,pend.orderID) }}</div>
-							</td>
-							<td ng-show="logType!= 'Carriers'">
-								<div class="input-group" ng-show="logType!= 'Retailer'" id="{{'btnbid'+pend.orderID}}">
-									<input type="hidden" id="{{'bidhdn'+pend.orderID}}" value="{{batchId}}"/>
-									<button type="submit" class="btn btn-sup" ng-click="generateBatchId('product',pend.orderID);">Generate</button>
-								</div>
-								<div id="{{'bid'+pend.orderID}}" class="submittername">{{pend.batchID}}</div>
-							</td>
-							<td ng-show="logType!= 'Carriers'">
-								<div class="input-group" ng-show="logType== 'Distributor'">
-									<select class="form-control" ng-model="carrier">
-										<option value=" ">-Select-</option>
-										<option value="FedEx">FedEx</option>
-										<option value="UPS">UPS</option>
-										<option value="USPS">USPS</option>
-									</select>
-								</div>
-								{{pend.carrierName}}
-							</td>
-							<td ng-show="logType!= 'Distributor'">
-								<div class="input-group" ng-show="logType== 'Carriers'" id="{{'btntno'+pend.orderID}}">
-									<input type="hidden" id="{{'tnohdn'+pend.orderID}}" value="{{trackNum}}"/>
-									<button type="submit" class="btn btn-sup" ng-click="generateTrackNum(pend.orderID);">Generate</button>
-								</div>
-								<div id="{{'tno'+pend.orderID}}">{{pend.trackingNumber}}</div>
-							</td>
-							<td>
-								<i class="fa fa-window-close text-danger icon-event" title="Cancel" ng-click="cancelBtnClick(pend);"></i>&nbsp;
-								<i class="fa  fa fa-check-square  text-success icon-event icon-event" title="Approve" ng-click="approveBtnClick(pend,carrier);"></i>
-							</td>
-						</tr>
-						<tr ng-show="contractsPending.length==0">
-					        <td colspan="10" class="text-ceneter text-danger">
-					            No data available!                
-					        </td>
-					    </tr>
-						</tbody>
-					</table>
-					
+							</tbody>
+						</table>
+					</div>
+					<div class="table-responsive form-panel-border tbl-max-dash" ng-show="contractsDeply.length==0">
+						<table class="table-font display table table-striped table-hover tbl-rad" style="width:50%;">
+							<thead>
+								<tr>
+									<th>Order ID</th>
+									<th>Contract Name</th>
+									<th>Created Date</th>
+									<th>Pending With</th>
+								</tr>
+							</thead>
+							<tbody>
+							<tr>
+						        <td colspan="5" class="text-ceneter text-danger">
+						            No Data Available!
+						        </td>
+						    </tr>
+							</tbody>
+						</table>
+					</div>
+					<span class="form-panel-sub-head-span2">Orders Pending For My Approval</span>
+					<div class="table-responsive padding-1-0 tbl-max-dash" ng-show="contractsPending.length!=0">
+						<table class="table-font display table table-striped table-hover tbl-rad" cellspacing="0" >
+							<thead>
+								<tr>
+									<th>Order Id</th>
+									<th>Contract Name</th>
+									<th>Product Name</th>
+									<th>Quantity</th>
+									<th ng-show="logType!= 'Carriers'">Supplier Name</th>
+									<th ng-show="logType!= 'Carriers'">Supply By Date</th>
+									<th ng-show="logType!= 'Carriers'">Batch Id</th>
+									<th ng-show="logType!= 'Carriers'">Carrier Name</th>
+									<th ng-show="logType!= 'Distributor'">Tracking Number</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody>
+							<tr ng-repeat="pend in contractsPending">
+								<td>{{ pend.orderID }}</td>
+								<td>{{ pend.contractName }}</td>
+								<td>{{ pend.productName }}</td>
+								<td ng-show="logType!= 'Carriers'">{{ pend.quantity }}</td>
+								<td>{{ pend.supplierName }}</td>
+								<td ng-show="logType!= 'Carriers'">
+									<div id="{{'supDt'+pend.orderID}}">{{ dateFormat(pend.supplyByDate,pend.orderID) }}</div>
+								</td>
+								<td ng-show="logType!= 'Carriers'">
+									<div class="input-group" ng-show="logType!= 'Retailer'" id="{{'btnbid'+pend.orderID}}">
+										<input type="hidden" id="{{'bidhdn'+pend.orderID}}"/>
+										<button type="submit" class="btn btn-sup" ng-click="generateBatchId('product',pend.orderID);">Generate</button>
+									</div>
+									<div id="{{'bid'+pend.orderID}}" class="submittername">{{pend.batchID}}</div>
+								</td>
+								<td ng-show="logType!= 'Carriers'">
+									<div class="input-group" ng-show="logType== 'Distributor'">
+										<select class="form-control" ng-model="carrier">
+											<option value=" ">-Select-</option>
+											<option value="FedEx">FedEx</option>
+											<option value="UPS">UPS</option>
+											<option value="USPS">USPS</option>
+										</select>
+									</div>
+									{{pend.carrierName}}
+								</td>
+								<td ng-show="logType!= 'Distributor'">
+									<div class="input-group" ng-show="logType== 'Carriers'" id="{{'btntno'+pend.orderID}}">
+										<input type="hidden" id="{{'tnohdn'+pend.orderID}}"/>
+										<button type="submit" class="btn btn-sup" ng-click="generateTrackNum(pend.orderID);">Generate</button>
+									</div>
+									<div id="{{'tno'+pend.orderID}}">{{pend.trackingNumber}}</div>
+								</td>
+								<td>
+									<i class="fa fa-window-close text-danger icon-event" title="Cancel" ng-click="cancelBtnClick(pend);"></i>&nbsp;
+									<i class="fa  fa fa-check-square  text-success icon-event icon-event" title="Approve" ng-click="approveBtnClick(pend,carrier);"></i>
+								</td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="table-responsive padding-1-0 tbl-max-dash" ng-show="contractsPending.length==0">
+						<table class="table-font display table table-striped table-hover tbl-rad" cellspacing="0" >
+							<thead>
+								<tr>
+									<th>Order Id</th>
+									<th>Contract Name</th>
+									<th>Product Name</th>
+									<th>Quantity</th>
+									<th ng-show="logType!= 'Carriers'">Supplier Name</th>
+									<th ng-show="logType!= 'Carriers'">Supply By Date</th>
+									<th ng-show="logType!= 'Carriers'">Batch Id</th>
+									<th ng-show="logType!= 'Carriers'">Carrier Name</th>
+									<th ng-show="logType!= 'Distributor'">Tracking Number</th>
+									<th>Action</th>
+								</tr>
+							</thead>
+							<tbody>
+							<tr>
+						        <td colspan="10" class="text-ceneter text-danger">
+						            No data available!                
+						        </td>
+						    </tr>
+							</tbody>
+						</table>
+						
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="clearfix"></div>
-	</div>
-	</div>
-</div>
-
+		</div><!-- test close -->
+	</div><!-- row close -->
+</div><!-- container-fluid close -->
 <div class="spinner-overlay" ng-show="displayLoading">
     <div class="spinner-area">
         <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>

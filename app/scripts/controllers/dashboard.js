@@ -13,9 +13,6 @@
  	$rootScope.logType = $cookieStore.get('loginTempData').profileType;
  	$scope.totAmount=$cookieStore.get('totAmnt');
 
-	$(document).ready(function() {
-    	$('.set-hgt').attr('style','min-height:652px');
-  	});
 	setTimeout(function(){
 		$('#depl_data_tbl').DataTable({
 			paging: false,
@@ -68,8 +65,9 @@
 	{
 		var div="bid"+oid;
 		var btn="btnbid"+oid;
-		
+		var btnhd="bidhdn"+oid;
 		$rootScope.batchId=pname.substr(0, 3)+""+$filter('date')(new Date(), "ddMMyyyyHHmmss");
+		$("#"+btnhd).val($rootScope.trackNum);
 		$("#"+div).html($rootScope.batchId);
 		$("#"+btn).hide();
 	}
@@ -77,8 +75,10 @@
 	{
 		var div="tno"+oid;
 		var btn="btntno"+oid;
+		var btnhd="tnohdn"+oid;
 		$rootScope.trackNum=$rootScope.logUser+""+$filter('date')(new Date(), "ddMMyyyyHHmmss");
 		$("#"+div).html($rootScope.trackNum);
+		$("#"+btnhd).val($rootScope.trackNum);
 		$("#"+btn).hide();
 	}
 

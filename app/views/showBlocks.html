@@ -24,23 +24,23 @@
 								<thead>
 									<tr>
 										<th>Chain ID</th>
+										<th>Hash</th>
 										<th>Height</th>
 										<th>Time</th>
 										<th>Num.Txs</th>
-										<th>Last Validation Hash</th>
-										<th>Data Hash</th>
-										<th>State Hash</th>
+										<th>Last Hash</th>
+										<th ng-show="data_blk==2">Data Hash</th>
 									</tr>
 								</thead>
 								<tbody>
 								<tr ng-repeat="det in allBlocks">
 									<td>{{det.chain_id}}</td>
+									<td>{{det.hash}}</td>
 									<td><span ng-click="toggleModal(det.height)" class="height_class">{{det.height}}</span></td>
 									<td>{{det.time}}</td>
 									<td>{{det.num_txs}}</td>
-									<td><div class="tbl-wrap">{{det.last_validation_hash}}</div></td>
-									<td><div class="tbl-wrap">{{det.data_hash}}</div></td>
-									<td><div class="tbl-wrap">{{det.state_hash}}</div></td>
+									<td><div class="tbl-wrap">{{det.last_block_hash}}</div></td>
+									<td ng-show="data_blk==2"><div class="tbl-wrap">{{det.data_hash}}</div></td>
 								</tr>
 								<tr ng-show="allBlocks.length==0">
 									<td colspan="7" class="text-danger">No data available!</td>

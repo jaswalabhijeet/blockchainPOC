@@ -7,7 +7,7 @@
 	height:100%;
 }
 .padding_bg{
-	background-color:#e0e2e5; 
+	background-color:#fff; 
 	padding:0px;
 }
 .form-panel-font{
@@ -97,7 +97,10 @@
 }
 .test
 {
-    background-image: url(../images/bg.jpg); 
+    background-color:#2c4e80;
+}
+.table-class{
+    background: #fbdada;
 }
 .login-container{
  	 background-image: url(../images/bg.jpg);
@@ -144,7 +147,10 @@
 	min-height: 300px;
 }
 .tbl-max{
-	max-height: 400px;
+	max-height: 430px;
+}
+.tbl-max-aud{
+    max-height: 520px;
 }
 .tbl-max-dash{
 	max-height: 200px;
@@ -384,3 +390,16 @@ height: 50px;
 .textbox-width{
     width: 260px !important;
 }
+.tbl-rad > thead:first-child > tr:first-child > th:first-child{
+    border-top-left-radius: 10px;
+}
+.tbl-rad > thead:first-child > tr:first-child > th:last-child{
+    border-top-right-radius: 10px;
+}
+.tbl-rad > tbody:last-child > tr:last-child > td:first-child{
+    border-bottom-left-radius: 10px;
+}
+.tbl-rad > tbody:last-child > tr:last-child > td:last-child{
+    border-bottom-right-radius: 10px;
+}
+
