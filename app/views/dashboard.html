@@ -9,12 +9,20 @@
 					<div class="form-panel-border-sam">
 						<div class="form-panel-font">Medical Drug Supply Chain Integrity</div>
 					</div>
-					<div class="form-panel-head">My Dashboard{{displayError}}</div>
+					<div class="form-panel-head">My Dashboard</div>
 				</div>
+
 				<div class="form-panel-sub-head">
+					<div class="alert alert-success fade in alert-dismissable" ng-show="displaySuccess!=''">
+    					<a class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+    					<strong>Success!</strong> {{displaySuccess}}
+					</div>
+					<div class="alert alert-danger fade in alert-dismissable" ng-show="displayError!=''">
+    					<a class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+    					<strong>Error!</strong> {{displayError}}
+					</div>
 					<span class="form-panel-sub-head-span">My Bank Account</span>
 					<div class="table-responsive form-panel-border tbl-max-dash" ng-show="totAmount">
-						{{displayError}}{{displaySuccess}}
 						<table class="table-font display table table-striped table-hover tbl-rad" style="width:30%;">
 							<thead>
 								<tr>
@@ -27,16 +35,10 @@
 								<td>City Bank</td>
 								<td>{{totAmount}}</td>
 							</tr>
-							<tr ng-show="!totAmount">
-						        <td colspan="2" class="text-ceneter text-danger">
-						            No Data Available!
-						        </td>
-						    </tr>
 							</tbody>
 						</table>
 					</div>
 					<div class="table-responsive form-panel-border tbl-max-dash" ng-show="!totAmount">
-						{{displayError}}{{displaySuccess}}
 						<table class="table-font display table table-striped table-hover tbl-rad" style="width:30%;">
 							<thead>
 								<tr>

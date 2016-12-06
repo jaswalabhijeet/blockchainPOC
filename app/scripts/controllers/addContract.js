@@ -93,7 +93,6 @@ angular.module('blockChainApp').controller('addContractCtrl', ['$scope', 'AddCon
         AddContractService.getBlockStatus().then(function (response) 
         {    
             $scope.prevBlockHeight = response.data.result[1].latest_block_height;
-             console.log($scope.prevBlockHeight);
             var cid = $filter('date')(new Date(), "ddMMyyyyHHmmss");
             var insertDet={};
             var createContractData = {};
@@ -164,7 +163,7 @@ angular.module('blockChainApp').controller('addContractCtrl', ['$scope', 'AddCon
                                     {
                                         $scope.displayLoading = false;
                                         $rootScope.displaySuccess = "Contract added successfully!";
-                                        location.reload();
+                                        $rootScope.getContract();
                                         $state.go('dashboard');
                                     }, function (error) {
                                         console.log("Error while inserting block data: " + error);
