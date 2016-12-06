@@ -402,4 +402,6 @@ height: 50px;
 .tbl-rad > tbody:last-child > tr:last-child > td:last-child{
     border-bottom-right-radius: 10px;
 }
-
+.fa{
+    font-size:20px;
+}

@@ -127,7 +127,7 @@
 								<td ng-show="logType!= 'Carriers'">
 									<div class="input-group" ng-show="logType!= 'Retailer'" id="{{'btnbid'+pend.orderID}}">
 										<input type="hidden" id="{{'bidhdn'+pend.orderID}}"/>
-										<button type="submit" class="btn btn-sup" ng-click="generateBatchId('product',pend.orderID);">Generate</button>
+										<i class="fa fa-check-square  text-success icon-event" title="Generate" ng-click="generateBatchId('product',pend.orderID);"></i>
 									</div>
 									<div id="{{'bid'+pend.orderID}}" class="submittername">{{pend.batchID}}</div>
 								</td>
@@ -145,13 +145,13 @@
 								<td ng-show="logType!= 'Distributor'">
 									<div class="input-group" ng-show="logType== 'Carriers'" id="{{'btntno'+pend.orderID}}">
 										<input type="hidden" id="{{'tnohdn'+pend.orderID}}"/>
-										<button type="submit" class="btn btn-sup" ng-click="generateTrackNum(pend.orderID);">Generate</button>
+										<i class="fa fa-check-square  text-success icon-event" title="Generate" ng-click="generateTrackNum(pend.orderID);"></i>
 									</div>
 									<div id="{{'tno'+pend.orderID}}">{{pend.trackingNumber}}</div>
 								</td>
 								<td>
 									<i class="fa fa-window-close text-danger icon-event" title="Cancel" ng-click="cancelBtnClick(pend);"></i>&nbsp;
-									<i class="fa  fa fa-check-square  text-success icon-event icon-event" title="Approve" ng-click="approveBtnClick(pend,carrier);"></i>
+									<i class="fa  fa fa-check-square  text-success icon-event" title="Approve" ng-click="approveBtnClick(pend,carrier);"></i>
 								</td>
 							</tr>
 							</tbody>

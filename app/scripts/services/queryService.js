@@ -49,6 +49,18 @@ app.factory('QueryService', ['$q', '$http','$rootScope', function ($q, $http, $r
         });
         return deferred.promise;
     }
-
+    queryService.fetchDataOrderId = function (oid) 
+    {
+        var deferred = $q.defer();
+        $http({
+            method: 'GET',
+            url: 'http://34.192.232.173:3000/auditDetailsForOrder?orderID='+oid
+        }).then(function (blockStatus) {
+            deferred.resolve(blockStatus);
+        }, function (error) {
+            deferred.reject(error);
+        });
+        return deferred.promise;
+    }
     return queryService;
   }]);

@@ -33,8 +33,15 @@
 					</div>
 				</div> 
 				<hr class="hr"> -->
-				<div class="table-responsive padding-1 tbl-max-aud" style="width:40%;">
-					<table class="table table-striped table-hover table-class" cellspacing="0" >
+				<div class="table-responsive padding-1 tbl-max-aud">
+					<table class="table-font display table table-striped table-hover tbl-rad table-class" cellspacing="0"  style="width:40%;">
+						<thead>
+								<tr>
+									<th>Order ID</th>
+									<th>Created Date</th>
+									<th>Action</th>
+								</tr>
+							</thead>
 						<tbody>
 						<tr ng-repeat="audit in auditResult">
 							<td>{{audit.orderID}}</td>
@@ -43,61 +50,48 @@
 									{{dateTimeFormat(audit.createdDate,audit.orderID);}}
 								</div>
 							</td>
-							<td><span ng-click="toggleModal(audit.height)" class="height_class">Audit</span></td>
+							<td><span ng-click="toggleModal(audit.orderID)" class="height_class">Audit</span></td>
 						</tr>
 						</tbody>
 					</table>
 				</div>
 			</div>
 			<modal visible="showModal">
-				<div class="col-md-12">
-                      <div class="col-md-5 text-bold">Height:</div>
-                          <div class="col-md-7"><span class="divWrap">{{insertDet.height}}</span></div>
-              	</div>
-              	<div class="col-md-12">
-                      <div class="col-md-5 text-bold">Chain Id:</div>
-                        <div class="col-md-7"><span class="divWrap">{{insertDet.chain_id}}</span></div>
-                  </div>
-                  <div class="col-md-12">
-                      <div class="col-md-5 text-bold">Block Hash:</div>
-                          <div class="col-md-7"><span class="divWrap">{{insertDet.block_hash}}</span></div>
-                  </div>
-                  <div class="col-md-12">
-                      <div class="col-md-5 text-bold">Number of transactions:</div>
-                        <div class="col-md-7"><span class="divWrap">{{insertDet.num_txs}}</span></div>
-                  </div>
-                  <div class="col-md-12">
-                      <div class="col-md-5 text-bold">Data Hash:</div>
-                          <div class="col-md-7"><span class="divWrap">{{insertDet.data_hash}}</span></div>
-                  </div>
-                  <div class="col-md-12">
-                      <div class="col-md-5 text-bold">Block Data:</div>
-                        <div class="col-md-7"><span class="divWrap">{{insertDet.block_data}}</span></div>
-                  </div>
-                  <div class="col-md-12">
-                      <div class="col-md-5 text-bold">Block Time:</div>
-                          <div class="col-md-7"><span class="divWrap">{{insertDet.block_time}}</span></div>
-                  </div>
-                  <div class="col-md-12">
-                      <div class="col-md-5 text-bold">Fees:</div>
-                          <div class="col-md-7"><span class="divWrap">{{insertDet.fees}}</span></div>
-                  </div>
-                  <div class="col-md-12">
-                      <div class="col-md-5 text-bold">Last Block Hash:</div>
-                          <div class="col-md-7"><span class="divWrap">{{insertDet.block_hash}}</span></div>
-                  </div>
-                  <div class="col-md-12">
-                      <div class="col-md-5 text-bold">Last Block Parts:</div>
-                          <div class="col-md-7"><span class="divWrap">{{insertDet.last_block_parts.hash}}</span></div>
-                  </div>
-                  <div class="col-md-12">
-                      <div class="col-md-5 text-bold">Last Validation Hash:</div>
-                          <div class="col-md-7"><span class="divWrap">{{insertDet.last_validation_hash}}</span></div>
-                  </div>
-                  <div class="col-md-12">
-                      <div class="col-md-5 text-bold">State Hash:</div>
-                          <div class="col-md-7"><span class="divWrap">{{insertDet.state_hash}}</span></div>
-                  </div>
+				<div class="table-responsive padding-1 tbl-max-aud">
+					<table class="table table-striped table-hover" cellspacing="0">
+						<thead>
+								<tr>
+									<th>Contract Name</th>
+									<th>Product Name</th>
+									<th>Supplier Name</th>
+									<th>Quantity</th>
+									<th>Batch Id</th>
+									<th>Carrier Name</th>
+									<th>Tracking Number</th>
+									<th>Chain Id</th>
+									<th>Height</th>
+									<th>Block Hash</th>
+									<th>Block Time</th>
+								</tr>
+							</thead>
+						<tbody>
+						<tbody>
+						<tr ng-repeat="audit in orderDetails">
+							<td>{{audit.contractName}}</td>
+							<td>{{audit.productName}}</td>
+							<td>{{audit.supplierName}}</td>
+							<td>{{audit.quantity}}</td>
+							<td>{{audit.batchID}}</td>
+							<td>{{audit.carrierName}}</td>
+							<td>{{audit.trackingNumber}}</td>
+							<td>{{audit.chain_id}}</td>
+							<td>{{audit.height}}</td>
+							<td>{{audit.block_hash}}</td>
+							<td>{{audit.block_time}}</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
 			</modal>
 		</div>
 		<div class="clearfix"></div>

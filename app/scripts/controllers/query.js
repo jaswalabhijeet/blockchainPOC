@@ -90,23 +90,15 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
   $scope.showModal = false;
   $scope.showModalBlock = false;
   $scope.insertDet={};
-  $scope.toggleModal = function(height)
+  $scope.toggleModal = function(oid)
   {
-    AddContractService.fetchBlockData(height).then(function (blockData) 
+    QueryService.fetchDataOrderId(oid).then(function (blockData) 
     {
-        $scope.insertDet["chain_id"]=blockData.data.result[1].block.header.chain_id;
-        $scope.insertDet["height"]=parseInt(blockData.data.result[1].block.header.height);
-        $scope.insertDet["num_txs"]=parseInt(blockData.data.result[1].block.header.num_txs);
-        $scope.insertDet["block_hash"]=blockData.data.result[1].block.last_validation.precommits[0].block_hash;
-        $scope.insertDet["block_data"]=blockData.data.result[1].block.data.txs[0][1].data;
-        $scope.insertDet["data_hash"]=blockData.data.result[1].block.header.data_hash;
-        $scope.insertDet["block_time"]=blockData.data.result[1].block.header.time;
-        $scope.insertDet["fees"]=blockData.data.result[1].block.header.fees;
-        $scope.insertDet["last_block_hash"]=blockData.data.result[1].block.header.last_block_hash;
-        $scope.insertDet["last_block_parts"]=blockData.data.result[1].block.header.last_block_parts;
-        $scope.insertDet["last_validation_hash"]=blockData.data.result[1].block.header.last_validation_hash;
-        $scope.insertDet["state_hash"]=blockData.data.result[1].block.header.state_hash;
-        
+        $scope.orderDetails=[];
+        angular.forEach(blockData.data.row, function(value, key)
+        {
+            $scope.orderDetails.push(value);
+        });
         setTimeout(function()
         {
           $scope.showModal = !$scope.showModal;
