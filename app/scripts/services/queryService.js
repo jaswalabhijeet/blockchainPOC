@@ -28,7 +28,7 @@ app.factory('QueryService', ['$q', '$http','$rootScope', function ($q, $http, $r
         var deferred = $q.defer();
         $http({
             method: 'GET',
-            url: 'http://52.73.17.136:3000/auditDetails'
+            url: 'http://34.192.232.173:3000/auditDetails'
         }).then(function (blockStatus) {
             deferred.resolve(blockStatus);
         }, function (error) {

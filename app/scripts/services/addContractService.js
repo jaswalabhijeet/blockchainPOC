@@ -107,10 +107,7 @@ app.factory('AddContractService', ['$q', '$http','$rootScope', function ($q, $ht
 			json:true,//send the desired json data in the post....
 			headers: {'Content-Type':'application/json'} 
         }).then(function (success) {
-            setTimeout(function(){
                 deferred.resolve(success);
-            }, 2000);
-            
         }, function (error) {
             deferred.reject(error);
         });

@@ -1,5 +1,5 @@
 .margin_left{
-	margin-left:1%;
+	margin-left:0%;
 }
 .padding_height{
 	padding-right:0%;
@@ -21,12 +21,14 @@
 }
 .form-panel-head{
 	font-weight:bold; 
-	margin-left:2%; 
+	margin-left:0%; 
 	font-size:18px; 
-	padding:1% 0%;
+	padding:1% 2%;
+    color: #fff;
+    background-color: #2867ae;
 }
 .form-panel-sub-head{
-	margin:2%;
+	margin:0%;
 	background-color:#ffffff; 
 	padding:1%
 }
@@ -80,6 +82,8 @@
 	border-bottom:2px solid #e0e1e2;
     text-align: left;
 	margin:0% 0%;
+    color: #fff;
+    background-color: #2867ae;
 }
 .dataTables_length {
     margin-top: 10px;
@@ -147,7 +151,7 @@
 }
 .height_class{
 	cursor:pointer;
-	color:#FF9821;
+	color:#2867ae;
 }
 .min-height600{
 	min-height: 600px;

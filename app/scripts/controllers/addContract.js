@@ -89,15 +89,15 @@ angular.module('blockChainApp').controller('addContractCtrl', ['$scope', 'AddCon
     $scope.newBlockHeight = "";
     $scope.createContractBtnClick = function () 
     {
-        //$scope.displayLoading = true;
+        $scope.displayLoading = true;
         AddContractService.getBlockStatus().then(function (response) 
         {    
             $scope.prevBlockHeight = response.data.result[1].latest_block_height;
-             
+             console.log($scope.prevBlockHeight);
             var cid = $filter('date')(new Date(), "ddMMyyyyHHmmss");
             var insertDet={};
             var createContractData = {};
-            createContractData["orderID"] = parseInt(cid);
+            createContractData["contractID"] = parseInt(cid);
             createContractData["contractName"] = $scope.contractName;
             createContractData["supplierID"] = parseInt($scope.supplierID);
             createContractData["supplier"] = $scope.supplierName;
@@ -113,7 +113,6 @@ angular.module('blockChainApp').controller('addContractCtrl', ['$scope', 'AddCon
                 AddContractService.getBlockStatus().then(function (newBlockChainStatus) 
                 {
                     $scope.newBlockHeight = newBlockChainStatus.data.result[1].latest_block_height;
-                    console.log("sdsd");
                     AddContractService.fetchBlocks($scope.prevBlockHeight, $scope.newBlockHeight).then(function (blocksData) 
                     {
                         angular.forEach(blocksData.data.result[1].block_metas, function (value, key) 
@@ -122,7 +121,9 @@ angular.module('blockChainApp').controller('addContractCtrl', ['$scope', 'AddCon
                             {
                                 AddContractService.fetchBlockData(value.header.height).then(function (blockData) 
                                 {
-                                    insertDet["orderID"]=parseInt(createContractData["orderID"]);
+                                    $rootScope.displayError="";
+                                    $rootScope.displaySuccess="";
+                                    insertDet["orderID"]=parseInt(createContractData["contractID"]);
                                     insertDet["contractName"]=createContractData["contractName"];
                                     insertDet["supplierID"]=parseInt(createContractData["supplierID"]);
                                     insertDet["supplierName"]=createContractData["supplier"];
@@ -159,38 +160,49 @@ angular.module('blockChainApp').controller('addContractCtrl', ['$scope', 'AddCon
                                     temp.push(insertDet);
                                     var jsonObj={};
                                     jsonObj["row"]=temp;
-                                    console.log(JSON.stringify(jsonObj));
                                     AddContractService.insertBlockData(JSON.stringify(jsonObj)).then(function (insertResponse) 
                                     {
                                         $scope.displayLoading = false;
-                                        $scope.displayError = "Contract added successfully!";
-                                        
+                                        $rootScope.displaySuccess = "Contract added successfully!";
+                                        location.reload();
                                         $state.go('dashboard');
                                     }, function (error) {
                                         console.log("Error while inserting block data: " + error);
+                                        $rootScope.displayError = "Error in add contract!";
                                         $scope.displayLoading = false;
                                     });
                                 }, function (error) {
                                     console.log("Error while fetching block data: " + error);
+                                    $rootScope.displayError = "Error in add contract!";
                                     $scope.displayLoading = false;
                                 });
+                            }
+                            else
+                            {
+                                $scope.displayLoading = false;
+                                $rootScope.displayError = "Error in add contract!";
+                                $state.go('dashboard');
                             }
                         });
 
                     }, function (error) {
                         console.log("Error while fetching blocks data: " + error);
+                        $rootScope.displayError = "Error in add contract!";
                         $scope.displayLoading = false;
                     });
                 }, function (error) {
                     console.log("Error while fetching new block chain status: " + error);
+                    $rootScope.displayError = "Error in add contract!";
                     $scope.displayLoading = false;
                 });
             }, function (error) {
                 console.log("Error while creating contract: " + error);
+                $rootScope.displayError = "Error in add contract!";
                 $scope.displayLoading = false;
             });
         }, function (error) {
             console.log("Error while fetching block chain status: " + error);
+            $rootScope.displayError = "Error in add contract!";
             $scope.displayLoading = false;
         });
     }

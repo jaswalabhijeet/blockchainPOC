@@ -15,6 +15,13 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
   $(document).ready(function() {
     $('.set-hgt').attr('style','min-height:652px');
   });
+  
+  $scope.dateTimeFormat=function(dt,oid)
+  {
+    var supDt="supDtTm"+oid;
+      dt = dt.slice(0,1)+"-"+ dt.slice(1,3)+"-"+ dt.slice(3,7)+" "+ dt.slice(7,9)+":"+ dt.slice(9,11)+":"+ dt.slice(11,13);
+      $("#"+supDt).html(dt);
+  }
 
 	$scope.queryFunction = function (qryOption) 
 	{
@@ -44,30 +51,15 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
         });
 	}
 	$scope.auditResult=[];
-	$scope.queryBtnClick = function (qryOption,search) 
+	$scope.queryBtnClick = function () 
 	{
 		$scope.displayLoading = true;
 		$scope.auditResult=[];
         QueryService.getAuditDetails().then(function (response) 
         {
-        	console.log(response);
     			angular.forEach(response.data.row, function(value, key)
     			{
-    				
-    				if(qryOption=='contractID')
-    				{
-    					if(value.contractID == parseInt(search))
-    					{
     						$scope.auditResult.push(value);
-    					}
-    				}
-    				else if(qryOption=='productName')
-    				{
-    					if(value.productName == search)
-    					{
-    						$scope.auditResult.push(value);
-    					}
-    				}
 			   });
 			$scope.auditResult = $filter('orderBy')($scope.auditResult, 'height', false); 
 			setTimeout(function()
@@ -100,7 +92,6 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
   $scope.insertDet={};
   $scope.toggleModal = function(height)
   {
-    $scope.displayLoading = true;
     AddContractService.fetchBlockData(height).then(function (blockData) 
     {
         $scope.insertDet["chain_id"]=blockData.data.result[1].block.header.chain_id;
@@ -116,9 +107,10 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
         $scope.insertDet["last_validation_hash"]=blockData.data.result[1].block.header.last_validation_hash;
         $scope.insertDet["state_hash"]=blockData.data.result[1].block.header.state_hash;
         
-        setTimeout(function(){
-      $scope.showModal = !$scope.showModal;
-      }, 200);
+        setTimeout(function()
+        {
+          $scope.showModal = !$scope.showModal;
+        }, 200);
         
     }, function (error) {
             console.log("Error while fetching block data: " + error);
@@ -126,36 +118,8 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
     });
     
   };
-
-  $scope.toggleModalBlock = function(blkDat)
-  {
-    $scope.displayLoading = true;
-    AddContractService.fetchBlockData(blkDat).then(function (blockData) 
-    {
-        $scope.insertDet["chain_id"]=blockData.data.result[1].block.header.chain_id;
-        $scope.insertDet["height"]=parseInt(blockData.data.result[1].block.header.height);
-        $scope.insertDet["num_txs"]=parseInt(blockData.data.result[1].block.header.num_txs);
-        $scope.insertDet["block_hash"]=blockData.data.result[1].block.last_validation.precommits[0].block_hash;
-        $scope.insertDet["block_data"]=blockData.data.result[1].block.data.txs[0][1].data;
-        $scope.insertDet["data_hash"]=blockData.data.result[1].block.header.data_hash;
-        $scope.insertDet["block_time"]=blockData.data.result[1].block.header.time;
-        $scope.insertDet["fees"]=blockData.data.result[1].block.header.fees;
-        $scope.insertDet["last_block_hash"]=blockData.data.result[1].block.header.last_block_hash;
-        $scope.insertDet["last_block_parts"]=blockData.data.result[1].block.header.last_block_parts;
-        $scope.insertDet["last_validation_hash"]=blockData.data.result[1].block.header.last_validation_hash;
-        $scope.insertDet["state_hash"]=blockData.data.result[1].block.header.state_hash;
-        //console.log($scope.insertDet);
-        setTimeout(function(){
-      $scope.showModalBlock = !$scope.showModalBlock;
-      }, 200);
-        
-    }, function (error) {
-            console.log("Error while fetching block data: " + error);
-            $scope.displayLoading = false;
-    });
-    
-    
-  };
+  
+  $scope.queryBtnClick();
 
 	$scope.logout=function()
     {
@@ -177,7 +141,7 @@ app.directive('modal', function ()
             '<div class="modal-content">' + 
               '<div class="modal-header">' + 
                 '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' + 
-                '<h4 class="modal-title">Height Results</h4>' + 
+                '<h4 class="modal-title">Audit Details</h4>' + 
               '</div>' + 
               '<div class="modal-body modal-scroll" ng-transclude></div>' + 
             '</div>' + 

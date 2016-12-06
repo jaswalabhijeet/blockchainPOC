@@ -9,10 +9,10 @@
 				<div class="form-panel-border-sam">
 					<div class="form-panel-font">Medical Drug Supply Chain Integrity</div>
 				</div>
-				<div class="form-panel-head">Query</div>
+				<div class="form-panel-head">Audit Trail</div>
 			</div>
 			<div class="form-panel-sub-head">
-				<div>
+				<!-- <div>
 					<div class="col-md-12">
 						<div class="col-md-12 padding-1">
 							<div class="form-group">
@@ -31,8 +31,8 @@
 						</div>
 						
 					</div>
-				</div>
-				<hr class="hr">
+				</div> 
+				<hr class="hr"> -->
 				<div class="table-responsive padding-1 tbl-max">
 					<table class="table-font query_tbl display table table-striped table-bordered table-hover dataTable no-footer" cellspacing="0" >
 						<thead>
@@ -41,18 +41,10 @@
 								<th class="text-left">
 									<input name="select_all" value="1" type="checkbox">
 								</th>
-								<th>Contract ID</th>
+								<th>Order ID</th>
 								<th>Contract Name</th>
-								<th>Product ID</th>
-								<th>Product Name</th>
-								<th>Signed By</th>
-								<th>Chain ID</th>
-								<th>Height</th>
-								<th>Block Time</th>
-								<th>Num_txs</th>
-								<th>Data Hash</th>
-								<!-- <th >Block Data</th> -->
-								<th>Block Hash</th>
+								<th>Created Date</th>
+								<th>Status</th>
 								<th>Actions</th>
 							</tr>
 						</thead>
@@ -60,19 +52,15 @@
 						<tr ng-repeat="audit in auditResult">
 							<td class="th-none"></td>
 							<td class="text-left"><input name="select_all" value="1" type="checkbox"></td>
-							<td><span class="height_class">{{audit.contractID}}</span></td>
+							<td>{{audit.orderID}}</td>
 							<td>{{audit.contractName}}</td>
-							<td>{{audit.productID}}</td>
-							<td>{{audit.productName}}</td>
-							<td>{{audit.signedBy}}</td>
-							<td>{{audit.chain_id}}</td>
-							<td><span ng-click="toggleModal(audit.height)" class="height_class">{{audit.height}}</span></td>
-							<td>{{audit.block_time}}</td>
-							<td>{{audit.num_txs}}</td>
-							<td><div class="tbl-wrap">{{audit.data_hash}}</div></td>
-							<!--  <td><div class="tbl-wrap"><span ng-mouseover="toggleModalBlock(audit.height)" class="height_class">{{audit.block_data}}</span></div></td> -->
-							<td><div class="tbl-wrap">{{audit.block_hash}}</div></td>
-							<td><span class="height_class">View</span></td>
+							<td>
+								<div id="{{'supDtTm'+audit.orderID}}">
+									{{dateTimeFormat(audit.createdDate,audit.orderID);}}
+								</div>
+							</td>
+							<td>{{audit.status}}</td>
+							<td><span ng-click="toggleModal(audit.height)" class="height_class">Audit</span></td>
 						</tr>
 						</tbody>
 					</table>
@@ -128,24 +116,6 @@
                           <div class="col-md-7"><span class="divWrap">{{insertDet.state_hash}}</span></div>
                   </div>
 			</modal>
-			<modalBlock visibleBlk="showModalBlock">
-				<div class="col-md-12">
-                      <div class="col-md-5 text-bold">Height:</div>
-                          <div class="col-md-7"><span class="divWrap">{{insertDet.height}}</span></div>
-              	</div>
-              	<div class="col-md-12">
-                      <div class="col-md-5 text-bold">Chain Id:</div>
-                        <div class="col-md-7"><span class="divWrap">{{insertDet.chain_id}}</span></div>
-                  </div>
-                  <div class="col-md-12">
-                      <div class="col-md-5 text-bold">Block Hash:</div>
-                          <div class="col-md-7"><span class="divWrap">{{insertDet.block_hash}}</span></div>
-                  </div>
-                  <div class="col-md-12">
-                      <div class="col-md-5 text-bold">Number of transactions:</div>
-                        <div class="col-md-7"><span class="divWrap">{{insertDet.num_txs}}</span></div>
-                  </div>
-			</modalBlock>
 		</div>
 		<div class="clearfix"></div>
 	</div>

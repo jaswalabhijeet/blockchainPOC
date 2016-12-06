@@ -25,13 +25,13 @@ app.controller('showBlocksCtrl', ['$scope','$rootScope','$cookieStore','AddContr
     $scope.showBlockBtnClick = function (tab) 
     {
     	$scope.allBlocks=[];
-		$scope.dataBlocks=[];
+		  $scope.dataBlocks=[];
     	$scope.displayLoading = true;
         AddContractService.getBlockStatus().then(function (response) 
         {    
         	$scope.newBlockHeight = response.data.result[1].latest_block_height;
             $scope.prevBlockHeight = $scope.newBlockHeight-300;
-				AddContractService.fetchBlocks($scope.prevBlockHeight, $scope.newBlockHeight).then(function (blocksData) 
+				        AddContractService.fetchBlocks($scope.prevBlockHeight, $scope.newBlockHeight).then(function (blocksData) 
                 {            
                 	angular.forEach(blocksData.data.result[1].block_metas, function (value, key) 
                     {

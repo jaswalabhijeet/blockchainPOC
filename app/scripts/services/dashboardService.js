@@ -42,7 +42,6 @@ app.factory('DashboardService', ['$q', '$http','$rootScope', function ($q, $http
         return deferred.promise;
     }
     dashboardService.shipmentNotify = function (notificationDetails) {
-        console.log(notificationDetails);
         var deferred = $q.defer();
         $http({
             method: 'POST',
