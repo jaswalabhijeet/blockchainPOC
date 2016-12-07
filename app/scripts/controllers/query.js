@@ -130,12 +130,8 @@ app.directive('modal', function ()
       restrict: 'E',
       template: '<div class="modal fade">' + 
           '<div class="modal-dialog">' + 
-            '<div class="modal-content">' + 
-              '<div class="modal-header">' + 
-                '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' + 
-                '<h4 class="modal-title">Audit Details</h4>' + 
-              '</div>' + 
-              '<div class="modal-body modal-scroll" ng-transclude></div>' + 
+            '<div class="modal-content">' +  
+              '<div class="modal-body modal-body-cus modal-scroll" ng-transclude></div>' + 
             '</div>' + 
           '</div>' + 
         '</div>',

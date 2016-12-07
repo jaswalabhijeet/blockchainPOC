@@ -124,7 +124,7 @@ app.directive('modals', function () {
                 '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' + 
                 '<h4 class="modal-title">Height Results</h4>' + 
               '</div>' + 
-              '<div class="modal-body modal-scroll" ng-transclude></div>' + 
+              '<div class="modal-body modal-scroll modal-body-cus" ng-transclude></div>' + 
             '</div>' + 
           '</div>' + 
         '</div>',

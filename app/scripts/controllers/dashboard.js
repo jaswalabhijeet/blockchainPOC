@@ -190,6 +190,7 @@ $scope.approveBtnClick = function (contractDetails,cname)
 	else if($rootScope.logType=='Carriers')
 	{
 		var hdntno="tnohdn"+contractDetails.orderID;
+		var txtBid="bidtxt"+contractDetails.orderID;
 		$scope.approvalData={
 	  			"contractID":contractDetails.orderID,
 	  			"supplierName":contractDetails.supplierName,
@@ -197,7 +198,6 @@ $scope.approveBtnClick = function (contractDetails,cname)
 	  			"shipmentstatus":1,
 	  			"carrierName":contractDetails.carrierName,
 	  			"trackingNumber": $('#'+hdntno).val()};
-
 		AddContractService.getBlockStatus().then(function (response) 
 	    {
 	    	$scope.prevBlockHeight = response.data.result[1].latest_block_height;
@@ -226,7 +226,7 @@ $scope.approveBtnClick = function (contractDetails,cname)
                                     insertDet["quantity"]=parseInt(contractDetails.quantity);
                                     insertDet["pricePerUOM"]=parseInt(contractDetails.pricePerUOM);
                                     insertDet["totalPrice"]=parseInt(contractDetails.totalPrice);
-                                    insertDet["batchID"]=approvalResponse.data[1];
+                                    insertDet["batchID"]=$('#'+txtBid).val();
                                     insertDet["carrierName"]=contractDetails.carrierName;
                                     insertDet["trackingNumber"]=$scope.approvalData['trackingNumber'];
                                     insertDet["supplyByDate"]=contractDetails.supplyByDate;

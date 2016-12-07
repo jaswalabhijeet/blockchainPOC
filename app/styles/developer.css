@@ -405,3 +405,13 @@ height: 50px;
 .fa{
     font-size:20px;
 }
+.modal-body-cus{
+    padding: 0%;
+    border-radius: 10px;
+}
+.table-striped > tbody > tr:nth-of-type(odd){
+    background-color: #fbdada;
+}
+.modal-content{
+    border-radius: 20px;
+}

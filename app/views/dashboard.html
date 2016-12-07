@@ -110,7 +110,7 @@
 									<th>Quantity</th>
 									<th ng-show="logType!= 'Carriers'">Supplier Name</th>
 									<th ng-show="logType!= 'Carriers'">Supply By Date</th>
-									<th ng-show="logType!= 'Carriers'">Batch Id</th>
+									<th >Batch Id</th>
 									<th ng-show="logType!= 'Carriers'">Carrier Name</th>
 									<th ng-show="logType!= 'Distributor'">Tracking Number</th>
 									<th>Action</th>
@@ -126,12 +126,15 @@
 								<td ng-show="logType!= 'Carriers'">
 									<div id="{{'supDt'+pend.orderID}}">{{ dateFormat(pend.supplyByDate,pend.orderID) }}</div>
 								</td>
-								<td ng-show="logType!= 'Carriers'">
-									<div class="input-group" ng-show="logType!= 'Retailer'" id="{{'btnbid'+pend.orderID}}">
+								<td>
+									<div class="input-group" ng-show="logType== 'Distributor'" id="{{'btnbid'+pend.orderID}}">
 										<input type="hidden" id="{{'bidhdn'+pend.orderID}}"/>
 										<i class="fa fa-check-square  text-success icon-event" title="Generate" ng-click="generateBatchId('product',pend.orderID);"></i>
 									</div>
-									<div id="{{'bid'+pend.orderID}}" class="submittername">{{pend.batchID}}</div>
+									<div ng-show="logType!= 'Carriers'" id="{{'bid'+pend.orderID}}" class="submittername">{{pend.batchID}}</div>
+									<div ng-show="logType== 'Carriers'" id="{{'bid'+pend.orderID}}" class="submittername">
+										<input type="text" id="{{'bidtxt'+pend.orderID}}" value="{{pend.batchID}}"/>
+									</div>
 								</td>
 								<td ng-show="logType!= 'Carriers'">
 									<div class="input-group" ng-show="logType== 'Distributor'">
