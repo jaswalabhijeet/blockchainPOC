@@ -60,6 +60,11 @@
 				}
 			});
 			$scope.displayLoading = false;
+			  setTimeout(function() 
+	          {
+	            var hgt=$('.set-hgt').height()+'px';
+	            $('.navbar-inverse').attr('style','min-height:'+hgt);
+	          }, 1000);
 		});
 	}
 	$scope.generateBatchId=function (pname,oid) 
@@ -253,6 +258,7 @@ $scope.approveBtnClick = function (contractDetails,cname)
 	                                temp.push(insertDet);
 	                                var jsonObj={};
 	                                jsonObj["row"]=temp;
+	                                //console.log(JSON.stringify(jsonObj));exit;
 	                                AddContractService.insertBlockData(JSON.stringify(jsonObj)).then(function (insertResponse) 
 	                                {
 	                                    $scope.displayLoading = false;
@@ -460,21 +466,21 @@ $scope.cancelBtnClick=function (contractDetails)
 	                                    $rootScope.getContract();
 	                                    $state.go('dashboard');
 	                                }, function (error) {
-	                                    console.log("Error while inserting block data: " + error);
+	                                    console.log("Error while inserting block data: ");
 	                                    $scope.displayLoading = false;
 	                                });
 	                        	}, function (error) {
-	            					console.log("Error while fetching block chain status: " + error);
+	            					console.log("Error while fetching block chain status: ");
 	            					$scope.displayLoading = false;
 	        					});
 	                    	}
 	                	});
 	                }, function (error) {
-	            		console.log("Error while fetching block chain status: " + error);
+	            		console.log("Error while fetching block chain status: ");
 	            		$scope.displayLoading = false;
 	        		});
 				}, function (error) {
-	            	console.log("Error while fetching block chain status: " + error);
+	            	console.log("Error while fetching block chain status: ");
 	            	$scope.displayLoading = false;
 	        	});
 	    	}, function (error) {
@@ -482,7 +488,7 @@ $scope.cancelBtnClick=function (contractDetails)
 	            $scope.displayLoading = false;
 	        });
 	    }, function (error) {
-	            console.log("Error while fetching block chain status: " + error);
+	            console.log("Error while fetching block chain status: ");
 	            $scope.displayLoading = false;
 	        });
 	}
@@ -558,21 +564,21 @@ $scope.cancelBtnClick=function (contractDetails)
 	                                    $rootScope.getContract();
 	                                    $state.go('dashboard');
 	                                }, function (error) {
-	                                    console.log("Error while inserting block data: " + error);
+	                                    console.log("Error while inserting block data: ");
 	                                    $scope.displayLoading = false;
 	                                });
 	                        	}, function (error) {
-	            					console.log("Error while fetching block chain status: " + error);
+	            					console.log("Error while fetching block chain status: ");
 	            					$scope.displayLoading = false;
 	        					});
 	                    	}
 	                	});
 	                }, function (error) {
-	            		console.log("Error while fetching block chain status: " + error);
+	            		console.log("Error while fetching block chain status: ");
 	            		$scope.displayLoading = false;
 	        		});
 				}, function (error) {
-	            	console.log("Error while fetching block chain status: " + error);
+	            	console.log("Error while fetching block chain status: ");
 	            	$scope.displayLoading = false;
 	        	});
 	    	}, function (error) {
@@ -580,7 +586,7 @@ $scope.cancelBtnClick=function (contractDetails)
 	            $scope.displayLoading = false;
 	        });
 	    }, function (error) {
-	            console.log("Error while fetching block chain status: " + error);
+	            console.log("Error while fetching block chain status: ");
 	            $scope.displayLoading = false;
 	        });	
 	}
@@ -657,21 +663,21 @@ $scope.cancelBtnClick=function (contractDetails)
 	                                    $rootScope.getContract();
 	                                    $state.go('dashboard');
 	                                }, function (error) {
-	                                    console.log("Error while inserting block data: " + error);
+	                                    console.log("Error while inserting block data: ");
 	                                    $scope.displayLoading = false;
 	                                });
 	                        	}, function (error) {
-	            					console.log("Error while fetching block chain status: " + error);
+	            					console.log("Error while fetching block chain status: ");
 	            					$scope.displayLoading = false;
 	        					});
 	                    	}
 	                	});
 	                }, function (error) {
-	            		console.log("Error while fetching block chain status: " + error);
+	            		console.log("Error while fetching block chain status: ");
 	            		$scope.displayLoading = false;
 	        		});
 				}, function (error) {
-	            	console.log("Error while fetching block chain status: " + error);
+	            	console.log("Error while fetching block chain status: ");
 	            	$scope.displayLoading = false;
 	        	});
 	    	}, function (error) {
@@ -679,7 +685,7 @@ $scope.cancelBtnClick=function (contractDetails)
 	            $scope.displayLoading = false;
 	        });
 	    }, function (error) {
-	            console.log("Error while fetching block chain status: " + error);
+	            console.log("Error while fetching block chain status: ");
 	            $scope.displayLoading = false;
 	        });	
 	}

@@ -73,11 +73,7 @@ app.controller('loginCtrl', ['UserLoginService', '$scope', '$cookieStore','$stat
 
         //for block movement start
 
-        $('#myCarousel').carousel({
-            interval: 3000,
-            pause: "hover"
-        })
-
+        $('.carousel').carousel({interval:0.6,pause: "hover"});
         $('.carousel .item').each(function()
         {
           var next = $(this).next();

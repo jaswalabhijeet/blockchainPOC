@@ -12,9 +12,6 @@ app.controller('showBlocksCtrl', ['$scope','$rootScope','$cookieStore','AddContr
     $scope.loggedUser = $cookieStore.get('loginData');
     $rootScope.logUser = $cookieStore.get('loginTempData').userName;
     $rootScope.logType = $cookieStore.get('loginTempData').profileType;
-    $(document).ready(function() {
-   			 $('.set-hgt').attr('style','min-height:652px');
-  	});
     
     $('ul li a').click(function() 
     {
@@ -52,11 +49,16 @@ app.controller('showBlocksCtrl', ['$scope','$rootScope','$cookieStore','AddContr
                 			}	
                 		}
                     });
+                  setTimeout(function() 
+                  {
+                    var hgt=$('.set-hgt').height()+'px';
+                    $('.navbar-inverse').attr('style','min-height:'+hgt);
+                  }, 1000);
                     setTimeout(function()
-					{
-						$('.blocks_tbl').DataTable();
-					}, 20);
-              $scope.displayLoading = false;
+          					{
+          						$('.blocks_tbl').DataTable();
+          					}, 20);
+                    $scope.displayLoading = false;
             	}, function (error) {
             		console.log("Error while fetching block data: " + error);
             		$scope.displayLoading = false;
@@ -67,7 +69,6 @@ app.controller('showBlocksCtrl', ['$scope','$rootScope','$cookieStore','AddContr
         });
     }
     $scope.showBlockBtnClick(1);
-
 
   $scope.showModal = false;
   $scope.buttonClicked = "";

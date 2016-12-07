@@ -356,26 +356,22 @@ border-right:1px solid grey;
     font-weight: bold;
 }
 
-.carousel-inner .active.left { left: -20%; }
-.carousel-inner .next        { left:  20%; }
-.carousel-control.left,.carousel-control.right {background-image:none;}
-
 .div-block{
     height: 50px;
-    width: 100px;
+    width: 115px;
     border-radius: 10px;
     background-color: #fff;
-    margin: 1% 5px;
+    margin: 1% 0px;
     padding: 12px 2%;
     font-weight: bold;
     color: #2867ae;
 }
 .div-block-start{
-height: 50px;
-    width: 100px;
+    height: 50px;
+    width: 115px;
     border-radius: 10px;
-    background-color: #f2dede;
-    margin: 1% 5px;
+    background-color: #fff;
+    margin: 1% 5px 1% 50px;
     padding: 12px 2%;
     font-weight: bold;
     color: #2867ae;
@@ -383,9 +379,8 @@ height: 50px;
 .div-link{
     height: 20px;
     width: 50px;
-    border-radius: 5px;
-    background-color: #8a6d3b;
-    margin: 2% 3px;
+    margin: 2% 0;
+    padding:0;
 }
 .textbox-width{
     width: 260px !important;
@@ -410,8 +405,18 @@ height: 50px;
     border-radius: 10px;
 }
 .table-striped > tbody > tr:nth-of-type(odd){
-    background-color: #fbdada;
+    background-color: #dcdafb;/*#fbdada;*/
+}
+.table-striped > tbody > tr:nth-of-type(even){
+    background-color: #faf5f5;
 }
 .modal-content{
     border-radius: 20px;
 }
+.carousel-inner > .item {
+    -webkit-transition: 1s linear left!important;
+    -moz-transition: 1s linear left!important;
+    -o-transition: 1s linear left!important;
+    transition: 1s linear left!important;
+}
+.div-link img{ width:100%; height:auto;}
