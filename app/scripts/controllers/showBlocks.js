@@ -31,21 +31,21 @@ app.controller('showBlocksCtrl', ['$scope','$rootScope','$cookieStore','AddContr
             $scope.prevBlockHeight = $scope.newBlockHeight-300;
 				        AddContractService.fetchBlocks($scope.prevBlockHeight, $scope.newBlockHeight).then(function (blocksData) 
                 {            
-                  console.log(blocksData);
+                  
                 	angular.forEach(blocksData.data.result[1].block_metas, function (value, key) 
                     {
                     	if(tab==1)
                     	{
                     		if(value.header.num_txs <1)
                     		{
-                    			$scope.allBlocks.push(value.header);
+                    			$scope.allBlocks.push(value);
                     		}
                     	}
                     	else if(tab==2)
                     	{
                     		if (value.header.num_txs >=1) 
                         	{
-                        		$scope.allBlocks.push(value.header);
+                        		$scope.allBlocks.push(value);
                 			}	
                 		}
                     });

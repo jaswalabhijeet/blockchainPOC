@@ -23,7 +23,7 @@ app.controller('loginCtrl', ['UserLoginService', '$scope', '$cookieStore','$stat
                 $scope.complete();
                 $scope.displayLoading = false;
             }, function (error) {
-                $scope.displayError="Error while fetching username details: " + error;
+                $scope.displayError="Error while fetching username details: ";
                 $scope.displayLoading = false;
             });
         }
@@ -41,6 +41,27 @@ app.controller('loginCtrl', ['UserLoginService', '$scope', '$cookieStore','$stat
             });
         }
         $scope.getUsername();
+        $scope.blockHover = function (height) 
+        {
+            AddContractService.fetchBlockData(height).then(function (blockData) 
+            {
+                $scope.insertDet["chain_id"]=blockData.data.result[1].block.header.chain_id;
+                $scope.insertDet["height"]=parseInt(blockData.data.result[1].block.header.height);
+                $scope.insertDet["num_txs"]=parseInt(blockData.data.result[1].block.header.num_txs);
+                $scope.insertDet["block_hash"]=blockData.data.result[1].block.last_validation.precommits[0].block_hash;
+                $scope.insertDet["data_hash"]=blockData.data.result[1].block.header.data_hash;
+                $scope.insertDet["block_time"]=blockData.data.result[1].block.header.time;
+                $scope.insertDet["fees"]=blockData.data.result[1].block.header.fees;
+                $scope.insertDet["last_block_hash"]=blockData.data.result[1].block.header.last_block_hash;
+                $scope.insertDet["last_block_parts"]=blockData.data.result[1].block.header.last_block_parts;
+                $scope.insertDet["last_validation_hash"]=blockData.data.result[1].block.header.last_validation_hash;
+                $scope.insertDet["state_hash"]=blockData.data.result[1].block.header.state_hash;
+                
+            }, function (error) {
+                    console.log("Error while fetching block data: ");
+                    $scope.displayLoading = false;
+            });
+        }
         $scope.loginButtonClick = function () 
         {
             $scope.displayLoading = true;
