@@ -33,7 +33,7 @@ body > .container-fluid {
 	border: none;
 }
 .navbar-inverse {
-    background-color: #2c4e80;
+    background-color: #0969B2;
 	border: none;
 	border-radius: 0;
 	color: #fff;
@@ -45,7 +45,7 @@ body > .container-fluid {
 .navbar-inverse .navbar-nav > .active > a,  
 .navbar-inverse .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .active > a:focus{
-	background-color: #2191ff;
+	background-color: #4197D5;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover{
@@ -58,24 +58,14 @@ body > .container-fluid {
 	padding-right: 15px;
 }
 .logoutInfo {
-	position: absolute;
-	bottom:0px;
-	right:0px;
-	left:0px;
-	cursor: pointer;
-}
-.logoutInfo hr {
-	color: #fff;
-	margin: 0;
-}
-.logoutInfoContent {
-	padding: 10px 10px 10px 15px;
-
+	font-weight:normal;
+	margin-right:5%;
+	cursor:pointer;
 }
 .userInfo{
 	height: 150px;
     width: 100%;
-	background-color: #5b769e;
+	background-color: #4197D5;
 	display: table;
 }
 .userInfoContent{
@@ -88,6 +78,9 @@ body > .container-fluid {
 }
 .userImg img{
 	border-radius: 40px;
+}
+.mgn-top{
+    margin-top: 5% !important;
 }
 
 .logoutInfoContent i.fa{

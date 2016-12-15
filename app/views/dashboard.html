@@ -7,11 +7,15 @@
 			<div class="col-md-10 padding_bg set-hgt">
 				<div class="form-panel">
 					<div class="form-panel-border-sam">
-						<div class="form-panel-font">Medical Drug Supply Chain Integrity</div>
-					</div>
-					<div class="form-panel-head">My Dashboard</div>
-				</div>
+						<div class="form-panel-font" >Medical Drug Supply Chain Integrity
 
+				<span class="pull-right logoutInfo" ng-click="logout();">
+					<i class="fa fa-circle" aria-hidden="true"></i>&nbsp;&nbsp;Logout
+				</span>
+						</div>
+
+					</div>
+				</div>
 				<div class="form-panel-sub-head">
 					<div class="alert alert-success fade in alert-dismissable" ng-show="displaySuccess!=''">
     					<a class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
@@ -21,6 +25,7 @@
     					<a class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
     					<strong>Error!</strong> {{displayError}}
 					</div>
+					<div class="page-head">Dashboard</div>
 					<span class="form-panel-sub-head-span">
 						<i class="fa fa-university" aria-hidden="true"></i>
 						Bank Accounts
@@ -66,7 +71,7 @@
 							                    {{  dateTimeFormat(contract.createdDate,contract.orderID);}}
 							                  </div>
 		          					</div>
-		          					<div class="right-arrow-white col-sm-3" style="z-index:2;text-align:right;">{{ contract.pendingWith | limitTo:20 }}...</div>
+		          					<div class="right-arrow-white-last col-sm-3" style="z-index:2;text-align:right;">{{ contract.pendingWith | limitTo:20 }}...</div>
 		    					</div>
     					</div>
 					</div>

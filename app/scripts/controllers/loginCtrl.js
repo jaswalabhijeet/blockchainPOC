@@ -92,27 +92,24 @@ app.controller('loginCtrl', ['UserLoginService', '$scope', '$cookieStore','$stat
 
         window.history.forward(-1);
 
-        //for block movement start
-
-        $('.carousel').carousel({interval:0.6,pause: "hover"});
-        $('.carousel .item').each(function()
-        {
-          var next = $(this).next();
-          if (!next.length) {
-            next = $(this).siblings(':first');
-          }
-          next.children(':first-child').clone().appendTo($(this));
-          
-          for (var i=0;i<12;i++) {
-            next=next.next();
-            if (!next.length) {
-                next = $(this).siblings(':first');
-            }
-            
-            next.children(':first-child').clone().appendTo($(this));
-          }
-        });
-
-        //for block movement close
+        var news = $('.news')
+var current = 0;
+news.hide();
+Rotator();
+function Rotator() 
+{
+    $(news[current]).fadeIn('slow').delay(500);
+    $(news[current]).queue(function() 
+    {
+        if(current==4)
+            news.hide();
+        current = current < news.length - 1 ? current + 1 : 0;
+        if(current==0)
+            setTimeout(function(){Rotator()}, 500);
+        else
+            Rotator();
+        $(this).dequeue();
+    });
+}
 
 }]);

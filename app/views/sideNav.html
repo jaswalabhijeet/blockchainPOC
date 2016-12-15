@@ -21,28 +21,22 @@
 				</div>
 			</div>
 			<ul class="nav navbar-nav">
-				<li ui-sref-active="active">
-					<a ui-sref="dashboard"><i class="fa fa-th" aria-hidden="true"></i>Dashboard</a>
+				<li ui-sref-active="active mgn-top">
+					<a ui-sref="dashboard"><i class="fa fa-circle" aria-hidden="true"></i>Dashboard</a>
 				</li>
 				<li ui-sref-active="active">
-					<a ui-sref="showBlocks"><i class="fa fa-cube" aria-hidden="true"></i>Show Blocks</a>
+					<a ui-sref="showBlocks"><i class="fa fa-circle" aria-hidden="true"></i>Blocks</a>
 				</li>
 				<li ui-sref-active="active" ng-show="logType== 'Retailer'">
-					<a ui-sref="addContract" ><i class="fa fa-address-card" aria-hidden="true"></i>Add Contract</a>
+					<a ui-sref="addContract" ><i class="fa fa-circle" aria-hidden="true"></i>Add Contract</a>
 				</li>
 				<li ui-sref-active="active" ng-show="logType!='Retailer'">
-					<a><i class="fa fa-address-card" aria-hidden="true"></i>Add Contract</a>
+					<a><i class="fa fa-circle" aria-hidden="true"></i>Add Contract</a>
 				</li>
 				<li ui-sref-active="active">
-					<a ui-sref="query"><i class="fa fa-file-text-o" aria-hidden="true"></i>Audit trail</a>
+					<a ui-sref="query"><i class="fa fa-circle" aria-hidden="true"></i>Audit</a>
 				</li>
 			</ul>
-			<div class="logoutInfo">
-				<hr>
-				<div class="logoutInfoContent" ng-click="logout();">
-					<i class="fa fa-sign-out" aria-hidden="true"></i>Logout
-				</div>
-			</div>
 		</div><!--/.nav-collapse -->
 	</div>
 </div>
