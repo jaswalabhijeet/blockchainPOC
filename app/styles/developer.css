@@ -11,14 +11,13 @@
 	padding:0px;
 }
 .form-panel-font{
-	font-weight:bold; 
 	margin-left:2%; 
 	font-size:20px; 
 	padding:2% 0% ;
 }
 .page-head{
     font-weight:bold;
-    font-size:42px; 
+    font-size:30px; 
     padding:1% 0% ;
     color: #4E4C4C;
     margin-left: 1%;
@@ -113,12 +112,13 @@
     background: #fbdada;
 }
 .login-container{
-    /*background-image: url(../images/bg.jpg);*/
+    background: #e0ffc7 url(../images/bg_animation.gif) no-repeat center center; 
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    background-size: cover;
  }
 .login-container-overlay{
 	background-color:#333;
@@ -130,18 +130,20 @@
 	background: rgba(0, 0, 0, 0.3);
 }
 .login-box {
-    width: 500px;
-    height: 260px;
+    width: 100%;
+    height: 350px;
     text-align: center;
     position: absolute;
     top: 100px;
     right: 0;
     bottom: 0;
     left: 0;
-    margin: auto;
+    margin: auto 0%;
     color: #fff;
-    background-color:#716F70;
+    background-color:#333;
+    background: rgba(0, 0, 0, 0.3);
     border-radius:5px;
+    border: 0px solid;
     
 }
 .icon-event{
@@ -192,7 +194,8 @@ border-right:1px solid grey;
 .fgt-cls{
     color:black; 
     margin-left:50%;
-    color:#2BABEC;
+    color:#fff;
+    text-align: right;
 }
 .colmd5-cus{
 	color:white; 
@@ -274,14 +277,9 @@ border-right:1px solid grey;
 .logo-head
 {
     text-align: center;
-    position: absolute;
-    top: 170px;
-    right: 0;
-    bottom: 0;
-    left: 0;
     margin: auto;
     color: #CBCBCB;
-    font-size:42px;
+    font-size:40px;
     font-family:HelveticaNeue-Light;
 }
 .logo-sub-head
@@ -349,7 +347,7 @@ border-right:1px solid grey;
     font-size:20px;
 }
 .modal-body-cus{
-    padding: 0%;
+    padding: 1%;
     border-radius: 10px;
 }
 .table-striped > tbody > tr:nth-of-type(odd){
@@ -402,7 +400,15 @@ border-right:1px solid grey;
 .right-arrow-grey {
     display: inline-block;
     position: relative;
-    background: grey;
+    background: #ccc;
+    padding: 10px 10px 10px 50px;
+    color:#fff;
+    margin-left:-5px;
+}
+.right-arrow-grey-last {
+    display: inline-block;
+    position: relative;
+    background: #ccc;
     padding: 10px 10px 10px 50px;
     color:#fff;
     margin-left:-5px;
@@ -419,7 +425,7 @@ border-right:1px solid grey;
     border-top: 20px solid transparent;
     border-right: 20px solid transparent;
     border-bottom: 20px solid transparent;
-    border-left: 40px solid grey;
+    border-left: 40px solid #ccc;
 }
 .right-arrow-white {
     display: inline-block;

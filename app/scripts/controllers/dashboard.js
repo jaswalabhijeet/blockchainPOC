@@ -37,7 +37,10 @@
 	$scope.dateTimeFormat=function(dt,oid)
 	{
 		var supDt="supDtTm"+oid;
-    	dt = dt.slice(0,1)+"-"+ dt.slice(1,3)+"-"+ dt.slice(3,7)+" "+ dt.slice(7,9)+":"+ dt.slice(9,11)+":"+ dt.slice(11,13);
+		if(dt.length==13)
+    		dt = dt.slice(0,1)+"-"+ dt.slice(1,3)+"-"+ dt.slice(3,7)+" "+ dt.slice(7,9)+":"+ dt.slice(9,11)+":"+ dt.slice(11,13);
+    	else
+    		dt = dt.slice(0,2)+"-"+ dt.slice(2,4)+"-"+ dt.slice(4,8)+" "+ dt.slice(8,10)+":"+ dt.slice(10,12)+":"+ dt.slice(12,14);
     	$("#"+supDt).html(dt);
 	}
 	$rootScope.getContract=function () 
