@@ -44,7 +44,7 @@ app.factory('AddContractService', ['$q', '$http','$rootScope', function ($q, $ht
         var deferred = $q.defer();
         $http({
             method: 'GET',
-            url: 'http://34.192.232.173:32768/status'
+            url: 'http://34.192.232.173:46657/status'
         }).then(function (blockStatus) {
             deferred.resolve(blockStatus);
         }, function (error) {
@@ -53,7 +53,8 @@ app.factory('AddContractService', ['$q', '$http','$rootScope', function ($q, $ht
         return deferred.promise;
     }
 
-    addContractService.createContract = function (createContractData) {
+    addContractService.createContract = function (createContractData) 
+    {
         var deferred = $q.defer();
         $http({
             method: 'POST',
@@ -72,11 +73,45 @@ app.factory('AddContractService', ['$q', '$http','$rootScope', function ($q, $ht
         return deferred.promise;
     }
 
+    addContractService.createContractManufacturer = function (createContractData) 
+    {
+        var deferred = $q.defer();
+        $http({
+            method: 'POST',
+            url: 'http://34.192.232.173:8085/createContractManufacturer/',
+            data: createContractData,
+            json:true,//send the desired json data in the post....
+            headers: {'Content-Type':'application/json'} 
+        }).then(function (success) {
+                deferred.resolve(success);
+        }, function (error) {
+            deferred.reject(error);
+        });
+        return deferred.promise;
+    }
+
+    addContractService.createContractDistributor = function (createContractData) 
+    {
+        var deferred = $q.defer();
+        $http({
+            method: 'POST',
+            url: 'http://34.192.232.173:8085/createContractDistributor/',
+            data: createContractData,
+            json:true,//send the desired json data in the post....
+            headers: {'Content-Type':'application/json'} 
+        }).then(function (success) {
+                deferred.resolve(success);
+        }, function (error) {
+            deferred.reject(error);
+        });
+        return deferred.promise;
+    }
+
     addContractService.fetchBlocks = function (minHeight, maxHeight) {
         var deferred = $q.defer();
         $http({
             method: 'GET',
-            url: 'http://34.192.232.173:32768/blockchain?minHeight=' + minHeight + '&maxHeight=' + maxHeight
+            url: 'http://34.192.232.173:46657/blockchain?minHeight=' + minHeight + '&maxHeight=' + maxHeight
         }).then(function (success) {
             deferred.resolve(success);
         }, function (error) {
@@ -89,7 +124,7 @@ app.factory('AddContractService', ['$q', '$http','$rootScope', function ($q, $ht
         var deferred = $q.defer();
         $http({
             method: 'GET',
-            url: 'http://34.192.232.173:32768/get_block?height=' + height
+            url: 'http://34.192.232.173:46657/get_block?height=' + height
         }).then(function (success) {
             deferred.resolve(success);
         }, function (error) {
@@ -105,7 +140,7 @@ app.factory('AddContractService', ['$q', '$http','$rootScope', function ($q, $ht
             url: 'http://34.192.232.173:3000/insertContract',
             data: insertData,
 			json:true,//send the desired json data in the post....
-			headers: {'Content-Type':'application/json'} 
+			headers: {'Content-Type':'application/json'}
         }).then(function (success) {
                 deferred.resolve(success);
         }, function (error) {

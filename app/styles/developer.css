@@ -131,7 +131,7 @@
 }
 .login-box {
     width: 100%;
-    height: 350px;
+    height: 320px;
     text-align: center;
     position: absolute;
     top: 100px;
@@ -193,7 +193,7 @@ border-right:1px solid grey;
  }
 .fgt-cls{
     color:black; 
-    margin-left:50%;
+    margin-left:0%;
     color:#fff;
     text-align: right;
 }
@@ -279,7 +279,7 @@ border-right:1px solid grey;
     text-align: center;
     margin: auto;
     color: #CBCBCB;
-    font-size:40px;
+    font-size:35px;
     font-family:HelveticaNeue-Light;
 }
 .logo-sub-head

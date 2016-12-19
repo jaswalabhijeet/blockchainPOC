@@ -25,7 +25,6 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
         dt = dt.slice(0,2)+"-"+ dt.slice(2,4)+"-"+ dt.slice(4,8)+" "+ dt.slice(8,10)+":"+ dt.slice(10,12)+":"+ dt.slice(12,14);
       $("#"+supDt).html(dt);
   }
-
 	$scope.queryFunction = function (qryOption) 
 	{
     $scope.result=[];

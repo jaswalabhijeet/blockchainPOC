@@ -75,5 +75,105 @@ app.factory('DashboardService', ['$q', '$http','$rootScope', function ($q, $http
         return deferred.promise;
     }
 
+    dashboardService.signOffByDistributor = function (signOffDetails) 
+    {    
+        var deferred = $q.defer();
+        $http({
+            method: 'POST',
+            url: 'http://34.192.232.173:8085/signofByDistributor/',
+            data: signOffDetails,
+            json:true,//send the desired json data in the post....
+            headers: {'Content-Type':'application/json'} 
+        }).then(function (success) 
+        {
+            deferred.resolve(success);  
+        }, function (error) {
+            deferred.reject(error);
+        });
+        return deferred.promise;
+    }
+
+    dashboardService.approvalBySupplier = function (approvalData) {
+
+        var deferred = $q.defer();
+        $http({
+            method: 'POST',
+            url: 'http://34.192.232.173:8085/approveBySupplier/',
+            data: approvalData,
+            json:true,//send the desired json data in the post....
+            headers: {'Content-Type':'application/json'} 
+        }).then(function (success) 
+        {
+            deferred.resolve(success);  
+        }, function (error) {
+            deferred.reject(error);
+        });
+        return deferred.promise;
+    }
+
+    dashboardService.approvalByManufacturer = function (approvalData) {
+
+        var deferred = $q.defer();
+        $http({
+            method: 'POST',
+            url: 'http://34.192.232.173:8085/signofByManufacturer/',
+            data: approvalData,
+            json:true,//send the desired json data in the post....
+            headers: {'Content-Type':'application/json'} 
+        }).then(function (success) 
+        {
+            deferred.resolve(success);  
+        }, function (error) {
+            deferred.reject(error);
+        });
+        return deferred.promise;
+    }
+
+    dashboardService.approvalByManufacturerDist = function (approvalData) 
+    {
+        var deferred = $q.defer();
+        $http({
+            method: 'POST',
+            url: 'http://34.192.232.173:8085/approveByManufacturer/',
+            data: approvalData,
+            json:true,//send the desired json data in the post....
+            headers: {'Content-Type':'application/json'} 
+        }).then(function (success) 
+        {
+            deferred.resolve(success);  
+        }, function (error) {
+            deferred.reject(error);
+        });
+        return deferred.promise;
+    }
+
+    dashboardService.getDrugDetails = function () 
+    {
+        var deferred = $q.defer();
+        $http({
+            method: 'GET',
+            url: 'http://34.192.232.173:3000/batchIDDetails'
+        }).then(function (pdtDetails) {
+            deferred.resolve(pdtDetails);
+        }, function (error) {
+            deferred.reject(error);
+        });
+        return deferred.promise;
+    }
+
+    dashboardService.getBatchIDDetails = function (pname) 
+    {
+        var deferred = $q.defer();
+        $http({
+            method: 'GET',
+            url: 'http://34.192.232.173:3000/batchIDForproductName?productName='+pname
+        }).then(function (pdtDetails) {
+            deferred.resolve(pdtDetails);
+        }, function (error) {
+            deferred.reject(error);
+        });
+        return deferred.promise;
+    }
+
     return dashboardService;
   }]);

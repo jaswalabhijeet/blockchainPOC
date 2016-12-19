@@ -15,7 +15,8 @@ var app = angular.module('blockChainApp', [
 'ngResource',
 'ngSanitize',
 'ngTouch',
-'app.routes'
+'app.routes',
+'ui.bootstrap'
 ]);
 
 app.controller('MainCtrl', ['$scope', '$rootScope', '$state', function ($scope, $rootScope, $state) 

@@ -22,12 +22,12 @@
 						<div class="col-md-12  padding-1">
 							<div class="col-md-6">
 								<label for="form-field-mask-1">
-									Product Name
+									Product Names
 								</label>
 								<div class="input-group">
 									<select class="form-control textbox-width" ng-model="productName" required  ng-change="getProductDetails(productName);">
 										<option value=" ">-Select-</option>
-										<option ng-repeat="pname in pdctName" value="{{pname}}">{{pname}}</option>
+										<option ng-repeat="pname in pdctName track by $index" value="{{pname}}">{{pname}}</option>
 									</select>
 								</div>
 							</div>
@@ -49,7 +49,7 @@
 								<div class="input-group">
 									<select class="form-control textbox-width" required ng-model="supplierName"  ng-change="getSupplierDetails(supplierName);">
 										<option value=" ">-Select-</option>
-										<option ng-repeat="sname in supName" value="{{sname}}">{{sname}}</option>
+										<option ng-repeat="sname in supName track by $index" value="{{sname}}">{{sname}}</option>
 									</select>
 								</div>
 							</div>	

@@ -37,7 +37,7 @@
 					</div>
 				</div> 
 				<hr class="hr"> -->
-				<div class="table-responsive form-panel-box-nopad" style="min-height:200px;">
+				<div class="table-responsive form-panel-box-nopad" style="min-height:200px;border-radius:10px;">
 					<div class="row">
 							<div class="col-sm-4 arrow_box" style="background-color:#2867ae; padding:1%;text-align:left;">
 								<span style="margin-left:33%;">Order ID</span>
@@ -49,8 +49,8 @@
 								<span style="margin-left:35%;">Action</span>
 							</div>
 						</div>
-						<div style="border:0px solid #fff; float:left;margin:4% 0% 1% 0%;width:100%; max-height:370px;overflow-x:auto;">
-								<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 2%;width:93%;" ng-repeat="audit in auditResult">
+						<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:370px;overflow-x:auto;">
+								<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 2%;width:98%;" ng-repeat="audit in auditResult">
 		          					<div class="right-arrow-grey col-sm-4" style="z-index:5;text-align:center;">{{audit.orderID}}</div>
 		          					<div class="right-arrow-white col-sm-4" style="z-index:4;text-align:center;">
 		          						<div id="{{'supDtTm'+audit.orderID}}">
@@ -66,43 +66,43 @@
 			<modal visible="showModal">
 				<div class="table-responsive form-panel-box-nopad" style="min-height:200px;width:1600px;" ng-show="orderDetails.length!=0">
 					<div>
-						<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:75px;">
+						<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
 								<span style="margin-left:0;">Contract Name</span>
 						</div>
-						<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:75px;">
+						<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
 							<span style="margin-left:0;">Product Name</span>
 						</div>
-						<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:75px;">
+						<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
 							<span style="margin-left:0;">Supplier Name</span>
 						</div>
-						<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:75px;">
+						<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
 							<span style="margin-left:0">Quantity</span>
 						</div>
-						<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:75px;">
+						<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
 							<span style="margin-left:0;">Batch Id</span>
 						</div>
-						<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:75px;">
+						<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
 							<span style="margin-left:0;">Carrier Name</span>
 						</div>
-						<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:75px;">
+						<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
 							<span style="margin-left:0;">Tracking Number</span>
 						</div>
-						<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:75px;">
+						<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
 							<span style="margin-left:0;">Chain ID</span>
 						</div>
-						<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:75px;">
+						<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
 							<span style="margin-left:0;">Height</span>
 						</div>
-						<div class="arrow_box" style="width:10%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:75px;">
+						<div class="arrow_box" style="width:10%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
 							<span style="margin-left:0;">Block Hash</span>
 						</div>
-						<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:75px;">
+						<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
 							<span style="margin-left:0;">Block Time</span>
 						</div>
 					</div>
 
-					<div style="border:0px solid #fff; float:left;margin:4% 0% 1% 0%;width:100%; max-height:200px;">
-								<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:95%;overflow:hidden;" ng-repeat="audit in orderDetails">
+					<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:200px;">
+								<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;overflow:hidden;" ng-repeat="audit in orderDetails">
 		          					<div class="right-arrow-grey" style="z-index:12;width:9%">&nbsp;{{audit.contractName | limitTo:8}}...</div>
 		          					<div class="right-arrow-white" style="z-index:11;width:9%">&nbsp;{{audit.productName | limitTo:8}}..</div>
 		          					<div class="right-arrow-grey" style="z-index:10;width:9%">&nbsp;{{audit.supplierName | limitTo:8}}..</div>
@@ -128,4 +128,4 @@
         <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
         <span class="sr-only">Loading...</span>
     </div>
-</div>
+</div> 
