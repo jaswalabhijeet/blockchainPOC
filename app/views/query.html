@@ -100,9 +100,8 @@
 							<span style="margin-left:0;">Block Time</span>
 						</div>
 					</div>
-
-					<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:200px;">
-								<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;overflow:hidden;" ng-repeat="audit in orderDetails">
+					<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%;">
+								<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;" ng-repeat="audit in orderDetails track by $index">
 		          					<div class="right-arrow-grey" style="z-index:12;width:9%">&nbsp;{{audit.contractName | limitTo:8}}...</div>
 		          					<div class="right-arrow-white" style="z-index:11;width:9%">&nbsp;{{audit.productName | limitTo:8}}..</div>
 		          					<div class="right-arrow-grey" style="z-index:10;width:9%">&nbsp;{{audit.supplierName | limitTo:8}}..</div>

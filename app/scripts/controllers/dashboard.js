@@ -155,6 +155,7 @@ $scope.approveBtnClick = function (contractDetails,cname)
 	  			"productName": contractDetails.productName,
 	  			"batchID": contractDetails.batchID,
 	  			"approvestatus":1};	
+	  			
 	  		AddContractService.getBlockStatus().then(function (response) 
 		    {
 		    	$scope.prevBlockHeight = response.data.result[1].latest_block_height;
@@ -166,6 +167,7 @@ $scope.approveBtnClick = function (contractDetails,cname)
 		    			$scope.newBlockHeight = newBlockChainStatus.data.result[1].latest_block_height;
 		    			AddContractService.fetchBlocks($scope.prevBlockHeight, $scope.newBlockHeight).then(function (blocksData) 
 	                	{
+
 	                		angular.forEach(blocksData.data.result[1].block_metas, function (value, key) 
 		                    {
 		                    	if (value.header.num_txs >=1) 
@@ -190,7 +192,7 @@ $scope.approveBtnClick = function (contractDetails,cname)
 	                                    insertDet["createdBy"]=contractDetails.createdBy;
 	                                    insertDet["profileType"]=$rootScope.logType;
 	                                    insertDet["pendingWith"]=cname;
-	                                    insertDet["status"]=contractDetails["status"];
+	                                    insertDet["status"]=contractDetails.status;
 	                                    insertDet["loginuser"]=$rootScope.logUser;
 	                                    insertDet["signedBy"]="";
 	                                    insertDet["approvalstatus"]=1;

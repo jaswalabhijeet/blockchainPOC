@@ -101,10 +101,7 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
         {
             $scope.orderDetails.push(value);
         });
-        setTimeout(function()
-        {
           $scope.showModal = !$scope.showModal;
-        }, 200);
         
     }, function (error) {
             console.log("Error while fetching block data: " + error);
