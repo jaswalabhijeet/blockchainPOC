@@ -1,0 +1,123 @@
+
+	
+		
+			
+			
+				
+				
+					
+					
+					
+					
+					
+					
+					
+						
+							<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
+								<span style="margin-left:0;">Action</span>
+							</div>
+							<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
+								<span style="margin-left:0;">Order ID</span>
+							</div>
+							<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
+								<span style="margin-left:0;">Contract Name</span>
+							</div>
+							<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;" ng-show="manDist!= 0">
+								<span style="margin-left:0;">Product Name</span>
+							</div>
+							<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;" ng-show="logType!= 'Carriers'&&logType!= 'Retailer'&&logType!= 'Manufacturer'">
+								<span style="margin-left:0">Quantity</span>
+							</div>
+							<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;" ng-show="logType!= 'Carriers'">
+								<span style="margin-left:0;">Supplier Name</span>
+							</div>
+							<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;" ng-show="logType!= 'Carriers'">
+								<span style="margin-left:0;">Supply By Date</span>
+							</div>
+							<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;" ng-show="logType!= 'Supplier'">
+								<span style="margin-left:0;">Batch ID</span>
+							</div>
+							<div class="arrow_box" style="width:14%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;" ng-show="logType!= 'Carriers'&&logType!= 'Supplier'&&logType!= 'Manufacturer'&& manSup==0">
+								<span style="margin-left:0;">Carrier Name</span>
+							</div>
+							<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;" ng-show="logType!= 'Supplier'&&logType!= 'Distributor'&&logType!= 'Manufacturer'">
+								<span style="margin-left:0;">Tracking Number</span>
+							</div>
+							<div class="arrow_box" style="width:16%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;" ng-show="manDist==0&&logType== 'Manufacturer'">
+								<span style="margin-left:0;">Raw Material</span>
+							</div>
+							<div class="arrow_box" style="width:18%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;" ng-show="manDist==0&&logType== 'Manufacturer'">
+								<span style="margin-left:0;">Drug Name</span>
+							</div>
+						</div>
+						<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:200px;">
+								<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;height: 60px;" ng-repeat="pend in contractsPending">
+		          					<div class="right-arrow-grey" style="z-index:12;width:9%">
+		          						<div>
+		          							<i class="fa  fa fa-check-square  text-success icon-event" title="Approve" ng-click="approveBtnClick(pend,carrier);"></i>
+										</div>
+		          					</div>
+		          					<div class="right-arrow-white" style="z-index:11;width:11%">
+		          						<a uib-tooltip="{{ pend.orderID}}" tooltip-placement="bottom">{{pend.orderID | limitTo:6}}..</a></div>
+		          					<div class="right-arrow-grey" style="z-index:10;width:11%">
+		          						<a uib-tooltip="{{ pend.contractName}}" tooltip-placement="bottom">{{pend.contractName | limitTo:6}}..</a></div>
+		          					<div class="right-arrow-white" style="z-index:9;width:11%" ng-show="manDist!= 0">
+		          						<a uib-tooltip="{{ pend.productName}}" tooltip-placement="bottom">{{pend.productName | limitTo:6}}..</a></div>
+		          					<div class="right-arrow-grey" style="z-index:8;width:9" ng-show="logType!= 'Carriers'&&logType!= 'Retailer'&&logType!= 'Manufacturer'">{{pend.quantity}}</div>
+		          					<div class="right-arrow-white" style="z-index:7;width:11%" ng-show="logType!= 'Carriers'">
+		          						<a uib-tooltip="{{ pend.supplierName}}" tooltip-placement="bottom">{{pend.supplierName | limitTo:6}}..</a></div>
+		          					<div class="right-arrow-grey" style="z-index:6;width:13%" ng-show="logType!= 'Carriers'">
+		          						<div id="{{'supDt'+pend.orderID}}">{{ dateFormat(pend.supplyByDate,pend.orderID) }}</div>
+		          					</div>
+		          					<div class="right-arrow-white" style="z-index:5;width:15%;text-align:center;" ng-show="logType!= 'Supplier'&&manDist== 0">
+		          						<div ng-show="(logType== 'Distributor'&&manSup==0)||logType== 'Manufacturer'" id="{{'btnbid'+pend.orderID}}">
+										<input type="hidden" id="{{'bidhdn'+pend.orderID}}"/>
+										<i class="fa fa-check-square  text-success icon-event" title="Generate" ng-click="generateBatchId('product',pend.orderID);"></i>
+										</div>
+										<div ng-show="logType!= 'Carriers'" id="{{'bid'+pend.orderID}}" class="submittername"><a uib-tooltip="{{ pend.batchID}}" tooltip-placement="bottom">{{pend.batchID | limitTo:6 }}..</a></div>
+										<div ng-show="logType== 'Carriers'" id="{{'bid'+pend.orderID}}" class="submittername">
+											<input type="text" id="{{'bidtxt'+pend.orderID}}" value="{{pend.batchID}}" style="width:100px;" />
+										</div>		          					
+									</div>
+									<div class="right-arrow-white" style="z-index:5;width:15%;text-align:center;" ng-show="manDist!= 0" id="{{'divbid'+pend.orderID}}">
+										<a ng-show="!batchName" ng-click="getBatchID(pend.productName,pend.orderID);" style="cursor:pointer;">Show batch id</a>
+										<div ng-show="batchName">
+											<select class="form-control" ng-model="carrier">
+												<option value=" ">-select-</option>
+												<option ng-repeat="bname in batchName track by $index" value="{{bname}}">{{bname}}</option>
+											</select>
+										</div>
+									</div>
+		          					<div class="right-arrow-grey-last" style="z-index:4;width:11%" ng-show="logType!= 'Carriers'&&logType!= 'Supplier'&&logType!= 'Manufacturer'&&manSup==0">
+		          						<div ng-show="logType== 'Distributor'">
+										<select class="form-control" ng-model="carrier">
+											<option value=" ">-Select-</option>
+											<option value="FedEx">FedEx</option>
+											<option value="UPS">UPS</option>
+											<option value="USPS">USPS</option>
+										</select>
+									</div>
+									{{pend.carrierName}}
+		          					</div>
+		          					<div class="right-arrow-white-last" style="z-index:3;width:9%;text-align:left;" ng-show="logType!= 'Distributor'&&logType!= 'Supplier'&&logType!= 'Manufacturer'">
+		          						<div ng-show="logType== 'Carriers'" id="{{'btntno'+pend.orderID}}">
+										<input type="hidden" id="{{'tnohdn'+pend.orderID}}"/>
+										<i class="fa fa-check-square  text-success icon-event" title="Generate" ng-click="generateTrackNum(pend.orderID);"></i>
+										</div>
+										<div id="{{'tno'+pend.orderID}}"><a uib-tooltip="{{ pend.trackingNumber}}" tooltip-placement="bottom">{{pend.trackingNumber| limitTo:6}}..</a></div>
+		          					</div>
+		          					<div class="right-arrow-grey" style="z-index:9;width:14%" ng-show="manDist== 0&&manSup==0&&(logType== 'Manufacturer'||logType== 'Distributor')">
+		          						<a uib-tooltip="{{ pend.productName}}" tooltip-placement="bottom">{{pend.productName | limitTo:6}}..</a></div>
+		          					<div class="right-arrow-white-last" style="z-index:4;width:14%" ng-show="manDist== 0&&manSup==0&&(logType== 'Manufacturer'||logType== 'Distributor')">
+		          						<div ng-show="logType== 'Manufacturer'">
+										<select ng-model="carrier" class="form-control">
+										<option value=" ">-Select-</option>
+										<option ng-repeat="pname in drgName track by $index" value="{{pname}}">{{pname}}</option>
+									</div>
+									{{pend.carrierName}}
+		          					</div>
+		    					</div>
+					
+		
+		
+	

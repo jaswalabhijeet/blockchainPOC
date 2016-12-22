@@ -50,7 +50,7 @@
 		$rootScope.manDist = 0;$rootScope.manSup = 0;
 		DashboardService.getContractsDeployedByMe().then(function (response) 
 		{
-
+			console.log(response);
 			$scope.contractsDeply=[];
 			$scope.contractsPending=[];
 			angular.forEach(response.data.row, function(value, key)

@@ -112,7 +112,7 @@
     background: #fbdada;
 }
 .login-container{
-    background: #e0ffc7 url(../images/bg_animation.gif) no-repeat center center; 
+    background: #e0ffc7 url(../images/Blockchain_animation_space_no_LogIn.gif) no-repeat center center; 
     position: fixed;
     top: 0;
     left: 0;
@@ -389,9 +389,9 @@ border-right:1px solid grey;
     border-left: 40px solid #1b8c1b;
 }
 .div-hol{
-    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    /*-webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
-    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);*/
     border:1px solid #1b8c1b; 
     width:30%; 
     background-color:#fff;
