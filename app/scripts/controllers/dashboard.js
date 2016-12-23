@@ -55,7 +55,7 @@
 		$scope.displayLoading = true;
 		$rootScope.manDist = 0;$rootScope.disSup = 0;$rootScope.manSup=0;
 		DashboardService.getContractsDeployedByMe().then(function (response) 
-		{console.log(response);
+		{
 			$scope.contractsDeply=[];
 			$scope.contractsPending=[];
 			angular.forEach(response.data.row, function(value, key)
@@ -87,7 +87,6 @@
 					}
 				}
 			});
-			console.log($rootScope.manDist);
 			$scope.displayLoading = false;
 			  setTimeout(function() 
 	          {
@@ -113,6 +112,7 @@
     }
     $scope.getBatchID=function (pname,oid) 
     {
+
         $scope.displayLoading = true;
         DashboardService.getBatchIDDetails(pname).then(function (response) 
         {
@@ -124,15 +124,17 @@
                     $scope.batchDetails.push(value);
             });
             $scope.displayLoading = false;
+
         });
         var div="btbtch"+oid;
         $("#"+div).remove();
     }
-	$scope.generateBatchId=function (pname,oid) 
+	
+	$scope.generateBatchId2=function (pname,oid) 
 	{
-		var div="bid"+oid;
-		var btn="btnbid"+oid;
-		var btnhd="bidhdn"+oid;
+		var div="bthid"+oid;
+		var btn="bthbid"+oid;
+		var btnhd="bthhdn"+oid;
 		$rootScope.batchId=pname.substr(0, 3)+""+$filter('date')(new Date(), "ddMMyyyyHHmmss");
 		$("#"+btnhd).val($rootScope.batchId);
 		$("#"+div).html($rootScope.batchId);
@@ -423,7 +425,6 @@ $scope.approveBtnClick = function (contractDetails,cname,bname)
 	                                temp.push(insertDet);
 	                                var jsonObj={};
 	                                jsonObj["row"]=temp;
-	                                //console.log(JSON.stringify(jsonObj));exit;
 	                                AddContractService.insertBlockData(JSON.stringify(jsonObj)).then(function (insertResponse) 
 	                                {
 	                                    $scope.displayLoading = false;
@@ -760,7 +761,7 @@ $scope.approveBtnClick = function (contractDetails,cname,bname)
 		}
 		else
 		{
-			var hdnbid="bidhdn"+contractDetails.orderID;
+			var hdnbid="bthhdn"+contractDetails.orderID;
 			$scope.approvalData={
 		  			"contractID":contractDetails.orderID,
 		  			"supplierName":contractDetails.supplierName,
