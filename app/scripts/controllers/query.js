@@ -25,6 +25,16 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
         dt = dt.slice(0,2)+"-"+ dt.slice(2,4)+"-"+ dt.slice(4,8)+" "+ dt.slice(8,10)+":"+ dt.slice(10,12)+":"+ dt.slice(12,14);
       $("#"+supDt).html(dt);
   }
+
+  $scope.moveLeft = function () 
+  {
+        $(".modal-body").animate({scrollLeft: "-="+100});
+  }
+  $scope.moveRight = function () 
+  {
+        $(".modal-body").animate({scrollLeft: "+="+100});
+  }
+
 	$scope.queryFunction = function (qryOption) 
 	{
     $scope.result=[];
@@ -130,12 +140,23 @@ app.directive('modal', function ()
       template: '<div class="modal fade">' + 
           '<div class="modal-dialog">' + 
             '<div class="modal-content">' +  
+            '<div class="modal-header" style="background-color:#f5f5f5;border-bottom:#f5f5f5;">' + 
+                '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' + 
+                '<h4 class="modal-title"></h4>' + 
+                '<span ng-click="moveLeft();" style="color:#000">'+
+                '<i class="fa fa-caret-left left-arrow" aria-hidden="true"></i>'+
+                '</span>'+
+                '<span class="pull-right" ng-click="moveRight();" style="color:#000;cursor:pointer;">'+
+                '<i class="fa fa-caret-right left-arrow" aria-hidden="true"></i>'+
+                '</span>'+
+              '</div>' + 
               '<div class="modal-body modal-body-cus modal-scroll" ng-transclude></div>' + 
             '</div>' + 
           '</div>' + 
         '</div>',
       replace:true,
       
+                
       link: function postLink(scope, element, attrs) 
       {
           scope.$watch(attrs.visible,function(value){

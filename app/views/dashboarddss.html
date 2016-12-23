@@ -12,25 +12,17 @@
 					
 					
 					
-						
-							<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-								<span style="margin-left:0;">Action</span>
-							</div>
-							<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-								<span style="margin-left:0;">Order ID</span>
-							</div>
-							<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-								<span style="margin-left:0;">Contract Name</span>
-							</div>
+						<div>
+							
+							
+							
 							<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;" ng-show="manDist!= 0">
 								<span style="margin-left:0;">Product Name</span>
 							</div>
 							<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;" ng-show="logType!= 'Carriers'&&logType!= 'Retailer'&&logType!= 'Manufacturer'">
 								<span style="margin-left:0">Quantity</span>
 							</div>
-							<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;" ng-show="logType!= 'Carriers'">
-								<span style="margin-left:0;">Supplier Name</span>
-							</div>
+							
 							<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;" ng-show="logType!= 'Carriers'">
 								<span style="margin-left:0;">Supply By Date</span>
 							</div>
@@ -99,7 +91,7 @@
 									</div>
 									{{pend.carrierName}}
 		          					</div>
-		          					<div class="right-arrow-white-last" style="z-index:3;width:9%;text-align:left;" ng-show="logType!= 'Distributor'&&logType!= 'Supplier'&&logType!= 'Manufacturer'">
+		          					<div class="right-arrow-white-last" style="z-index:3;width:9%;text-align:center;" ng-show="logType!= 'Distributor'&&logType!= 'Supplier'&&logType!= 'Manufacturer'">
 		          						<div ng-show="logType== 'Carriers'" id="{{'btntno'+pend.orderID}}">
 										<input type="hidden" id="{{'tnohdn'+pend.orderID}}"/>
 										<i class="fa fa-check-square  text-success icon-event" title="Generate" ng-click="generateTrackNum(pend.orderID);"></i>
