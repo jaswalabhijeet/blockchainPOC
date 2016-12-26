@@ -8,6 +8,7 @@
  
  app.controller('dashboardCtrl', ['DashboardService','UserLoginService', '$scope','$cookieStore','$state','$rootScope','AddContractService','$filter',function (DashboardService, UserLoginService, $scope, $cookieStore,$state,$rootScope,AddContractService,$filter)
  {
+ 	$rootScope.manDist = 0;$rootScope.disMan = 0;$rootScope.manSup=0;
  	$scope.loggedUser = $cookieStore.get('loginData');
  	$rootScope.logUser = $cookieStore.get('loginTempData').userName;
  	$rootScope.logType = $cookieStore.get('loginTempData').profileType;
@@ -40,6 +41,12 @@
     	dt = dt.slice(0,2)+"-"+ dt.slice(2,4)+"-"+ dt.slice(4,8);
     	$("#"+supDt).html(dt);
 	}
+	$scope.dateFormat3=function(dt,oid)
+	{
+		var supDt="supdtMan"+oid;
+    	dt = dt.slice(0,2)+"-"+ dt.slice(2,4)+"-"+ dt.slice(4,8);
+    	$("#"+supDt).html(dt);
+	}
 	$scope.dateTimeFormat=function(dt,oid)
 	{
 		var supDt="supDtTm"+oid;
@@ -53,9 +60,9 @@
 	{
 
 		$scope.displayLoading = true;
-		$rootScope.manDist = 0;$rootScope.disSup = 0;$rootScope.manSup=0;
 		DashboardService.getContractsDeployedByMe().then(function (response) 
 		{
+			console.log(response);
 			$scope.contractsDeply=[];
 			$scope.contractsPending=[];
 			angular.forEach(response.data.row, function(value, key)
@@ -83,10 +90,15 @@
 				{
 					if(value.filler2 =='Distributor')
 					{
-						$rootScope.disSup++;
+						$rootScope.disMan++;
+					}
+					if(value.filler2 !='Distributor')
+					{
+						$rootScope.disRet++;
 					}
 				}
 			});
+			
 			$scope.displayLoading = false;
 			  setTimeout(function() 
 	          {
@@ -95,6 +107,8 @@
 	          }, 1000);
 		});
 	}
+
+						
 	$scope.getDrugName=function () 
     {
         $scope.displayLoading = true;
@@ -167,7 +181,6 @@ $scope.approveBtnClick = function (contractDetails,cname,bname)
 	  			"productName": contractDetails.productName,
 	  			"batchID": contractDetails.batchID,
 	  			"approvestatus":1};	
-	  			
 	  		AddContractService.getBlockStatus().then(function (response) 
 		    {
 		    	$scope.prevBlockHeight = response.data.result[1].latest_block_height;
@@ -664,7 +677,7 @@ $scope.approveBtnClick = function (contractDetails,cname,bname)
 		  			"contractID":contractDetails.orderID,
 		  			"supplierName":contractDetails.supplierName,
 		  			"productName": contractDetails.productName,
-		  			"batchID": cname,
+		  			"batchID": bname,
 		  			"approvestatus":1};
   			$scope.totAmount=0;
 		  	AddContractService.getBlockStatus().then(function (response) 
@@ -697,7 +710,7 @@ $scope.approveBtnClick = function (contractDetails,cname,bname)
 	                                    insertDet["quantity"]=parseInt(contractDetails.quantity);
 	                                    insertDet["pricePerUOM"]=parseInt(contractDetails.pricePerUOM);
 	                                    insertDet["totalPrice"]=parseInt(contractDetails.totalPrice);
-	                                    insertDet["batchID"]=cname;
+	                                    insertDet["batchID"]=bname;
 	                                    insertDet["carrierName"]="";
 	                                    insertDet["trackingNumber"]="";
 	                                    insertDet["supplyByDate"]=contractDetails.supplyByDate;
@@ -1164,7 +1177,7 @@ $scope.cancelBtnClick=function (contractDetails)
 }
 
 $rootScope.getContract();
-
+console.log($rootScope.manDist);
 	$scope.logout=function()
     {
         $cookieStore.remove('loginData');
