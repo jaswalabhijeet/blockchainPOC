@@ -16,37 +16,16 @@
 			</div>
 			<div class="form-panel-sub-head">
 				<div class="page-head">Audit</div>
-				<!-- <div>
-					<div class="col-md-12">
-						<div class="col-md-12 padding-1">
-							<div class="form-group">
-                              <div class="col-sm-4">
-									<select class="form-control" ng-model="queyOption" ng-change="queryFunction(queyOption);search=''">
-									  <option value="">-select-</option>
-									  <option value="contractID">Contract ID</option>
-									  <option value="productName">productName</option>
-									</select>
-                              </div>
-                              <div class="col-sm-4">
-                                  <input type="text" class="form-control" max-results="10" delay="300" min-length="2" allow-only-results="true" ng-model="search" ng-keyup="complete();" id="tags" placeholder="Search...">
-                              </div>
-							  <button type="submit" class="btn btn-warning"  ng-disabled="!search" ng-click="queryBtnClick(queyOption,search);">Query</button>
-							</div>
-						</div>
-						
-					</div>
-				</div> 
-				<hr class="hr"> -->
 				<div class="table-responsive form-panel-box-nopad" style="min-height:200px;border-radius:10px;">
 					<div class="row">
-							<div class="col-sm-4 arrow_box" style="background-color:#2867ae; padding:1%;text-align:left;">
-								<span style="margin-left:33%;">Order ID</span>
+							<div class="col-sm-4 arrow_box_aud" style="background-color:#2867ae; padding:1%;text-align:left;">
+								<span style="margin-left:50%;">Order ID</span>
+							</div>
+							<div class="col-sm-4 arrow_box_aud" style="background-color:#2867ae; padding:1%;text-align:left;">
+								<span style="margin-left:46%;">Created Date</span>
 							</div>
 							<div class="col-sm-4 arrow_box" style="background-color:#2867ae; padding:1%;text-align:left;">
-								<span style="margin-left:30%;">Created Date</span>
-							</div>
-							<div class="col-sm-4 arrow_box" style="background-color:#2867ae; padding:1%;text-align:left;">
-								<span style="margin-left:35%;">Action</span>
+								<span style="margin-left:38%;">Action</span>
 							</div>
 						</div>
 						<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:370px;overflow-x:auto;">
@@ -66,93 +45,106 @@
 			<modal visible="showModal">
 				<div class="table-responsive form-panel-box-nopad" style="min-height:200px;width:1800px;" ng-show="orderDetails.length!=0">
 					<div>
-						<div class="arrow_box" style="width:8%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
+						<div class="arrow_box_Pend_dis" style="width:7%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:60px;">
 								<span style="margin-left:0;">Order ID</span>
 						</div>
-						<div class="arrow_box" style="width:8%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
+						<div class="arrow_box_Pend_dis" style="width:7%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:60px;">
 								<span style="margin-left:0;">Contract Name</span>
 						</div>
-						<div class="arrow_box" style="width:8%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-							<span style="margin-left:0;">Product Name</span>
+						<div class="arrow_box_Pend_dis3" style="width:7%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:60px;">
+							<span style="margin-left:-10%;">Product Name</span>
 						</div>
-						<div class="arrow_box" style="width:8%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-							<span style="margin-left:0;">Supplier Name</span>
+						<div class="arrow_box" style="width:7%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:60px;">
+							<span style="margin-left:-30%;">Supplier Name</span>
 						</div>
-						<div class="arrow_box" style="width:8%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-							<span style="margin-left:0;">Pending With</span>
+						<div class="arrow_box_Pend_dis4" style="width:7%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:60px;">
+							<span style="margin-left:-65%;">Created By</span>
 						</div>
-						<div class="arrow_box" style="width:6%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-							<span style="margin-left:0">Quantity</span>
+						<div class="arrow_box_aud_pop" style="width:7%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:60px;">
+							<span style="margin-left:-125%;">Status</span>
 						</div>
-						<div class="arrow_box" style="width:6%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-							<span style="margin-left:0;">Batch Id</span>
+						<div class="arrow_box_aud_pop" style="width:6%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:60px;">
+							<span style="margin-left:-150%;">Pending With</span>
 						</div>
-						<div class="arrow_box" style="width:8%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-							<span style="margin-left:0;">Carrier Name</span>
+						<div class="arrow_box_aud_pop" style="width:6%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:60px;">
+							<span style="margin-left:-150%">Quantity</span>
 						</div>
-						<div class="arrow_box" style="width:8%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-							<span style="margin-left:0;">Tracking Number</span>
+						<div class="arrow_box_aud_pop2" style="width:6%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:60px;">
+							<span style="margin-left:-210%;">Batch Id</span>
 						</div>
-						<div class="arrow_box" style="width:8%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-							<span style="margin-left:0;">Chain ID</span>
+						<div class="arrow_box_aud_pop2" style="width:6%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:60px;">
+							<span style="margin-left:-200%;">Carrier Name</span>
 						</div>
-						<div class="arrow_box" style="width:8%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-							<span style="margin-left:0;">Height</span>
+						<div class="arrow_box_aud_pop2" style="width:7%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:60px;">
+							<span style="margin-left:-150%;">Tracking Number</span>
 						</div>
-						<div class="arrow_box" style="width:8%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-							<span style="margin-left:0;">Block Hash</span>
+						<div class="arrow_box_aud_pop2" style="width:7%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:60px;">
+							<span style="margin-left:-170%;">Chain ID</span>
 						</div>
-						<div class="arrow_box" style="width:8%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-							<span style="margin-left:0;">Block Time</span>
+						<div class="arrow_box_aud_pop2" style="width:7%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:60px;">
+							<span style="margin-left:-175%;">Height</span>
+						</div>
+						<div class="arrow_box_aud_pop2" style="width:7%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:60px;">
+							<span style="margin-left:-170%;">Block Hash</span>
+						</div>
+						<div class="arrow_box_aud_pop" style="width:6%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:60px;">
+							<span style="margin-left:-150%;">Block Time</span>
 						</div>
 					</div>
 					<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%;">
 								<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;" ng-repeat="audit in orderDetails track by $index">
-		          					<div class="right-arrow-grey" style="z-index:13;width:8%" ng-class="{'text-red': audit.orderID == '20122016070513'}">
-		          						{{audit.orderID }}
+		          					<div class="right-arrow-grey" style="z-index:15;width:6%;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+		          						<a uib-tooltip="{{audit.orderID}}" tooltip-placement="bottom">{{audit.orderID | limitTo:6}}...</a>
 		          					</div>
-		          					<div class="right-arrow-white" style="z-index:12;width:8%;cursor:pointer;" ng-class="{'text-red': audit.orderID == '20122016070513'}">
-		          						<a uib-tooltip="{{audit.contractName}}" tooltip-placement="bottom">{{audit.contractName | limitTo:8}}...</a></div>
-		          					<div class="right-arrow-grey" style="z-index:11;width:8%;cursor:pointer;" ng-class="{'text-red': audit.orderID == '20122016070513'}">
-		          						<a uib-tooltip="{{audit.productName}}" tooltip-placement="bottom">{{audit.productName | limitTo:8}}..</a>
+		          					<div class="right-arrow-white" style="z-index:14;width:7%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+		          						<a uib-tooltip="{{audit.contractName}}" tooltip-placement="bottom">{{audit.contractName | limitTo:6}}...</a></div>
+		          					<div class="right-arrow-grey" style="z-index:13;width:6%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+		          						<a uib-tooltip="{{audit.productName}}" tooltip-placement="bottom">{{audit.productName | limitTo:6}}..</a>
 		          					</div>
-		          					<div class="right-arrow-white" style="z-index:10;width:8%;cursor:pointer;" ng-class="{'text-red': audit.orderID == '20122016070513'}">
-		          						<a uib-tooltip="{{audit.supplierName}}" tooltip-placement="bottom">{{audit.supplierName | limitTo:8}}..</a>
+		          					<div class="right-arrow-white" style="z-index:12;width:7%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+		          						<a uib-tooltip="{{audit.supplierName}}" tooltip-placement="bottom">{{audit.supplierName | limitTo:6}}..</a>
 		          					</div>
-		          					<div class="right-arrow-grey" style="z-index:9;width:7%;cursor:pointer;" ng-class="{'text-red': audit.orderID == '20122016070513'}">
-		          						<a uib-tooltip="{{audit.pendingWith}}" tooltip-placement="bottom">{{audit.pendingWith | limitTo:8}}..</a>
+		          					<div class="right-arrow-grey" style="z-index:11;width:6%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+		          						<a uib-tooltip="{{audit.createdBy}}" tooltip-placement="bottom">{{audit.createdBy | limitTo:4}}..</a>
 		          					</div>
-		          					<div class="right-arrow-white" style="z-index:8;width:6%" ng-class="{'text-red': audit.orderID == '20122016070513'}">
-		          						
+		          					<div class="right-arrow-white" style="z-index:10;width:6%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+		          						{{audit.status }}
+		          					</div>
+		          					<div class="right-arrow-grey" style="z-index:9;width:7%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+		          						<a uib-tooltip="{{audit.pendingWith}}" tooltip-placement="bottom">{{audit.pendingWith | limitTo:7}}..</a>
+		          					</div>
+		          					<div class="right-arrow-white" style="z-index:8;width:5%;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
 		          							{{audit.quantity}}
 		          						</div>
-		          					<div class="right-arrow-grey" style="z-index:7;width:8%;cursor:pointer;" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+		          					<div class="right-arrow-grey" style="z-index:7;width:7%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
 		          						<a uib-tooltip="{{audit.batchID}}" tooltip-placement="bottom">
-		          							{{audit.batchID | limitTo:8}}..</a>
+		          							{{audit.batchID | limitTo:6}}..</a>
 		          						</div>
-		          					<div class="right-arrow-white" style="z-index:6;width:7%;cursor:pointer;" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+		          					<div class="right-arrow-white" style="z-index:6;width:5%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
 		          						<a uib-tooltip="{{audit.carrierName}}" tooltip-placement="bottom">
-		          							{{audit.carrierName | limitTo:8}}..</a>
+		          							{{audit.carrierName | limitTo:6}}..</a>
 		          						</div>
-		          					<div class="right-arrow-grey" style="z-index:5;width:8%;cursor:pointer;" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+		          					<div class="right-arrow-grey" style="z-index:5;width:7%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
 		          						<a uib-tooltip="{{audit.trackingNumber}}" tooltip-placement="bottom">{{audit.trackingNumber | limitTo:8}}..</a>
 		          					</div>
-		          					<div class="right-arrow-white" style="z-index:4;width:8%;cursor:pointer;" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+		          					<div class="right-arrow-white" style="z-index:4;width:7%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
 		          						<a uib-tooltip="{{audit.chain_id}}" tooltip-placement="bottom">{{audit.chain_id | limitTo:8}}..</a>
 		          					</div>
-		          					<div class="right-arrow-grey" style="z-index:3;width:8%" ng-class="{'text-red': audit.orderID == '20122016070513'}">{{audit.height}}</div>
-		          					<div class="right-arrow-white" style="z-index:2;width:8%;cursor:pointer;" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+		          					<div class="right-arrow-grey" style="z-index:3;width:7%;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">{{audit.height}}</div>
+		          					<div class="right-arrow-white" style="z-index:2;width:8%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
 		          						<a uib-tooltip="{{audit.block_hash}}" tooltip-placement="bottom">
 		          							{{audit.block_hash | limitTo:8 }}..</a>
 	          						</div>
-		          					<div class="right-arrow-grey-last" style="z-index:1;width:8%;cursor:pointer;" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+		          					<div class="right-arrow-grey-last" style="z-index:1;width:9%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
 		          						<a uib-tooltip="{{audit.block_time}}" tooltip-placement="bottom">
 		          							{{audit.block_time | limitTo:10}}..</a>
 	          						</div>
 		    					</div>
 					</div>
-
 				</div>
+				<div class="table-responsive text-danger" style="text-align:center;" ng-show="orderDetails.length==0">
+							No data available!
+					</div>
 			</modal>
 		</div>
 		<div class="clearfix"></div>

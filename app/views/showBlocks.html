@@ -24,31 +24,31 @@
 				<hr class="hr">
 				<div class="table-responsive form-panel-box-nopad" style="min-height:200px;border-radius:10px;" ng-show="contractsDeply.length!=0">
 					<div class="row">
-							<div class="col-sm-2 arrow_box" style="background-color:#2867ae; padding:1%;text-align:left;">
-								<span style="margin-left:15%;">Chain ID</span>
+							<div class="col-sm-2 arrow_box_blk_all" style="background-color:#2867ae; padding:1%;text-align:center;">
+								<span style="margin-left:35%;">Chain ID</span>
 							</div>
-							<div class="col-sm-2 arrow_box" style="background-color:#2867ae; padding:1%;text-align:left;">
-								<span style="margin-left:20%;">Hash</span>
+							<div class="col-sm-2 arrow_box_blk_all" style="background-color:#2867ae; padding:1%;text-align:center;">
+								<span style="margin-left:35%;">Hash</span>
 							</div>
-							<div class="col-sm-2 arrow_box" style="background-color:#2867ae; padding:1%;text-align:left;">
-								<span style="margin-left:20%;">Height</span>
+							<div class="col-sm-2 arrow_box_blk_all1" style="background-color:#2867ae; padding:1%;text-align:center;">
+								<span style="margin-left:12%;">Height</span>
 							</div>
-							<div class="col-sm-2 arrow_box" style="background-color:#2867ae; padding:1%;text-align:left;">
-								<span style="margin-left:20%;">Time</span>
+							<div class="col-sm-2 arrow_box_blk_all2" style="background-color:#2867ae; padding:1%;text-align:center;">
+								<span style="margin-left:-10%;">Time</span>
 							</div>
-							<div class="col-sm-2 arrow_box" style="background-color:#2867ae; padding:1%;text-align:left;">
-								<span style="margin-left:15%;">Num.Txs</span>
+							<div class="col-sm-2 arrow_box_blk_all3" style="background-color:#2867ae; padding:1%;text-align:center;">
+								<span style="margin-left:-25%;">Num.Txs</span>
 							</div>
-							<div class="col-sm-2 arrow_box" style="background-color:#2867ae; padding:1%;text-align:left;" ng-show="data_blk==1">
-								<span style="margin-left:10%;">Last Hash</span>
+							<div class="col-sm-2 arrow_box_blk_all4" style="background-color:#2867ae; padding:1%;text-align:center;" ng-show="data_blk==1">
+								<span style="margin-left:-50%;">Last Hash</span>
 							</div>
-							<div class="col-sm-2 arrow_box" style="background-color:#2867ae; padding:1%;text-align:left;" ng-show="data_blk==2">
-								<span style="margin-left:10%;">Data Hash</span>
+							<div class="col-sm-2 arrow_box_blk_all4" style="background-color:#2867ae; padding:1%;text-align:center;" ng-show="data_blk==2">
+								<span style="margin-left:-50%;">Data Hash</span>
 							</div>
 					</div>
-					<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:300px;overflow-x:auto;">
+					<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:300px;overflow: auto;">
 						<div style="border:0px solid #fff; float:left;margin:0% 0% 2% 2%;width:98%;" ng-repeat="det in allBlocks" ng-show="allBlocks.length!=0">
-          					<div class="right-arrow-grey col-sm-2" style="z-index:6;"><a uib-tooltip="{{ det.header.chain_id}}" tooltip-placement="bottom">{{ det.header.chain_id | limitTo:15 }}...</a></div>
+          					<div class="right-arrow-grey col-sm-2" style="z-index:6;text-align:center;"><a uib-tooltip="{{ det.header.chain_id}}" tooltip-placement="bottom">{{ det.header.chain_id | limitTo:15 }}...</a></div>
           					<div class="right-arrow-white col-sm-2" style="z-index:5;text-align:center;"><a uib-tooltip="{{ det.hash}}" tooltip-placement="bottom">{{ det.hash | limitTo:10}}...</a></div>
           					<div class="right-arrow-grey col-sm-2" style="z-index:4;text-align:center;">
       							<span ng-click="toggleModal(det.header.height)" class="height_class">{{det.header.height}}</span>

@@ -36,17 +36,17 @@
 					</span>
 					<div class="table-responsive form-panel-box-nopad" style="min-height:200px;border-radius:10px;" ng-show="contractsDeply.length!=0">
 						<div class="row">
-							<div class="col-sm-3 arrow_box" style="background-color:#2867ae; padding:1%;text-align:left;">
-								<span style="margin-left:28%;">Order ID</span>
+							<div class="col-sm-3 arrow_box_crt" style="background-color:#2867ae; padding:1%;text-align:left;">
+								<span style="margin-left:50%;">Order ID</span>
+							</div>
+							<div class="col-sm-3 arrow_box_crt2" style="background-color:#2867ae; padding:1%;text-align:left;">
+								<span style="margin-left:50%;">Contract</span>
+							</div>
+							<div class="col-sm-3 arrow_box_crt3" style="background-color:#2867ae; padding:1%;text-align:left;">
+								<span style="margin-left:30%;">Date & Time Created</span>
 							</div>
 							<div class="col-sm-3 arrow_box" style="background-color:#2867ae; padding:1%;text-align:left;">
-								<span style="margin-left:28%;">Contract</span>
-							</div>
-							<div class="col-sm-3 arrow_box" style="background-color:#2867ae; padding:1%;text-align:left;">
-								<span style="margin-left:10%;">Date & Time Created</span>
-							</div>
-							<div class="col-sm-3 arrow_box" style="background-color:#2867ae; padding:1%;text-align:left;">
-								<span style="margin-left:20%;">Pending With</span>
+								<span style="margin-left:22%;">Pending With</span>
 							</div>
 						</div>
 						<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:200px;overflow-x:auto;">
@@ -70,129 +70,129 @@
 						<i class="fa fa-clock-o" aria-hidden="true"></i>
 						Orders Pending For My Approval
 					</span>
-					<div class="table-responsive form-panel-box-nopad" style="min-height:200px;border-radius:10px;" ng-show="contractsPending.length!=0">
-						<div ng-show="logType== 'Retailer'">
+					<div class="table-responsive form-panel-box-nopad" style="overflow-x:scroll;min-height:200px;border-radius:10px;" ng-show="contractsPending.length!=0">
+						<div ng-show="logType== 'Retailer'"  style="width:1600px;">
 							<div>
-								<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-									<span style="margin-left:0;">Action</span>
+								<div class="arrow_box_Pend_dis" style="width:8%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+									<span style="margin-left:20%;">Action</span>
 								</div>
-								<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-									<span style="margin-left:0;">Order ID</span>
+								<div class="arrow_box_Pend_dis2" style="width:12%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+									<span style="margin-left:15%;">Order ID</span>
 								</div>
-								<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-									<span style="margin-left:0;">Contract Name</span>
+								<div class="arrow_box_Pend_ret" style="width:12%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+									<span style="margin-left:10%;">Contract Name</span>
 								</div>
-								<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-									<span style="margin-left:0;">Supplier Name</span>
+								<div class="arrow_box_Pend_ret2" style="width:12%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+									<span style="margin-left:-15%;">Supplier Name</span>
 								</div>
-								<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-									<span style="margin-left:0">Quantity</span>
+								<div class="arrow_box_Pend_ret3" style="width:9%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+									<span style="margin-left:-65%">Quantity</span>
 								</div>
-								<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-									<span style="margin-left:0;">Drug Name</span>
+								<div class="arrow_box_Pend_ret3" style="width:11%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+									<span style="margin-left:-60%;">Drug Name</span>
 								</div>
-								<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-									<span style="margin-left:0;">Batch ID</span>
+								<div class="arrow_box_Pend_ret2" style="width:11%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+									<span style="margin-left:-15%;">Batch ID</span>
 								</div>
-								<div class="arrow_box" style="width:14%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-									<span style="margin-left:0;">Carrier Name</span>
+								<div class="arrow_box" style="width:14%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+									<span style="margin-left:-25%;">Carrier Name</span>
 								</div>
-								<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-									<span style="margin-left:0;">Tracking Number</span>
+								<div class="arrow_box_Pend_ret3" style="width:11%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+									<span style="margin-left:-50%;">Tracking Number</span>
 								</div>
 							</div>
 							<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:200px;">
 								<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;height: 60px;" ng-repeat="pend in contractsPending">
-									<div class="right-arrow-grey" style="z-index:10;width:9%;text-align:left;">
+									<div class="right-arrow-grey" style="z-index:10;width:8%;text-align:center;">
 	          							<i class="fa fa-window-close text-danger icon-event" title="Cancel" ng-click="cancelBtnClick(pend);"  style="font-size:16px;"></i>
 	          							<i class="fa  fa fa-check-square  text-success icon-event" title="Approve" ng-click="approveBtnClick(pend,carrier);" style="font-size:16px;"></i>
 		          					</div>
-		          					<div class="right-arrow-white" style="z-index:9;width:11%;cursor:pointer;">
-		          						<a uib-tooltip="{{ pend.orderID}}" tooltip-placement="bottom">{{pend.orderID | limitTo:6}}..</a>
+		          					<div class="right-arrow-white" style="z-index:9;width:12%;cursor:pointer;text-align:center">
+		          						{{pend.orderID}}
 		          					</div>
-		          					<div class="right-arrow-grey" style="z-index:8;width:11%;cursor:pointer;">
-		          						<a uib-tooltip="{{ pend.contractName}}" tooltip-placement="bottom">{{pend.contractName | limitTo:6}}..</a>
+		          					<div class="right-arrow-grey" style="z-index:8;width:11%;cursor:pointer;text-align:center">
+		          						<a uib-tooltip="{{ pend.contractName}}" tooltip-placement="bottom">{{pend.contractName | limitTo:10}}..</a>
 		          					</div>
-		          					<div class="right-arrow-white" style="z-index:7;width:11%;cursor:pointer;" >
-		          						<a uib-tooltip="{{ pend.supplierName}}" tooltip-placement="bottom">{{pend.supplierName | limitTo:6}}..</a>
+		          					<div class="right-arrow-white" style="z-index:7;width:11%;cursor:pointer;text-align:center" >
+		          						<a uib-tooltip="{{ pend.supplierName}}" tooltip-placement="bottom">{{pend.supplierName | limitTo:10}}..</a>
 		          					</div>
-		          					<div class="right-arrow-grey" style="z-index:6;width:9%">
+		          					<div class="right-arrow-grey" style="z-index:6;width:8%;text-align:center">
 		          						{{pend.quantity}}
 		          					</div>
-		          					<div class="right-arrow-white" style="z-index:5;width:11%;cursor:pointer;">
-		          						<a uib-tooltip="{{ pend.productName}}" tooltip-placement="bottom">{{pend.productName | limitTo:6}}..</a>
+		          					<div class="right-arrow-white" style="z-index:5;width:13%;cursor:pointer;text-align:center">
+		          						<a uib-tooltip="{{ pend.productName}}" tooltip-placement="bottom">{{pend.productName | limitTo:10}}..</a>
 		          					</div>
-		          					<div class="right-arrow-grey" style="z-index:4;width:15%;text-align:center;cursor:pointer;">
-										<div id="{{'bid'+pend.orderID}}" class="submittername"><a uib-tooltip="{{ pend.batchID}}" tooltip-placement="bottom">{{pend.batchID | limitTo:6 }}..</a></div>	          					
+		          					<div class="right-arrow-grey" style="z-index:4;width:13%;text-align:center;cursor:pointer;">
+										<div id="{{'bid'+pend.orderID}}" class="submittername"><a uib-tooltip="{{ pend.batchID}}" tooltip-placement="bottom">{{pend.batchID | limitTo:10 }}..</a></div>	          					
 									</div>
-									<div class="right-arrow-white" style="z-index:3;width:11%">
+									<div class="right-arrow-white" style="z-index:3;width:11%;text-align:center">
 										{{pend.carrierName}}
 		          					</div>
-		          					<div class="right-arrow-grey-last" style="z-index:2;width:13%;text-align:left;cursor:pointer;">
-										<div id="{{'tno'+pend.orderID}}"><a uib-tooltip="{{ pend.trackingNumber}}" tooltip-placement="bottom">{{pend.trackingNumber| limitTo:6}}..</a>
+		          					<div class="right-arrow-grey-last" style="z-index:2;width:13%;text-align:center;cursor:pointer;">
+										<div id="{{'tno'+pend.orderID}}">{{pend.trackingNumber| limitTo:18}}
 										</div>
 		          					</div>
 								</div>
 							</div>
 						</div>
 						<div ng-show="logType== 'Distributor'">
-							<div ng-show="disRet!=0">
+							<div ng-show="disRet!=0" style="width:1600px;">
 								<div>
-									<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-										<span style="margin-left:0;">Action</span>
+									<div class="arrow_box_Pend_dis" style="width:8%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+										<span style="margin-left:20%;">Action</span>
 									</div>
-									<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-										<span style="margin-left:0;">Order ID</span>
+									<div class="arrow_box_Pend_dis2" style="width:12%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+										<span style="margin-left:20%;">Order ID</span>
 									</div>
-									<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-										<span style="margin-left:0;">Contract Name</span>
+									<div class="arrow_box_Pend_dis2" style="width:12%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+										<span style="margin-left:20%;">Contract Name</span>
 									</div>
-									<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-										<span style="margin-left:0;">Supplier Name</span>
+									<div class="arrow_box_Pend_dis2" style="width:12%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+										<span style="margin-left:20%;">Supplier Name</span>
 									</div>
-									<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-										<span style="margin-left:0">Quantity</span>
+									<div class="arrow_box_Pend_dis3" style="width:9%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+										<span style="margin-left:-15%">Quantity</span>
 									</div>
-									<div class="arrow_box" style="width:13%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-										<span style="margin-left:0;">Suppy By Date</span>
+									<div class="arrow_box_Pend_dis4" style="width:12%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+										<span style="margin-left:-35%;">Suppy By Date</span>
 									</div>
-									<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-										<span style="margin-left:0;">Drug Name</span>
+									<div class="arrow_box_Pend_dis4" style="width:12%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+										<span style="margin-left:-40%;">Drug Name</span>
 									</div>
-									<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-										<span style="margin-left:0;">Batch ID</span>
+									<div class="arrow_box_Pend_dis3" style="width:11%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+										<span style="margin-left:-15%;">Batch ID</span>
 									</div>
-									<div class="arrow_box" style="width:12%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-										<span style="margin-left:0;">Carrier Name</span>
+									<div class="arrow_box_Pend_dis3" style="width:12%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+										<span style="margin-left:-15%;">Carrier Name</span>
 									</div>
 								</div>
 								<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:200px;">
 									<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;height: 60px;" ng-repeat="pend in contractsPending">
-										<div class="right-arrow-grey-dash" style="z-index:10;width:9%;text-align:left;height:100%;">
+										<div class="right-arrow-grey-dash" style="z-index:10;width:8%;text-align:center;height:100%;">
 		          							<i class="fa fa-window-close text-danger icon-event" title="Cancel" ng-click="cancelBtnClick(pend);"  style="font-size:16px;"></i>
 		          							<i class="fa  fa fa-check-square  text-success icon-event" title="Approve" ng-click="approveBtnClick(pend,carrier,bname);" style="font-size:16px;"></i>
 			          					</div>
-			          					<div class="right-arrow-white-dash" style="z-index:9;width:11%;cursor:pointer;height:100%;">
-			          						<a uib-tooltip="{{ pend.orderID}}" tooltip-placement="bottom">{{pend.orderID | limitTo:6}}..</a>
+			          					<div class="right-arrow-white-dash" style="z-index:9;width:12%;cursor:pointer;height:100%;text-align:center;">
+			          						{{pend.orderID }}
 			          					</div>
-			          					<div class="right-arrow-grey-dash" style="z-index:8;width:11%;cursor:pointer;height:100%;">
-			          						<a uib-tooltip="{{ pend.contractName}}" tooltip-placement="bottom">{{pend.contractName | limitTo:6}}..</a>
+			          					<div class="right-arrow-grey-dash" style="z-index:8;width:12%;cursor:pointer;height:100%;text-align:center;">
+			          						<a uib-tooltip="{{ pend.contractName}}" tooltip-placement="bottom">{{pend.contractName| limitTo:15}}..</a>
 			          					</div>
-			          					<div class="right-arrow-white-dash" style="z-index:7;width:11%;cursor:pointer;height:100%;" >
-			          						<a uib-tooltip="{{ pend.supplierName}}" tooltip-placement="bottom">{{pend.supplierName | limitTo:6}}..</a>
+			          					<div class="right-arrow-white-dash" style="z-index:7;width:12%;cursor:pointer;height:100%;text-align:center;" >
+			          						<a uib-tooltip="{{ pend.supplierName}}" tooltip-placement="bottom">{{pend.supplierName | limitTo:15}}..</a>
 			          					</div>
-			          					<div class="right-arrow-grey-dash" style="z-index:6;width:9%;height:100%;">
+			          					<div class="right-arrow-grey-dash" style="z-index:6;width:7%;height:100%;text-align:center;">
 			          						{{pend.quantity}}
 			          					</div>
-			          					<div class="right-arrow-white-dash" style="z-index:5;width:14%;cursor:pointer;height:100%;" >
+			          					<div class="right-arrow-white-dash" style="z-index:5;width:12%;cursor:pointer;height:100%;text-align:center;" >
 			          						<div id="{{'supDt'+pend.orderID}}">
 			          							{{ dateFormat(pend.supplyByDate,pend.orderID)}}
 			          						</div>
 			          					</div>
-			          					<div class="right-arrow-grey-dash" style="z-index:4;width:11%;cursor:pointer;height:100%;">
-			          						<a uib-tooltip="{{ pend.productName}}" tooltip-placement="bottom">{{pend.productName | limitTo:6}}..</a>
+			          					<div class="right-arrow-grey-dash" style="z-index:4;width:13%;cursor:pointer;height:100%;text-align:center;">
+			          						<a uib-tooltip="{{ pend.productName}}" tooltip-placement="bottom">{{pend.productName | limitTo:15}}..</a>
 			          					</div>
-			          					<div class="right-arrow-white-dash" style="z-index:3;width:13%;text-align:center;height:100%;">
+			          					<div class="right-arrow-white-dash2" style="z-index:3;width:13%;text-align:center;height:100%;text-align:center;">
 			          						<a ng-show="!batchName" ng-click="getBatchID(pend.productName,pend.orderID);" style="cursor:pointer;">Show</a>
 											<div ng-show="batchName">
 												<select class="form-control" ng-model="bname" style="height:25px;width:100%;padding:0%;">
@@ -201,7 +201,7 @@
 												</select>
 											</div>          					
 										</div>
-										<div class="right-arrow-grey-dash-last" style="z-index:2;width:11%;height:100%;">
+										<div class="right-arrow-grey-dash-last2" style="z-index:2;width:11%;height:100%;text-align:center;">
 											<select class="form-control" ng-model="carrier" style="height:25px;width:100%;padding:0%;margin-top:2%">
 												<option value=" ">-Select-</option>
 												<option value="FedEx">FedEx</option>
@@ -213,154 +213,147 @@
 									</div>
 								</div>
 							</div>
-							<div ng-show="disMan!=0">
+							<div ng-show="disMan!=0"  style="width:1100px;">
 								<div>
-									<div class="arrow_box" style="width:15%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-										<span style="margin-left:0;">Action</span>
+									<div class="arrow_box" style="width:15%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+										<span style="margin-left:-25%;">Action</span>
 									</div>
-									<div class="arrow_box" style="width:15%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-										<span style="margin-left:0;">Order ID</span>
+									<div class="arrow_box" style="width:15%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+										<span style="margin-left:-25%;">Order ID</span>
 									</div>
-									<div class="arrow_box" style="width:18%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-										<span style="margin-left:0;">Contract Name</span>
+									<div class="arrow_box_blk_all1" style="width:18%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+										<span style="margin-left:10%;">Contract Name</span>
 									</div>
-									<div class="arrow_box" style="width:18%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-										<span style="margin-left:0;">Supplier Name</span>
+									<div class="arrow_box_blk_all1" style="width:18%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+										<span style="margin-left:10%;">Supplier Name</span>
 									</div>
-									<div class="arrow_box" style="width:18%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-										<span style="margin-left:0;">Drug Name</span>
+									<div class="arrow_box" style="width:18%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+										<span style="margin-left:-20%;">Drug Name</span>
 									</div>
-									<div class="arrow_box" style="width:16%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-										<span style="margin-left:0;">Batch ID</span>
+									<div class="arrow_box" style="width:16%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+										<span style="margin-left:-30%;">Batch ID</span>
 									</div>
 								</div>
 								<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:200px;">
-									<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;height: 60px;" ng-repeat="pend in contractsPending">
-										<div class="right-arrow-grey-dash" style="z-index:10;width:10%;text-align:left;height:100%;">
+									<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;" ng-repeat="pend in contractsPending">
+										<div class="right-arrow-grey" style="z-index:10;width:10%;text-align:center;height:100%;">
 		          							<i class="fa fa-window-close text-danger icon-event" title="Cancel" ng-click="cancelBtnClick(pend);"  style="font-size:16px;"></i>
 		          							<i class="fa  fa fa-check-square  text-success icon-event" title="Approve" ng-click="approveBtnClick(pend,carrier,bname);" style="font-size:16px;"></i>
 			          					</div>
-			          					<div class="right-arrow-white-dash" style="z-index:9;width:20%;cursor:pointer;height:100%;">
+			          					<div class="right-arrow-white" style="z-index:9;width:20%;cursor:pointer;height:100%;text-align:center;">
 			          						{{pend.orderID}}
 			          					</div>
-			          					<div class="right-arrow-grey-dash" style="z-index:8;width:18%;cursor:pointer;height:100%;">
+			          					<div class="right-arrow-grey" style="z-index:8;width:18%;cursor:pointer;height:100%;text-align:center;">
 			          						<a uib-tooltip="{{ pend.contractName}}" tooltip-placement="bottom">{{pend.contractName | limitTo:15}}..</a>
 			          					</div>
-			          					<div class="right-arrow-white-dash" style="z-index:7;width:18%;cursor:pointer;height:100%;" >
+			          					<div class="right-arrow-white" style="z-index:7;width:18%;cursor:pointer;height:100%;text-align:center;" >
 			          						<a uib-tooltip="{{ pend.supplierName}}" tooltip-placement="bottom">{{pend.supplierName | limitTo:15}}..</a>
 			          					</div>
-			          					<div class="right-arrow-grey-dash" style="z-index:4;width:16%;cursor:pointer;height:100%;">
+			          					<div class="right-arrow-grey" style="z-index:4;width:16%;cursor:pointer;height:100%;text-align:center;">
 			          						<a uib-tooltip="{{ pend.productName}}" tooltip-placement="bottom">{{pend.productName | limitTo:10}}..</a>
 			          					</div>
-			          					<div class="right-arrow-white-dash-last" style="z-index:3;width:18%;cursor:pointer;height:100%;">
+			          					<div class="right-arrow-white-last" style="z-index:3;width:18%;cursor:pointer;height:100%;text-align:center;">
 			          						&nbsp;{{pend.batchID}}
 			          					</div>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div ng-show="logType== 'Carriers'">
+						<div ng-show="logType== 'Carriers'" style="width:1100px;">
 							<div>
-								<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
+								<div class="arrow_box_Pend_car" style="width:11%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
 									<span style="margin-left:0;">Action</span>
 								</div>
-								<div class="arrow_box" style="width:17%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
+								<div class="arrow_box_Pend_car" style="width:17%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
 									<span style="margin-left:0;">Order ID</span>
 								</div>
-								<div class="arrow_box" style="width:18%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
+								<div class="arrow_box_Pend_car" style="width:18%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
 									<span style="margin-left:0;">Contract Name</span>
 								</div>
-								<div class="arrow_box" style="width:18%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
+								<div class="arrow_box_Pend_car" style="width:18%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
 									<span style="margin-left:0;">Drug Name</span>
 								</div>
-								<div class="arrow_box" style="width:18%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-									<span style="margin-left:0;">Batch ID</span>
+								<div class="arrow_box_Pend_car2" style="width:18%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+									<span style="margin-left:-15%;">Batch ID</span>
 								</div>
-								<div class="arrow_box" style="width:18%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-									<span style="margin-left:0;">Tracking Number</span>
+								<div class="arrow_box_Pend_car3" style="width:18%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+									<span style="margin-left:-35%;">Tracking Number</span>
 								</div>
 							</div>
 							<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:200px;">
 								<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;height: 60px;" ng-repeat="pend in contractsPending">
-									<div class="right-arrow-grey-dash" style="z-index:7;width:9%;text-align:left;height:100%;">
+									<div class="right-arrow-grey-dash" style="z-index:7;width:9%;text-align:left;height:100%;text-align:center;">
 	          							<i class="fa fa-window-close text-danger icon-event" title="Cancel" ng-click="cancelBtnClick(pend);"  style="font-size:16px;"></i>
-	          							<i class="fa  fa fa-check-square  text-success icon-event" title="Approve" ng-click="approveBtnClick(pend,carrier,bname);" style="font-size:16px;"></i>
+	          							<i class="fa  fa fa-check-square  text-success icon-event" title="Approve" ng-click="approveBtnClick(pend,carrier);" style="font-size:16px;"></i>
 		          					</div>
-		          					<div class="right-arrow-white-dash" style="z-index:6;width:18%;cursor:pointer;height:100%;">
+		          					<div class="right-arrow-white-dash" style="z-index:6;width:18%;cursor:pointer;height:100%;text-align:center;">
 		          						{{pend.orderID }}
 		          					</div>
-		          					<div class="right-arrow-grey-dash" style="z-index:5;width:18%;cursor:pointer;height:100%;">
-		          						{{pend.contractName}}
+		          					<div class="right-arrow-grey-dash" style="z-index:5;width:18%;cursor:pointer;height:100%;text-align:center;">
+		          						<a uib-tooltip="{{ pend.contractName}}" tooltip-placement="bottom">{{pend.contractName | limitTo:15}}..</a>
 		          					</div>
-		          					<div class="right-arrow-white-dash" style="z-index:4;width:18%;cursor:pointer;height:100%;">
-		          						{{pend.productName}}
+		          					<div class="right-arrow-white-dash" style="z-index:4;width:18%;cursor:pointer;height:100%;text-align:center;">
+		          						<a uib-tooltip="{{ pend.productName}}" tooltip-placement="bottom">{{pend.productName | limitTo:15}}..</a>
 		          					</div>
-		          					<div class="right-arrow-grey-dash" style="z-index:3;width:18%;cursor:pointer;height:100%;">
-		          						<span id="{{'btbtch'+pend.orderID}}">{{pend.batchID}}&nbsp;&nbsp;&nbsp;</span>
-		          						<i class="fa fa-pencil text-danger icon-event" ng-show="!batchName" title="Edit" ng-click="getBatchID(pend.productName,pend.orderID);"  style="font-size:16px;"></i>
-										<div ng-show="batchName">
-											<select class="form-control" ng-model="bname" style="height:25px;width:100%;padding:0%;">
-												<option value=" ">-select-</option>
-												<option ng-repeat="bname in batchName track by $index" value="{{bname}}">{{bname}}</option>
-											</select>
-										</div> 
+		          					<div class="right-arrow-grey-dash" style="z-index:3;width:18%;cursor:pointer;height:100%;text-align:center;">
+		          						<span id="{{'btbtch'+pend.orderID}}">
+		          							<input type="text" id="{{'bidtxt'+pend.orderID}}" value="{{pend.batchID}}" class="form-control" style="height:20px;width:100%;padding:0%;"/>
+		          						</span>
 		          					</div>
-		          					<div class="right-arrow-white-dash-last" style="z-index:2;width:18%;cursor:pointer;height:100%;text-align:center;">
+		          					<div class="right-arrow-white-dash-last2" style="z-index:2;width:19%;cursor:pointer;height:100%;text-align:center;">
 		          						<div >
 											<input type="hidden" id="{{'tnohdn'+pend.orderID}}"/>
 											<i class="fa fa-check-square  text-success icon-event" title="Generate" ng-click="generateTrackNum(pend.orderID);" id="{{'btntno'+pend.orderID}}"   style="font-size:16px;"></i>
 										</div>
 										<div id="{{pend.orderID}}"></div>
 		          					</div>
-
-
 								</div>
 							</div>
 						</div>
 						<div ng-show="logType=='Manufacturer'">
-							<div ng-show="manSup!=0">
+							<div ng-show="manSup!=0" style="width:1100px;">
 								<div>
-									<div class="arrow_box" style="width:10%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
+									<div class="arrow_box_Pend_car" style="width:10%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
 										<span style="margin-left:0;">Action</span>
 									</div>
-									<div class="arrow_box" style="width:15%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
+									<div class="arrow_box_Pend_car" style="width:15%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
 										<span style="margin-left:0;">Order ID</span>
 									</div>
-									<div class="arrow_box" style="width:15%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
+									<div class="arrow_box_Pend_car" style="width:15%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
 										<span style="margin-left:0;">Contract Name</span>
 									</div>
-									<div class="arrow_box" style="width:15%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
+									<div class="arrow_box_Pend_car" style="width:15%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
 										<span style="margin-left:0;">Supplier Name</span>
 									</div>
-									<div class="arrow_box" style="width:15%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
+									<div class="arrow_box_Pend_car" style="width:15%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
 										<span style="margin-left:0;">Rawmaterial</span>
 									</div>
 									<div class="arrow_box" style="width:15%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-										<span style="margin-left:0;">Drug Name</span>
+										<span style="margin-left:10%;">Drug Name</span>
 									</div>
-									<div class="arrow_box" style="width:15%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-										<span style="margin-left:0;">Batch ID</span>
+									<div class="arrow_box" style="width:15%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+										<span style="margin-left:-30%;">Batch ID</span>
 									</div>
 								</div>
 								<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:200px;">
 									<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;height: 60px;" ng-repeat="pend in contractsPending">
-										<div class="right-arrow-grey-dash" style="z-index:10;width:9%;text-align:left;height:100%;">
+										<div class="right-arrow-grey-dash" style="z-index:10;width:9%;text-align:center;height:100%;">
 		          							<i class="fa fa-window-close text-danger icon-event" title="Cancel" ng-click="cancelBtnClick(pend);"  style="font-size:16px;"></i>
 		          							<i class="fa  fa fa-check-square  text-success icon-event" title="Approve" ng-click="approveBtnClick(pend,carrier2);" style="font-size:16px;"></i>
 			          					</div>
-			          					<div class="right-arrow-white-dash" style="z-index:9;width:15%;text-align:left;height:100%;">
+			          					<div class="right-arrow-white-dash" style="z-index:9;width:15%;text-align:center;height:100%;">
 			          						{{pend.orderID }}
 			          					</div>
-			          					<div class="right-arrow-grey-dash" style="z-index:8;width:15%;text-align:left;height:100%;">
-			          						<a uib-tooltip="{{ pend.contractName}}" tooltip-placement="bottom">{{pend.contractName | limitTo:10}}..</a>
+			          					<div class="right-arrow-grey-dash" style="z-index:8;width:15%;text-align:center;height:100%;">
+			          						<a uib-tooltip="{{ pend.contractName}}" tooltip-placement="bottom">{{pend.contractName | limitTo:15}}..</a>
 			          					</div>
-			          					<div class="right-arrow-white-dash" style="z-index:7;width:15%;text-align:left;height:100%;" >
-			          						<a uib-tooltip="{{ pend.supplierName}}" tooltip-placement="bottom">{{pend.supplierName | limitTo:6}}..</a>
+			          					<div class="right-arrow-white-dash" style="z-index:7;width:15%;text-align:center;height:100%;" >
+			          						<a uib-tooltip="{{ pend.supplierName}}" tooltip-placement="bottom">{{pend.supplierName | limitTo:15}}..</a>
 			          					</div>
-			          					<div class="right-arrow-grey-dash" style="z-index:6;width:15%;text-align:left;height:100%;">
-			          						<a uib-tooltip="{{ pend.productName}}" tooltip-placement="bottom">{{pend.productName | limitTo:10}}..</a>
+			          					<div class="right-arrow-grey-dash" style="z-index:6;width:15%;text-align:center;height:100%;">
+			          						<a uib-tooltip="{{ pend.productName}}" tooltip-placement="bottom">{{pend.productName | limitTo:15}}..</a>
 			          					</div>
-			          					<div class="right-arrow-white-dash" style="z-index:5;width:15%;text-align:left;height:100%;padding-top:6px;" >
+			          					<div class="right-arrow-white-dash" style="z-index:5;width:14%;text-align:center;height:100%;padding-top:9px;" >
 			          						<div ng-show="logType== 'Manufacturer'">
 												<select class="form-control" ng-model="carrier2" style="height:25px;width:100%;padding:0%;margin-top:2%">
 													<option value=" ">-Select-</option>
@@ -368,7 +361,7 @@
 												</select>
 											</div>
 			          					</div>
-			          					<div class="right-arrow-grey-dash-last" style="z-index:3;width:16%;cursor:pointer;height:100%;text-align:center;">
+			          					<div class="right-arrow-grey-dash-last" style="z-index:3;width:18%;cursor:pointer;height:100%;text-align:center;">
 											<div  id="{{'bthbid'+pend.orderID}}">
 												<input type="hidden" id="{{'bthhdn'+pend.orderID}}"/>
 												<i class="fa fa-check-square  text-success icon-event" title="Generate" ng-click="generateBatchId2(pend.productName,pend.orderID);"></i>
@@ -379,57 +372,57 @@
 								</div>
 							</div>
 
-							<div ng-show="manDist!=0">
+							<div ng-show="manDist!=0" style="width:1250px;">
 								<div>
-									<div class="arrow_box" style="width:10%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-										<span style="margin-left:0;">Action</span>
+									<div class="arrow_box_Pend_car" style="width:10%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+										<span style="margin-left:0%;">Action</span>
 									</div>
-									<div class="arrow_box" style="width:15%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-										<span style="margin-left:0;">Order ID</span>
+									<div class="arrow_box" style="width:15%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+										<span style="margin-left:-20%;">Order ID</span>
 									</div>
-									<div class="arrow_box" style="width:15%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-										<span style="margin-left:0;">Contract Name</span>
+									<div class="arrow_box" style="width:15%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+										<span style="margin-left:-20%;">Contract Name</span>
 									</div>
-									<div class="arrow_box" style="width:15%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-										<span style="margin-left:0;">Supplier Name</span>
+									<div class="arrow_box" style="width:15%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+										<span style="margin-left:-25%;">Supplier Name</span>
 									</div>
-									<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-									<span style="margin-left:0">Quantity</span>
+									<div class="arrow_box" style="width:9%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+									<span style="margin-left:-45%">Quantity</span>
 									</div>
-									<div class="arrow_box" style="width:13%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-										<span style="margin-left:0;">Suppy By Date</span>
+									<div class="arrow_box" style="width:13%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+										<span style="margin-left:-30%;">Suppy By Date</span>
 									</div>
-									<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-										<span style="margin-left:0;">Drug Name</span>
+									<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+										<span style="margin-left:-40%;">Drug Name</span>
 									</div>
-									<div class="arrow_box" style="width:12%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-										<span style="margin-left:0;">Batch ID</span>
+									<div class="arrow_box" style="width:12%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+										<span style="margin-left:-35%;">Batch ID</span>
 									</div>
 								</div>
 								<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:200px;">
 									<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;height: 60px;" ng-repeat="pend in contractsPending">
-										<div class="right-arrow-grey-dash" style="z-index:10;width:9%;text-align:left;height:100%;">
+										<div class="right-arrow-grey-dash" style="z-index:10;width:8%;text-align:center;height:100%;">
 		          							<i class="fa fa-window-close text-danger icon-event" title="Cancel" ng-click="cancelBtnClick(pend);"  style="font-size:16px;"></i>
 		          							<i class="fa  fa fa-check-square  text-success icon-event" title="Approve" ng-click="approveBtnClick(pend,'',bname2);" style="font-size:16px;"></i>
 			          					</div>
-			          					<div class="right-arrow-white-dash" style="z-index:9;width:15%;text-align:left;height:100%;">
+			          					<div class="right-arrow-white-dash" style="z-index:9;width:15%;text-align:center;height:100%;">
 			          						{{pend.orderID }}
 			          					</div>
-			          					<div class="right-arrow-grey-dash" style="z-index:8;width:15%;text-align:left;height:100%;">
-			          						<a uib-tooltip="{{ pend.contractName}}" tooltip-placement="bottom">{{pend.contractName | limitTo:10}}..</a>
+			          					<div class="right-arrow-grey-dash" style="z-index:8;width:15%;text-align:center;height:100%;">
+			          						<a uib-tooltip="{{ pend.contractName}}" tooltip-placement="bottom">{{pend.contractName | limitTo:15}}..</a>
 			          					</div>
-			          					<div class="right-arrow-white-dash" style="z-index:7;width:15%;text-align:left;height:100%;" >
-			          						<a uib-tooltip="{{ pend.supplierName}}" tooltip-placement="bottom">{{pend.supplierName | limitTo:6}}..</a>
+			          					<div class="right-arrow-white-dash" style="z-index:7;width:15%;text-align:center;height:100%;" >
+			          						<a uib-tooltip="{{ pend.supplierName}}" tooltip-placement="bottom">{{pend.supplierName | limitTo:15}}..</a>
 			          					</div>
-			          					<div class="right-arrow-grey-dash" style="z-index:6;width:9%;height:100%;">
+			          					<div class="right-arrow-grey-dash" style="z-index:6;width:9%;height:100%;text-align:center">
 			          						{{pend.quantity}}
 			          					</div>
-			          					<div class="right-arrow-white-dash" style="z-index:5;width:14%;cursor:pointer;height:100%;" >
+			          					<div class="right-arrow-white-dash" style="z-index:5;width:14%;cursor:pointer;height:100%;text-align:center" >
 			          						<div id="{{'supdtMan'+pend.orderID}}">
 			          							{{ dateFormat3(pend.supplyByDate,pend.orderID)}}
 			          						</div>
 			          					</div>
-			          					<div class="right-arrow-grey-dash" style="z-index:4;width:10%;text-align:left;height:100%;">
+			          					<div class="right-arrow-grey-dash" style="z-index:4;width:10%;text-align:center;height:100%;">
 			          						<a uib-tooltip="{{ pend.productName}}" tooltip-placement="bottom">{{pend.productName | limitTo:10}}..</a>
 			          					</div>
 			          					<div class="right-arrow-white-dash-last" style="z-index:3;width:14%;text-align:center;height:100%;">
@@ -445,52 +438,52 @@
 								</div>
 							</div>
 						</div>
-						<div ng-show="logType== 'Supplier'">
+						<div ng-show="logType== 'Supplier'" style="width:1100px;">
 							<div>
-								<div class="arrow_box" style="width:11%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-									<span style="margin-left:0;">Action</span>
+								<div class="arrow_box_Pend_car" style="width:11%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+									<span style="margin-left:0%;">Action</span>
 								</div>
-								<div class="arrow_box" style="width:18%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-									<span style="margin-left:30px;">Order ID</span>
+								<div class="arrow_box_Pend_car" style="width:18%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+									<span style="margin-left:0%;">Order ID</span>
 								</div>
-								<div class="arrow_box" style="width:18%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-									<span style="margin-left:15px;">Contract Name</span>
+								<div class="arrow_box" style="width:18%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+									<span style="margin-left:-25%;">Contract Name</span>
 								</div>
-								<div class="arrow_box" style="width:15%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-									<span style="margin-left:0;">Supplier Name</span>
+								<div class="arrow_box" style="width:15%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+									<span style="margin-left:-25%;">Supplier Name</span>
 								</div>
-								<div class="arrow_box" style="width:13%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-									<span style="margin-left:0;">Rawmaterial</span>
+								<div class="arrow_box" style="width:13%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+									<span style="margin-left:-35%;">Rawmaterial</span>
 								</div>
-								<div class="arrow_box" style="width:10%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-									<span style="margin-left:-12px;">Quantity</span>
+								<div class="arrow_box_Pend_sup" style="width:10%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+									<span style="margin-left:-70%;">Quantity</span>
 								</div>
-								<div class="arrow_box" style="width:15%;background-color:#2867ae; padding:1%;text-align:left;float:left;height:50px;">
-									<span style="margin-left:0;">Suppy By Date</span>
+								<div class="arrow_box" style="width:15%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
+									<span style="margin-left:-35%;">Suppy By Date</span>
 								</div>
 							</div>
 							<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:200px;">
 								<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;height: 60px;" ng-repeat="pend in contractsPending">
-									<div class="right-arrow-grey" style="z-index:10;width:9%;text-align:left;">
+									<div class="right-arrow-grey" style="z-index:10;width:9%;text-align:center;">
 	          							<i class="fa fa-window-close text-danger icon-event" title="Cancel" ng-click="cancelBtnClick(pend);"  style="font-size:16px;"></i>
 	          							<i class="fa  fa fa-check-square  text-success icon-event" title="Approve" ng-click="approveBtnClick(pend,carrier);" style="font-size:16px;"></i>
 		          					</div>
-		          					<div class="right-arrow-white" style="z-index:9;width:18%;cursor:pointer;">
+		          					<div class="right-arrow-white" style="z-index:9;width:18%;cursor:pointer;text-align:center">
 		          						{{pend.orderID }}
 		          					</div>
-		          					<div class="right-arrow-grey" style="z-index:8;width:18%;cursor:pointer;">
+		          					<div class="right-arrow-grey" style="z-index:8;width:18%;cursor:pointer;text-align:center">
 		          						<a uib-tooltip="{{ pend.contractName}}" tooltip-placement="bottom">{{pend.contractName | limitTo:10}}..</a>
 		          					</div>
-		          					<div class="right-arrow-white" style="z-index:7;width:15%;cursor:pointer;" >
+		          					<div class="right-arrow-white" style="z-index:7;width:15%;cursor:pointer;text-align:center" >
 		          						<a uib-tooltip="{{ pend.supplierName}}" tooltip-placement="bottom">{{pend.supplierName | limitTo:6}}..</a>
 		          					</div>
-		          					<div class="right-arrow-grey" style="z-index:6;width:13%;cursor:pointer;" >
+		          					<div class="right-arrow-grey" style="z-index:6;width:13%;cursor:pointer;text-align:center" >
 		          						<a uib-tooltip="{{ pend.productName}}" tooltip-placement="bottom">{{pend.productName | limitTo:6}}..</a>
 		          					</div>
-		          					<div class="right-arrow-white" style="z-index:5;width:9%;cursor:pointer;" >
+		          					<div class="right-arrow-white" style="z-index:5;width:9%;cursor:pointer;text-align:center" >
 		          						{{pend.quantity }}
 		          					</div>
-		          					<div class="right-arrow-grey-last" style="z-index:4;width:18%;cursor:pointer;" >
+		          					<div class="right-arrow-grey-last" style="z-index:4;width:18%;cursor:pointer;text-align:center" >
 		          						<div id="{{'supDtSup'+pend.orderID}}">
 		          							{{ dateFormat2(pend.supplyByDate,pend.orderID)}}
 		          						</div>

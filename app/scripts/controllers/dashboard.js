@@ -8,7 +8,7 @@
  
  app.controller('dashboardCtrl', ['DashboardService','UserLoginService', '$scope','$cookieStore','$state','$rootScope','AddContractService','$filter',function (DashboardService, UserLoginService, $scope, $cookieStore,$state,$rootScope,AddContractService,$filter)
  {
- 	$rootScope.manDist = 0;$rootScope.disMan = 0;$rootScope.manSup=0;
+ 	$rootScope.manDist = 0;$rootScope.disMan = 0;$rootScope.manSup=0;$rootScope.disRet=0;
  	$scope.loggedUser = $cookieStore.get('loginData');
  	$rootScope.logUser = $cookieStore.get('loginTempData').userName;
  	$rootScope.logType = $cookieStore.get('loginTempData').profileType;
@@ -62,7 +62,6 @@
 		$scope.displayLoading = true;
 		DashboardService.getContractsDeployedByMe().then(function (response) 
 		{
-			console.log(response);
 			$scope.contractsDeply=[];
 			$scope.contractsPending=[];
 			angular.forEach(response.data.row, function(value, key)
@@ -369,13 +368,10 @@ $scope.approveBtnClick = function (contractDetails,cname,bname)
 	}
 	else if($rootScope.logType=='Carriers')
 	{
-		var btchid='';
+		var btchid='bidtxt'+contractDetails.orderID;
 		var hdntno="tnohdn"+contractDetails.orderID;
 		var txtBid="bidtxt"+contractDetails.orderID;
-		if(bname)
-			btchid=bname;
-		else
-			btchid=contractDetails.batchID;
+			btchid=$('#'+btchid).val();
 		$scope.approvalData={
 	  			"contractID":contractDetails.orderID,
 	  			"supplierName":contractDetails.supplierName,
@@ -1177,7 +1173,6 @@ $scope.cancelBtnClick=function (contractDetails)
 }
 
 $rootScope.getContract();
-console.log($rootScope.manDist);
 	$scope.logout=function()
     {
         $cookieStore.remove('loginData');
