@@ -174,24 +174,29 @@ $scope.approveBtnClick = function (contractDetails,cname,bname)
 	{
 		if(contractDetails.filler2=='Distributor')
 		{
+			
 			$scope.approvalData={
 	  			"contractID":contractDetails.orderID,
 	  			"supplierName":contractDetails.supplierName,
 	  			"productName": contractDetails.productName,
 	  			"batchID": contractDetails.batchID,
 	  			"approvestatus":1};	
+	  			console.log(JSON.stringify($scope.approvalData));
 	  		AddContractService.getBlockStatus().then(function (response) 
 		    {
 		    	$scope.prevBlockHeight = response.data.result[1].latest_block_height;
+		    	console.log($scope.prevBlockHeight);
 		    	DashboardService.signOffByDistributor(JSON.stringify($scope.approvalData)).then(function (approvalResponse) 
 		    	{
+		    		console.log(JSON.stringify(approvalResponse));
 		    		var insertDet={};
 		    		AddContractService.getBlockStatus().then(function (newBlockChainStatus) 
 		    		{
 		    			$scope.newBlockHeight = newBlockChainStatus.data.result[1].latest_block_height;
+		    			console.log($scope.newBlockHeight);
 		    			AddContractService.fetchBlocks($scope.prevBlockHeight, $scope.newBlockHeight).then(function (blocksData) 
 	                	{
-
+	                		console.log(JSON.stringify(blocksData));
 	                		angular.forEach(blocksData.data.result[1].block_metas, function (value, key) 
 		                    {
 		                    	if (value.header.num_txs >=1) 
@@ -235,8 +240,10 @@ $scope.approveBtnClick = function (contractDetails,cname,bname)
 		                                temp.push(insertDet);
 		                                var jsonObj={};
 		                                jsonObj["row"]=temp;
+		                                console.log(JSON.stringify(jsonObj));
 		                                AddContractService.insertBlockData(JSON.stringify(jsonObj)).then(function (insertResponse) 
 		                                {
+		                                	console.log(JSON.stringify(insertResponse));exit;
 		                                    $scope.displayLoading = false;
 		                                    $rootScope.displaySuccess = "Approved Successfully!";
 		                                    $rootScope.getContract();

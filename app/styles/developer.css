@@ -644,7 +644,6 @@ video {
     font-size: 50px;
     cursor: pointer;
     position: absolute;
-    margin-top: 300px;
     z-index: 1000;
     margin-left: -10px;
 }

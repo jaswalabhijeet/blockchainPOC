@@ -161,7 +161,18 @@ app.directive('modal', function ()
       {
           scope.$watch(attrs.visible,function(value){
           if(value == true)
+          {
+            $('.left-arrow').hide();
             $(element).modal('show');
+            setTimeout(function() 
+            {
+              var hgt= $(".modal-content").height();
+              hgt=(hgt/2)+'px';
+              $('.left-arrow').attr('style','margin-top:'+hgt);
+              $('.left-arrow').show();
+            }, 1000);
+            
+          }
           else
             $(element).modal('hide');
         });
