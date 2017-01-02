@@ -62,6 +62,7 @@
 		$scope.displayLoading = true;
 		DashboardService.getContractsDeployedByMe().then(function (response) 
 		{
+			console.log(response);
 			$scope.contractsDeply=[];
 			$scope.contractsPending=[];
 			angular.forEach(response.data.row, function(value, key)
@@ -72,32 +73,35 @@
 				}
 				if(value.pendingWith == $rootScope.logUser)
 				{
-					$scope.contractsPending.push(value);
+					if(value.status!='closed')
+					{
+						$scope.contractsPending.push(value);
+					}
+					if($rootScope.logType =='Manufacturer')
+					{
+						if(value.filler2 =='Distributor')
+						{
+							$rootScope.manDist++;
+						}
+						if(value.filler2 =='Manufacturer')
+						{
+							$rootScope.manSup++;
+						}
+					}
+					if($rootScope.logType =='Distributor')
+					{
+						if(value.filler2 =='Distributor')
+						{
+							$rootScope.disMan++;
+						}
+						if(value.filler2 !='Distributor')
+						{
+							$rootScope.disRet++;
+						}
+					}
 				}
-				if($rootScope.logType =='Manufacturer')
-				{
-					if(value.filler2 =='Distributor')
-					{
-						$rootScope.manDist++;
-					}
-					if(value.filler2 =='Manufacturer')
-					{
-						$rootScope.manSup++;
-					}
-				}
-				if($rootScope.logType =='Distributor')
-				{
-					if(value.filler2 =='Distributor')
-					{
-						$rootScope.disMan++;
-					}
-					if(value.filler2 !='Distributor')
-					{
-						$rootScope.disRet++;
-					}
-				}
+				
 			});
-			
 			$scope.displayLoading = false;
 			  setTimeout(function() 
 	          {
@@ -181,22 +185,17 @@ $scope.approveBtnClick = function (contractDetails,cname,bname)
 	  			"productName": contractDetails.productName,
 	  			"batchID": contractDetails.batchID,
 	  			"approvestatus":1};	
-	  			console.log(JSON.stringify($scope.approvalData));
 	  		AddContractService.getBlockStatus().then(function (response) 
 		    {
 		    	$scope.prevBlockHeight = response.data.result[1].latest_block_height;
-		    	console.log($scope.prevBlockHeight);
-		    	DashboardService.signOffByDistributor(JSON.stringify($scope.approvalData)).then(function (approvalResponse) 
+		    	DashboardService.signOffByDistributor($scope.approvalData).then(function (approvalResponse) 
 		    	{
-		    		console.log(JSON.stringify(approvalResponse));
 		    		var insertDet={};
 		    		AddContractService.getBlockStatus().then(function (newBlockChainStatus) 
 		    		{
 		    			$scope.newBlockHeight = newBlockChainStatus.data.result[1].latest_block_height;
-		    			console.log($scope.newBlockHeight);
 		    			AddContractService.fetchBlocks($scope.prevBlockHeight, $scope.newBlockHeight).then(function (blocksData) 
 	                	{
-	                		console.log(JSON.stringify(blocksData));
 	                		angular.forEach(blocksData.data.result[1].block_metas, function (value, key) 
 		                    {
 		                    	if (value.header.num_txs >=1) 
@@ -240,14 +239,13 @@ $scope.approveBtnClick = function (contractDetails,cname,bname)
 		                                temp.push(insertDet);
 		                                var jsonObj={};
 		                                jsonObj["row"]=temp;
-		                                console.log(JSON.stringify(jsonObj));
 		                                AddContractService.insertBlockData(JSON.stringify(jsonObj)).then(function (insertResponse) 
 		                                {
-		                                	console.log(JSON.stringify(insertResponse));exit;
 		                                    $scope.displayLoading = false;
 		                                    $rootScope.displaySuccess = "Approved Successfully!";
 		                                    $rootScope.getContract();
-		                                    $state.go('dashboard');
+		                                    exit;
+		                                    //$state.go('dashboard');
 		                                }, function (error) {
 		                                	$rootScope.displayError="Error while inserting block data";
 		                                    $scope.displayLoading = false;

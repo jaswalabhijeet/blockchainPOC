@@ -50,7 +50,7 @@
 							</div>
 						</div>
 						<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:200px;overflow-x:auto;">
-								<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 2%;width:98%;height: 60px;" ng-repeat="contract in contractsDeply">
+								<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 2%;width:98%;height: 40px;" ng-repeat="contract in contractsDeply">
 		          					<div class="right-arrow-grey col-sm-3" style="z-index:5;">{{ contract.orderID }}</div>
 		          					<div class="right-arrow-white col-sm-3" style="z-index:4;text-align:center;"><a uib-tooltip="{{ contract.contractName}}" tooltip-placement="bottom">{{ contract.contractName | limitTo:23 }}...</a></div>
 		          					<div class="right-arrow-grey col-sm-3" style="z-index:3;text-align:center;">
@@ -102,7 +102,7 @@
 								</div>
 							</div>
 							<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:200px;">
-								<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;height: 60px;" ng-repeat="pend in contractsPending">
+								<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;height: 40px;" ng-repeat="pend in contractsPending">
 									<div class="right-arrow-grey" style="z-index:10;width:8%;text-align:center;">
 	          							<i class="fa fa-window-close text-danger icon-event" title="Cancel" ng-click="cancelBtnClick(pend);"  style="font-size:16px;"></i>
 	          							<i class="fa  fa fa-check-square  text-success icon-event" title="Approve" ng-click="approveBtnClick(pend,carrier);" style="font-size:16px;"></i>
@@ -167,7 +167,7 @@
 									</div>
 								</div>
 								<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:200px;">
-									<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;height: 60px;" ng-repeat="pend in contractsPending">
+									<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;height: 40px;" ng-repeat="pend in contractsPending">
 										<div class="right-arrow-grey-dash" style="z-index:10;width:8%;text-align:center;height:100%;">
 		          							<i class="fa fa-window-close text-danger icon-event" title="Cancel" ng-click="cancelBtnClick(pend);"  style="font-size:16px;"></i>
 		          							<i class="fa  fa fa-check-square  text-success icon-event" title="Approve" ng-click="approveBtnClick(pend,carrier,bname);" style="font-size:16px;"></i>
@@ -192,17 +192,17 @@
 			          					<div class="right-arrow-grey-dash" style="z-index:4;width:13%;cursor:pointer;height:100%;text-align:center;">
 			          						<a uib-tooltip="{{ pend.productName}}" tooltip-placement="bottom">{{pend.productName | limitTo:15}}..</a>
 			          					</div>
-			          					<div class="right-arrow-white-dash2" style="z-index:3;width:13%;text-align:center;height:100%;text-align:center;">
+			          					<div class="right-arrow-white-dash2" style="z-index:3;width:13%;text-align:center;height:100%;text-align:center;padding-top:13px;">
 			          						<a ng-show="!batchName" ng-click="getBatchID(pend.productName,pend.orderID);" style="cursor:pointer;">Show</a>
 											<div ng-show="batchName">
-												<select class="form-control" ng-model="bname" style="height:25px;width:100%;padding:0%;">
+												<select class="form-control" ng-model="bname" style="height:17px;width:100%;padding:0%;">
 													<option value=" ">-select-</option>
 													<option ng-repeat="bname in batchName track by $index" value="{{bname}}">{{bname}}</option>
 												</select>
 											</div>          					
 										</div>
-										<div class="right-arrow-grey-dash-last2" style="z-index:2;width:11%;height:100%;text-align:center;">
-											<select class="form-control" ng-model="carrier" style="height:25px;width:100%;padding:0%;margin-top:2%">
+										<div class="right-arrow-grey-dash-last2" style="z-index:2;width:11%;height:100%;text-align:center;padding-top:11px;">
+											<select class="form-control" ng-model="carrier" style="height:17px;width:100%;padding:0%;margin-top:2%">
 												<option value=" ">-Select-</option>
 												<option value="FedEx">FedEx</option>
 												<option value="UPS">UPS</option>
@@ -281,7 +281,7 @@
 								</div>
 							</div>
 							<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:200px;">
-								<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;height: 60px;" ng-repeat="pend in contractsPending">
+								<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;height: 40px;" ng-repeat="pend in contractsPending">
 									<div class="right-arrow-grey-dash" style="z-index:7;width:9%;text-align:left;height:100%;text-align:center;">
 	          							<i class="fa fa-window-close text-danger icon-event" title="Cancel" ng-click="cancelBtnClick(pend);"  style="font-size:16px;"></i>
 	          							<i class="fa  fa fa-check-square  text-success icon-event" title="Approve" ng-click="approveBtnClick(pend,carrier);" style="font-size:16px;"></i>
@@ -295,9 +295,9 @@
 		          					<div class="right-arrow-white-dash" style="z-index:4;width:18%;cursor:pointer;height:100%;text-align:center;">
 		          						<a uib-tooltip="{{ pend.productName}}" tooltip-placement="bottom">{{pend.productName | limitTo:15}}..</a>
 		          					</div>
-		          					<div class="right-arrow-grey-dash" style="z-index:3;width:18%;cursor:pointer;height:100%;text-align:center;">
+		          					<div class="right-arrow-grey-dash" style="z-index:3;width:18%;cursor:pointer;height:100%;text-align:center;padding-top:15px;">
 		          						<span id="{{'btbtch'+pend.orderID}}">
-		          							<input type="text" id="{{'bidtxt'+pend.orderID}}" value="{{pend.batchID}}" class="form-control" style="height:20px;width:100%;padding:0%;"/>
+		          							<input type="text" id="{{'bidtxt'+pend.orderID}}" value="{{pend.batchID}}" class="form-control" style="height:17px;width:100%;padding:0%;"/>
 		          						</span>
 		          					</div>
 		          					<div class="right-arrow-white-dash-last2" style="z-index:2;width:19%;cursor:pointer;height:100%;text-align:center;">
@@ -336,7 +336,7 @@
 									</div>
 								</div>
 								<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:200px;">
-									<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;height: 60px;" ng-repeat="pend in contractsPending">
+									<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;height: 40px;" ng-repeat="pend in contractsPending">
 										<div class="right-arrow-grey-dash" style="z-index:10;width:9%;text-align:center;height:100%;">
 		          							<i class="fa fa-window-close text-danger icon-event" title="Cancel" ng-click="cancelBtnClick(pend);"  style="font-size:16px;"></i>
 		          							<i class="fa  fa fa-check-square  text-success icon-event" title="Approve" ng-click="approveBtnClick(pend,carrier2);" style="font-size:16px;"></i>
@@ -355,7 +355,7 @@
 			          					</div>
 			          					<div class="right-arrow-white-dash" style="z-index:5;width:14%;text-align:center;height:100%;padding-top:9px;" >
 			          						<div ng-show="logType== 'Manufacturer'">
-												<select class="form-control" ng-model="carrier2" style="height:25px;width:100%;padding:0%;margin-top:2%">
+												<select class="form-control" ng-model="carrier2" style="height:17px;width:100%;padding:0%;margin-top:2%">
 													<option value=" ">-Select-</option>
 													<option ng-repeat="pname in drgName track by $index" value="{{pname}}">{{pname}}</option>
 												</select>
@@ -400,7 +400,7 @@
 									</div>
 								</div>
 								<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:200px;">
-									<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;height: 60px;" ng-repeat="pend in contractsPending">
+									<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;height: 40px;" ng-repeat="pend in contractsPending">
 										<div class="right-arrow-grey-dash" style="z-index:10;width:8%;text-align:center;height:100%;">
 		          							<i class="fa fa-window-close text-danger icon-event" title="Cancel" ng-click="cancelBtnClick(pend);"  style="font-size:16px;"></i>
 		          							<i class="fa  fa fa-check-square  text-success icon-event" title="Approve" ng-click="approveBtnClick(pend,'',bname2);" style="font-size:16px;"></i>
@@ -425,10 +425,10 @@
 			          					<div class="right-arrow-grey-dash" style="z-index:4;width:10%;text-align:center;height:100%;">
 			          						<a uib-tooltip="{{ pend.productName}}" tooltip-placement="bottom">{{pend.productName | limitTo:10}}..</a>
 			          					</div>
-			          					<div class="right-arrow-white-dash-last" style="z-index:3;width:14%;text-align:center;height:100%;">
+			          					<div class="right-arrow-white-dash-last" style="z-index:3;width:14%;text-align:center;height:100%;padding-top:13px;">
 			          						<a ng-show="!batchName" ng-click="getBatchID(pend.productName,pend.orderID);" style="cursor:pointer;">Show</a>
 											<div ng-show="batchName">
-												<select class="form-control" ng-model="bname2" style="height:25px;width:100%;padding:0%;">
+												<select class="form-control" ng-model="bname2" style="height:17px;width:100%;padding:0%;">
 													<option value=" ">-select-</option>
 													<option ng-repeat="bname in batchName track by $index" value="{{bname}}">{{bname}}</option>
 												</select>
@@ -463,7 +463,7 @@
 								</div>
 							</div>
 							<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:200px;">
-								<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;height: 60px;" ng-repeat="pend in contractsPending">
+								<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;height: 40px;" ng-repeat="pend in contractsPending">
 									<div class="right-arrow-grey" style="z-index:10;width:9%;text-align:center;">
 	          							<i class="fa fa-window-close text-danger icon-event" title="Cancel" ng-click="cancelBtnClick(pend);"  style="font-size:16px;"></i>
 	          							<i class="fa  fa fa-check-square  text-success icon-event" title="Approve" ng-click="approveBtnClick(pend,carrier);" style="font-size:16px;"></i>
@@ -488,8 +488,6 @@
 		          							{{ dateFormat2(pend.supplyByDate,pend.orderID)}}
 		          						</div>
 		          					</div>
-
-
 								</div>
 							</div>
 

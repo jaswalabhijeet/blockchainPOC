@@ -104,6 +104,7 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
   $scope.insertDet={};
   $scope.toggleModal = function(oid)
   {
+    var flag='';var temp='';
     QueryService.fetchDataOrderId(oid).then(function (blockData) 
     {
         $scope.orderDetails=[];
