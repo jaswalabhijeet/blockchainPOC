@@ -43,7 +43,7 @@
 
 				</div>
 			<modal visible="showModal">
-				<div class="table-responsive form-panel-box-nopad" style="min-height:200px;width:1800px;" ng-show="orderDetails.length!=0">
+				<div class="table-responsive form-panel-box-nopad" style="min-height:200px;width:1800px;" ng-show="orderDetails2.length!=0">
 					<div>
 						<div class="arrow_box_Pend_dis" style="width:7%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:60px;">
 								<span style="margin-left:0;">Order ID</span>
@@ -92,50 +92,50 @@
 						</div>
 					</div>
 					<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%;">
-								<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;" ng-repeat="audit in orderDetails track by $index">
-		          					<div class="right-arrow-grey" style="z-index:15;width:6%;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+								<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;" ng-repeat="audit in orderDetails2 track by $index">
+		          					<div class="right-arrow-grey" style="z-index:15;width:6%;text-align:center" ng-class="{'text-red': audit.flag == 1}">
 		          						<a uib-tooltip="{{audit.orderID}}" tooltip-placement="bottom">{{audit.orderID | limitTo:6}}...</a>
 		          					</div>
-		          					<div class="right-arrow-white" style="z-index:14;width:7%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+		          					<div class="right-arrow-white" style="z-index:14;width:7%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.flag == 1}">
 		          						<a uib-tooltip="{{audit.contractName}}" tooltip-placement="bottom">{{audit.contractName | limitTo:6}}...</a></div>
-		          					<div class="right-arrow-grey" style="z-index:13;width:6%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+		          					<div class="right-arrow-grey" style="z-index:13;width:6%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.flag == 1}">
 		          						<a uib-tooltip="{{audit.productName}}" tooltip-placement="bottom">{{audit.productName | limitTo:6}}..</a>
 		          					</div>
-		          					<div class="right-arrow-white" style="z-index:12;width:7%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+		          					<div class="right-arrow-white" style="z-index:12;width:7%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.flag == 1}">
 		          						<a uib-tooltip="{{audit.supplierName}}" tooltip-placement="bottom">{{audit.supplierName | limitTo:6}}..</a>
 		          					</div>
-		          					<div class="right-arrow-grey" style="z-index:11;width:6%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+		          					<div class="right-arrow-grey" style="z-index:11;width:6%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.flag == 1}">
 		          						<a uib-tooltip="{{audit.createdBy}}" tooltip-placement="bottom">{{audit.createdBy | limitTo:4}}..</a>
 		          					</div>
-		          					<div class="right-arrow-white" style="z-index:10;width:6%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+		          					<div class="right-arrow-white" style="z-index:10;width:6%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.flag == 1}">
 		          						{{audit.status }}
 		          					</div>
-		          					<div class="right-arrow-grey" style="z-index:9;width:7%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+		          					<div class="right-arrow-grey" style="z-index:9;width:7%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.flag == 1}">
 		          						<a uib-tooltip="{{audit.pendingWith}}" tooltip-placement="bottom">{{audit.pendingWith | limitTo:7}}..</a>
 		          					</div>
-		          					<div class="right-arrow-white" style="z-index:8;width:5%;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+		          					<div class="right-arrow-white" style="z-index:8;width:5%;text-align:center" ng-class="{'text-red': audit.flag == 1}">
 		          							{{audit.quantity}}
 		          						</div>
-		          					<div class="right-arrow-grey" style="z-index:7;width:7%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+		          					<div class="right-arrow-grey" style="z-index:7;width:7%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.flag == 1}">
 		          						<a uib-tooltip="{{audit.batchID}}" tooltip-placement="bottom">
 		          							{{audit.batchID | limitTo:6}}..</a>
 		          						</div>
-		          					<div class="right-arrow-white" style="z-index:6;width:5%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+		          					<div class="right-arrow-white" style="z-index:6;width:5%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.flag == 1}">
 		          						<a uib-tooltip="{{audit.carrierName}}" tooltip-placement="bottom">
 		          							{{audit.carrierName | limitTo:6}}..</a>
 		          						</div>
-		          					<div class="right-arrow-grey" style="z-index:5;width:7%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+		          					<div class="right-arrow-grey" style="z-index:5;width:7%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.flag == 1}">
 		          						<a uib-tooltip="{{audit.trackingNumber}}" tooltip-placement="bottom">{{audit.trackingNumber | limitTo:8}}..</a>
 		          					</div>
-		          					<div class="right-arrow-white" style="z-index:4;width:7%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+		          					<div class="right-arrow-white" style="z-index:4;width:7%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.flag == 1}">
 		          						<a uib-tooltip="{{audit.chain_id}}" tooltip-placement="bottom">{{audit.chain_id | limitTo:8}}..</a>
 		          					</div>
-		          					<div class="right-arrow-grey" style="z-index:3;width:7%;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">{{audit.height}}</div>
-		          					<div class="right-arrow-white" style="z-index:2;width:8%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+		          					<div class="right-arrow-grey" style="z-index:3;width:7%;text-align:center" ng-class="{'text-red': audit.flag == 1}">{{audit.height}}</div>
+		          					<div class="right-arrow-white" style="z-index:2;width:8%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.flag == 1}">
 		          						<a uib-tooltip="{{audit.block_hash}}" tooltip-placement="bottom">
 		          							{{audit.block_hash | limitTo:8 }}..</a>
 	          						</div>
-		          					<div class="right-arrow-grey-last" style="z-index:1;width:9%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.orderID == '20122016070513'}">
+		          					<div class="right-arrow-grey-last" style="z-index:1;width:9%;cursor:pointer;text-align:center" ng-class="{'text-red': audit.flag == 1}">
 		          						<a uib-tooltip="{{audit.block_time}}" tooltip-placement="bottom">
 		          							{{audit.block_time | limitTo:10}}..</a>
 	          						</div>

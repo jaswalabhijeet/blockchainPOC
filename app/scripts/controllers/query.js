@@ -104,13 +104,34 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
   $scope.insertDet={};
   $scope.toggleModal = function(oid)
   {
-    var flag='';var temp='';
+    var flag='';var temp='';var cnt=0;
     QueryService.fetchDataOrderId(oid).then(function (blockData) 
     {
-        $scope.orderDetails=[];
+        $scope.orderDetails=[];$scope.orderDetails2=[];
         angular.forEach(blockData.data.row, function(value, key)
         {
-            $scope.orderDetails.push(value);
+          if(cnt==0)
+          {
+            temp=value.batchID;
+            cnt++;
+          } 
+          $scope.orderDetails.push(value);
+        });
+        angular.forEach($scope.orderDetails, function(value, key)
+        {
+            var cnt2=0;
+            if(temp!=value.batchID)
+            {
+              cnt2++;
+            }
+            temp=value.batchID;
+            if(cnt2>0)
+            {
+              value.flag=1;
+            }
+            else
+              value.flag=0;
+           $scope.orderDetails2.push(value);
         });
           $scope.showModal = !$scope.showModal;
         
