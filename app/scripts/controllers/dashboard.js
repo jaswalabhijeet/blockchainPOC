@@ -56,20 +56,37 @@
     		dt = dt.slice(0,2)+"-"+ dt.slice(2,4)+"-"+ dt.slice(4,8)+" "+ dt.slice(8,10)+":"+ dt.slice(10,12)+":"+ dt.slice(12,14);
     	$("#"+supDt).html(dt);
 	}
+	$scope.moveLeft = function () 
+  	{
+        $(".scrl").animate({scrollLeft: "-="+100});
+  	}
+  	$scope.moveRight = function () 
+  	{
+        $(".scrl").animate({scrollLeft: "+="+100});
+  	}
+  	setTimeout(function() 
+    {
+      var hgt= $(".scrl").height();
+      hgt=(hgt/2)+'px';
+      $('.left-arrow2').attr('style','margin-top:'+hgt);
+      $('.left-arrow2').show();
+    }, 1000);
 	$rootScope.getContract=function () 
 	{
 
 		$scope.displayLoading = true;
 		DashboardService.getContractsDeployedByMe().then(function (response) 
 		{
-			console.log(response);
 			$scope.contractsDeply=[];
 			$scope.contractsPending=[];
 			angular.forEach(response.data.row, function(value, key)
 			{
 				if(value.createdBy == $rootScope.logUser)
 				{
-					$scope.contractsDeply.push(value);
+					if(value.status!='closed')
+					{
+						$scope.contractsDeply.push(value);
+					}
 				}
 				if(value.pendingWith == $rootScope.logUser)
 				{
@@ -105,7 +122,8 @@
 			$scope.displayLoading = false;
 			  setTimeout(function() 
 	          {
-	            var hgt=$('.set-hgt').height()+'px';
+	          	var htt=$('.set-hgt').height()+39;
+	            var hgt=htt+'px';
 	            $('.navbar-inverse').attr('style','min-height:'+hgt);
 	          }, 1000);
 		});
@@ -244,8 +262,7 @@ $scope.approveBtnClick = function (contractDetails,cname,bname)
 		                                    $scope.displayLoading = false;
 		                                    $rootScope.displaySuccess = "Approved Successfully!";
 		                                    $rootScope.getContract();
-		                                    exit;
-		                                    //$state.go('dashboard');
+		                                    $state.go('dashboard');
 		                                }, function (error) {
 		                                	$rootScope.displayError="Error while inserting block data";
 		                                    $scope.displayLoading = false;

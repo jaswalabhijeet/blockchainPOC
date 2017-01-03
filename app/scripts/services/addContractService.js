@@ -133,7 +133,8 @@ app.factory('AddContractService', ['$q', '$http','$rootScope', function ($q, $ht
         return deferred.promise;
     }
 
-    addContractService.insertBlockData = function (insertData) {
+    addContractService.insertBlockData = function (insertData) 
+    {
         var deferred = $q.defer();
         $http({
             method: 'POST',

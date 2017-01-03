@@ -112,22 +112,28 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
         {
           if(cnt==0)
           {
-            temp=value.batchID;
-            cnt++;
+            if(value.batchID!="" && value.batchID!='undefined')
+            {
+              temp=value.batchID;
+              cnt++;
+            }
           } 
           $scope.orderDetails.push(value);
         });
         angular.forEach($scope.orderDetails, function(value, key)
         {
             var cnt2=0;
-            if(temp!=value.batchID)
+            if(value.batchID!="" && value.batchID!='undefined')
             {
-              cnt2++;
-            }
-            temp=value.batchID;
-            if(cnt2>0)
-            {
-              value.flag=1;
+              if(temp!=value.batchID)
+              {
+                cnt2++;
+              }
+              temp=value.batchID;
+              if(cnt2>0)
+              {
+                value.flag=1;
+              }
             }
             else
               value.flag=0;
