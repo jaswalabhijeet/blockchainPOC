@@ -140,7 +140,7 @@ angular.module('blockChainApp').controller('addContractCtrl', ['$scope', 'AddCon
                                         insertDet["createdDate"]=$filter('date')(new Date(), "ddMMyyyyHHmmss");
                                         insertDet["createdBy"]=$rootScope.logUser;
                                         insertDet["profileType"]=$rootScope.logType;
-                                        insertDet["pendingWith"]="";
+                                        insertDet["pendingWith"]=createContractData["supplier"];
                                         insertDet["status"]="";
                                         insertDet["loginuser"]=$rootScope.logUser;
                                         insertDet["signedBy"]="";

@@ -71,7 +71,11 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
         {
     			angular.forEach(response.data.row, function(value, key)
     			{
-    						$scope.auditResult.push(value);
+              if(value.createdBy==$rootScope.logUser)
+              {
+                $scope.auditResult.push(value);
+              }
+    						
 			   });
 			$scope.auditResult = $filter('orderBy')($scope.auditResult, 'height', false); 
 			setTimeout(function()
