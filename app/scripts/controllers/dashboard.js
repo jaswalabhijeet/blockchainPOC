@@ -79,6 +79,10 @@
 		{
 			$scope.contractsDeply=[];
 			$scope.contractsPending=[];
+			$scope.contractsPendingDisMan=[];
+			$scope.contractsPendingDisRet=[];
+			$scope.contractsPendingManDis=[];
+			$scope.contractsPendingManSup=[];
 			angular.forEach(response.data.row, function(value, key)
 			{
 				if(value.createdBy == $rootScope.logUser)
@@ -90,9 +94,46 @@
 				}
 				if(value.pendingWith == $rootScope.logUser)
 				{
-					if(value.status!='closed')
+					if($rootScope.logType =='Distributor')
 					{
-						$scope.contractsPending.push(value);
+						if(value.filler2 =='Distributor')
+						{
+							if(value.status!='closed')
+							{
+								$scope.contractsPendingDisMan.push(value);
+							}
+						}
+						else
+						{
+							if(value.status!='closed')
+							{
+								$scope.contractsPendingDisRet.push(value);
+							}
+						}
+					}
+					else if($rootScope.logType =='Manufacturer')
+					{
+						if(value.filler2 =='Distributor')
+						{
+							if(value.status!='closed')
+							{
+								$scope.contractsPendingManDis.push(value);
+							}
+						}
+						else if(value.filler2 =='Manufacturer')
+						{
+							if(value.status!='closed')
+							{
+								$scope.contractsPendingManSup.push(value);
+							}
+						}
+					}
+					else
+					{
+						if(value.status!='closed')
+						{
+							$scope.contractsPending.push(value);
+						}	
 					}
 					if($rootScope.logType =='Manufacturer')
 					{
@@ -119,6 +160,7 @@
 				}
 				
 			});
+					console.log($scope.contractsPendingDisMan);
 			$scope.displayLoading = false;
 			  setTimeout(function() 
 	          {

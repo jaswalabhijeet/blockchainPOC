@@ -49,7 +49,7 @@
 								<span style="margin-left:22%;">Pending With</span>
 							</div>
 						</div>
-						<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:200px;overflow-x:auto;">
+						<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:200px;">
 								<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 2%;width:98%;height: 40px;" ng-repeat="contract in contractsDeply">
 		          					<div class="right-arrow-grey col-sm-3" style="z-index:5;">{{ contract.orderID }}</div>
 		          					<div class="right-arrow-white col-sm-3" style="z-index:4;text-align:center;"><a uib-tooltip="{{ contract.contractName}}" tooltip-placement="bottom">{{ contract.contractName | limitTo:23 }}...</a></div>
@@ -70,7 +70,7 @@
 						<i class="fa fa-clock-o" aria-hidden="true"></i>
 						Orders Pending For My Approval
 					</span>
-					<div class="table-responsive form-panel-box-nopad scrl" style="overflow-x:hidden;min-height:200px;border-radius:10px;" ng-show="contractsPending.length!=0">
+					<div class="table-responsive form-panel-box-nopad scrl" style="overflow-x:hidden;min-height:200px;border-radius:10px;" ng-show="contractsPending.length!=0||contractsPendingDisMan.length!=0||contractsPendingDisRet.length!=0||contractsPendingManDis.length!=0||contractsPendingManSup.length!=0">
 						<div ng-show="logType== 'Retailer'"  style="width:1600px;">
 							<span ng-click="moveLeft();" style="color:#000;">
 								<i class="fa fa-caret-left left-arrow2"></i>
@@ -142,7 +142,7 @@
 							</div>
 						</div>
 						<div ng-show="logType== 'Distributor'">
-							<div ng-show="disRet!=0" style="width:1600px;">
+							<div class="disMan" style="width:1600px;" ng-show="contractsPendingDisMan.length!=0">
 								<span ng-click="moveLeft();" style="color:#000;">
 									<i class="fa fa-caret-left left-arrow2"></i>
 								</span>
@@ -179,7 +179,7 @@
 									</div>
 								</div>
 								<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:200px;">
-									<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;height: 40px;" ng-repeat="pend in contractsPending">
+									<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;height: 40px;" ng-repeat="pend in contractsPendingDisMan">
 										<div class="right-arrow-grey-dash" style="z-index:10;width:8%;text-align:center;height:100%;">
 		          							<i class="fa fa-window-close text-danger icon-event" title="Cancel" ng-click="cancelBtnClick(pend);"  style="font-size:16px;"></i>
 		          							<i class="fa  fa fa-check-square  text-success icon-event" title="Approve" ng-click="approveBtnClick(pend,carrier,bname);" style="font-size:16px;"></i>
@@ -225,8 +225,8 @@
 									</div>
 								</div>
 							</div>
-							<div ng-show="disMan!=0"  style="width:1100px;">
-								<div>
+							<div style="width:1100px;" class="disRet">
+								<div ng-show="contractsPendingDisRet.length!=0">
 									<div class="arrow_box" style="width:15%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
 										<span style="margin-left:-25%;">Action</span>
 									</div>
@@ -247,7 +247,7 @@
 									</div>
 								</div>
 								<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:200px;">
-									<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;" ng-repeat="pend in contractsPending">
+									<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;" ng-repeat="pend in contractsPendingDisRet">
 										<div class="right-arrow-grey" style="z-index:10;width:10%;text-align:center;height:100%;">
 		          							<i class="fa fa-window-close text-danger icon-event" title="Cancel" ng-click="cancelBtnClick(pend);"  style="font-size:16px;"></i>
 		          							<i class="fa  fa fa-check-square  text-success icon-event" title="Approve" ng-click="approveBtnClick(pend,carrier,bname);" style="font-size:16px;"></i>
@@ -323,7 +323,7 @@
 							</div>
 						</div>
 						<div ng-show="logType=='Manufacturer'">
-							<div ng-show="manSup!=0" style="width:1100px;">
+							<div style="width:1100px;">
 								<div>
 									<div class="arrow_box_Pend_car" style="width:10%;background-color:#2867ae; padding:1%;text-align:center;float:left;height:50px;">
 										<span style="margin-left:0;">Action</span>
@@ -348,7 +348,7 @@
 									</div>
 								</div>
 								<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:200px;">
-									<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;height: 40px;" ng-repeat="pend in contractsPending">
+									<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;height: 40px;" ng-repeat="pend in contractsPendingManSup">
 										<div class="right-arrow-grey-dash" style="z-index:10;width:9%;text-align:center;height:100%;">
 		          							<i class="fa fa-window-close text-danger icon-event" title="Cancel" ng-click="cancelBtnClick(pend);"  style="font-size:16px;"></i>
 		          							<i class="fa  fa fa-check-square  text-success icon-event" title="Approve" ng-click="approveBtnClick(pend,carrier2);" style="font-size:16px;"></i>
@@ -384,7 +384,7 @@
 								</div>
 							</div>
 
-							<div ng-show="manDist!=0" style="width:1250px;">
+							<div ng-show="contractsPendingManDis.length!=0" style="width:1250px;">
 								<span ng-click="moveLeft();" style="color:#000;">
 									<i class="fa fa-caret-left left-arrow2"></i>
 								</span>
@@ -418,7 +418,7 @@
 									</div>
 								</div>
 								<div style="border:0px solid #fff; float:left;margin:2% 0% 1% 0%;width:100%; max-height:200px;">
-									<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;height: 40px;" ng-repeat="pend in contractsPending">
+									<div style="border:0px solid #fff; float:left;margin:0% 0% 1% 1%;width:98%;height: 40px;" ng-repeat="pend in contractsPendingManDis">
 										<div class="right-arrow-grey-dash" style="z-index:10;width:8%;text-align:center;height:100%;">
 		          							<i class="fa fa-window-close text-danger icon-event" title="Cancel" ng-click="cancelBtnClick(pend);"  style="font-size:16px;"></i>
 		          							<i class="fa  fa fa-check-square  text-success icon-event" title="Approve" ng-click="approveBtnClick(pend,'',bname2);" style="font-size:16px;"></i>
@@ -511,7 +511,7 @@
 
 						</div>
 					</div>
-					<div class="table-responsive form-panel-box text-danger" style="border-radius:10px;" ng-show="contractsPending.length==0">
+					<div class="table-responsive form-panel-box text-danger" style="border-radius:10px;" ng-show="contractsPending.length==0&&contractsPendingDisMan.length==0&&contractsPendingDisRet.length==0&&contractsPendingManDis.length==0&&contractsPendingManSup.length==0">
 							No data available!
 					</div>
 				</div>
