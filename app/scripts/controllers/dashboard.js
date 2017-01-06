@@ -56,21 +56,55 @@
     		dt = dt.slice(0,2)+"-"+ dt.slice(2,4)+"-"+ dt.slice(4,8)+" "+ dt.slice(8,10)+":"+ dt.slice(10,12)+":"+ dt.slice(12,14);
     	$("#"+supDt).html(dt);
 	}
-	$scope.moveLeft = function () 
+  	
+    setTimeout(function() 
+    {
+      var hgt= $(".scrlRetailer").height();
+      hgt=(hgt/2)+'px';
+      $('.left-arrowRet').attr('style','margin-top:'+hgt);
+      $('.left-arrowRet').show();
+    }, 1000);
+    $scope.moveLeftRet = function () 
   	{
-        $(".scrl").animate({scrollLeft: "-="+100});
+        $(".scrlRetailer").animate({scrollLeft: "-="+100});
   	}
-  	$scope.moveRight = function () 
+  	$scope.moveRightRet = function () 
   	{
-        $(".scrl").animate({scrollLeft: "+="+100});
+        $(".scrlRetailer").animate({scrollLeft: "+="+100});
   	}
+
   	setTimeout(function() 
     {
-      var hgt= $(".scrl").height();
+      var hgt= $(".scrlDisRet").height();
       hgt=(hgt/2)+'px';
-      $('.left-arrow2').attr('style','margin-top:'+hgt);
-      $('.left-arrow2').show();
+      $('.left-arrowDisRet').attr('style','margin-top:'+hgt);
+      $('.left-arrowDisRet').show();
     }, 1000);
+    $scope.moveLeftDisRet = function () 
+  	{
+        $(".scrlDisRet").animate({scrollLeft: "-="+100});
+  	}
+  	$scope.moveRightDisRet = function () 
+  	{
+        $(".scrlDisRet").animate({scrollLeft: "+="+100});
+  	}
+
+  	setTimeout(function() 
+    {
+      var hgt= $(".scrlManDis").height();
+      hgt=(hgt/2)+'px';
+      $('.left-arrowManDis').attr('style','margin-top:'+hgt);
+      $('.left-arrowManDis').show();
+    }, 1000);
+  	$scope.moveLeftManDis = function () 
+  	{
+        $(".scrlManDis").animate({scrollLeft: "-="+100});
+  	}
+  	$scope.moveRightManDis = function () 
+  	{
+        $(".scrlManDis").animate({scrollLeft: "+="+100});
+  	}
+   
 	$rootScope.getContract=function () 
 	{
 

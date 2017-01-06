@@ -77,7 +77,7 @@ app.controller('queryCtrl',['$scope','$rootScope','$cookieStore','QueryService',
               }
     						
 			   });
-			$scope.auditResult = $filter('orderBy')($scope.auditResult, 'height', false); 
+          //$scope.auditResult = $filter('orderBy')($scope.auditResult, 'createdDate');
 			setTimeout(function()
 			{
 				$('.query_tbl').DataTable();
@@ -171,7 +171,7 @@ app.directive('modal', function ()
       restrict: 'E',
       template: '<div class="modal fade">' + 
           '<div class="modal-dialog">' + 
-            '<div class="modal-content">' +  
+            '<div class="modal-content" style="border-radius:0px;">' +  
             '<div class="modal-header" style="background-color:#f5f5f5;border-bottom:#f5f5f5;">' + 
                 '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' + 
                 '<h4 class="modal-title"></h4>' + 
@@ -182,7 +182,7 @@ app.directive('modal', function ()
                 '<i class="fa fa-caret-right left-arrow" aria-hidden="true"></i>'+
                 '</span>'+
               '</div>' + 
-              '<div class="modal-body modal-body-cus modal-scroll" ng-transclude></div>' + 
+              '<div class="modal-body modal-body-cus modal-scroll" ng-transclude style="border-radius:0px;"></div>' + 
             '</div>' + 
           '</div>' + 
         '</div>',

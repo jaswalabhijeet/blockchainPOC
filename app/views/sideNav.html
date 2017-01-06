@@ -27,10 +27,10 @@
 				<li ui-sref-active="active">
 					<a ui-sref="showBlocks"><i class="fa fa-circle" aria-hidden="true"></i>Blocks</a>
 				</li>
-				<li ui-sref-active="active" ng-show="logType== 'Retailer' || (logType== 'Manufacturer' && manDist== 0) || (logType== 'Distributor' && disRet== 0)">
+				<li ui-sref-active="active" ng-show="logType== 'Retailer' || (logType== 'Manufacturer') || (logType== 'Distributor')">
 					<a ui-sref="addContract" ><i class="fa fa-circle" aria-hidden="true"Manufacturer></i>Add Contract</a>
 				</li>
-				<li ui-sref-active="active" ng-show="(logType== 'Manufacturer' && manDist!= 0) || (logType== 'Distributor' && disRet!= 0) || ( logType!= 'Manufacturer' && logType!= 'Retailer' && logType!= 'Distributor')">
+				<li ui-sref-active="active" ng-show="( logType!= 'Manufacturer' && logType!= 'Retailer' && logType!= 'Distributor')">
 					<a><i class="fa fa-circle" aria-hidden="true"></i>Add Contract</a>
 				</li>
 				<li ui-sref-active="active">

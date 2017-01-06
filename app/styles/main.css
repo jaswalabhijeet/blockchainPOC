@@ -30,7 +30,7 @@ body > .container-fluid {
 }
 
 .navbar{
-	height: calc(100vh - 3rem);
+	height: calc(100vh - 0rem);
 	border: none;
 }
 .navbar-inverse {
